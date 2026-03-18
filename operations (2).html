@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summit Operations - AI-Powered System for Service Businesses</title>
+<meta name="description" content="Summit Operations is a modular AI operations system for service businesses. Pick the modules you need.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23E8A838'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='18' fill='%230B1215'>S</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B1215;--slate:#1A2630;--stone:#2D3E4A;--mist:#8A9BA8;--cloud:#C8D3DA;--snow:#F4F6F7;--white:#FFFFFF;--gold:#E8A838;--gold-light:#F5C96A;--gold-glow:rgba(232,168,56,0.12);--green:#4CAF7D;--green-glow:rgba(76,175,125,0.12);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--snow);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+.container{max-width:1140px;margin:0 auto;padding:0 28px;}
+.fade-in{opacity:0;transform:translateY(30px);animation:fadeUp 0.7s ease forwards;}
+.fade-in-d1{animation-delay:0.1s;}.fade-in-d2{animation-delay:0.25s;}.fade-in-d3{animation-delay:0.4s;}.fade-in-d4{animation-delay:0.55s;}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;background:rgba(11,18,21,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,168,56,0.08);}
+nav .container{display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;color:var(--gold-light);letter-spacing:-0.02em;display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-img{height:36px;width:auto;object-fit:contain;filter:brightness(1.1);}
+.nav-links{display:flex;align-items:center;gap:16px;}
+.nav-links a{color:var(--mist);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--white);}
+.btn-nav{background:var(--gold);color:var(--ink);border:none;padding:10px 22px;border-radius:8px;font-weight:600;font-size:0.82rem;cursor:pointer;transition:all 0.25s;font-family:inherit;text-decoration:none;}
+.btn-nav:hover{background:var(--gold-light);}
+.btn-primary{background:var(--gold);color:var(--ink);padding:14px 32px;border-radius:10px;font-weight:600;font-size:1rem;border:none;cursor:pointer;transition:all 0.25s;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-secondary{background:transparent;color:var(--cloud);padding:14px 28px;border-radius:10px;font-weight:500;font-size:1rem;border:1px solid var(--stone);cursor:pointer;transition:all 0.25s;font-family:inherit;text-decoration:none;}
+.btn-secondary:hover{border-color:var(--mist);color:var(--white);}
+.section-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);font-weight:600;margin-bottom:16px;}
+section{border-top:1px solid rgba(255,255,255,0.04);}
+section h2{font-family:'Playfair Display',serif;font-size:2.2rem;line-height:1.2;font-weight:600;color:var(--white);margin-bottom:20px;}
+footer{padding:40px 0;border-top:1px solid rgba(255,255,255,0.04);}
+footer a:hover{color:var(--white);}
+.mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+.mobile-menu span{display:block;width:22px;height:2px;background:var(--cloud);margin:5px 0;}
+.ops-hero{padding:160px 0 80px;text-align:center;position:relative;overflow:hidden;}
+.ops-hero::before{content:"";position:absolute;top:-300px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(232,168,56,0.06) 0%,transparent 70%);pointer-events:none;}
+.ops-hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--white);margin-bottom:16px;letter-spacing:-0.03em;}
+.ops-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.ops-hero p{font-size:1.1rem;color:var(--mist);max-width:600px;margin:0 auto 32px;line-height:1.7;}
+.proof{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-top:32px;}.proof-item{font-size:0.88rem;color:var(--cloud);}.proof-item span{color:var(--gold);margin-right:6px;}
+.problem{padding:80px 0;}.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.problem-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px;}
+.problem-card h3{font-size:1rem;color:var(--white);margin-bottom:8px;}.problem-card p{font-size:0.88rem;color:var(--mist);line-height:1.5;}
+.modules{padding:80px 0;}.modules-sub{text-align:center;color:var(--mist);font-size:1rem;max-width:560px;margin:0 auto 16px;}
+.modules-hint{text-align:center;color:var(--stone);font-size:0.85rem;margin-bottom:40px;}
+.modules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.mod-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:24px;transition:all 0.3s;position:relative;overflow:hidden;}
+.mod-card:hover{border-color:rgba(232,168,56,0.3);}
+
+.mod-card.selected::after{content:"¹3";position:absolute;top:16px;right:16px;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--ink);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.mod-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.mod-num{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);font-weight:600;background:var(--gold-glow);padding:4px 10px;border-radius:4px;}
+.mod-card h3{font-size:1.05rem;color:var(--white);margin:0;}.mod-card p{font-size:0.88rem;color:var(--mist);line-height:1.6;margin-bottom:10px;}
+.mod-details{font-size:0.82rem;color:var(--stone);line-height:1.5;}.mod-details span{display:block;padding:2px 0;}
+
+
+
+
+
+
+.demo-box{background:linear-gradient(135deg,rgba(232,168,56,0.06),rgba(232,168,56,0.02));border:1px solid rgba(232,168,56,0.15);border-radius:20px;padding:60px;text-align:center;}
+.roi{padding:80px 0;}.roi-box{background:var(--gold-glow);border:1px solid rgba(232,168,56,0.15);border-radius:16px;padding:48px;text-align:center;}
+.roi-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin:24px 0;}
+.roi-stat h3{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--gold);margin-bottom:4px;}.roi-stat p{font-size:0.85rem;color:var(--mist);}
+.industries{padding:80px 0;text-align:center;}.ind-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:32px;}
+.ind-tag{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--cloud);}
+.ops-final-cta{padding:80px 0;text-align:center;}
+@media(max-width:1100px){.nav-links{display:none;}.mobile-menu{display:block;}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(11,18,21,0.98);padding:20px 28px;gap:16px;border-bottom:1px solid rgba(232,168,56,0.08);}}
+@media(max-width:900px){.modules-grid{grid-template-columns:1fr;}.problem-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.ops-hero h1{font-size:2rem;}section h2{font-size:1.8rem;}}
+
+
+
+
+
+
+.mod-card{transition:all 0.3s;}
+.mod-card:hover{border-color:rgba(232,168,56,0.2);transform:translateY(-4px);}
+.mod-stat{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--gold);margin-bottom:6px;line-height:1.1;}
+.mod-result{font-size:0.88rem;color:var(--cloud);line-height:1.6;margin-bottom:12px;}
+.mod-includes{font-size:0.78rem;color:var(--stone);display:flex;flex-wrap:wrap;gap:6px;}
+.mod-tag{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);padding:3px 10px;border-radius:4px;}
+
+
+.mod-bullets{list-style:none;padding:0;margin:0 0 12px 0;}
+.mod-bullets li{font-size:0.85rem;color:var(--cloud);padding:4px 0 4px 18px;position:relative;line-height:1.5;}
+.mod-bullets li::before{content:"\2713";position:absolute;left:0;color:var(--gold);font-weight:700;font-size:0.78rem;}
+</style></head><body>
+<nav>
+<div class="container">
+<a href="index.html" class="logo"><img src="data:image/png;base64,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" alt="Summit Systems" class="logo-img">Summit Systems</a>
+<button class="mobile-menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="operations.html" class="active">Summit Operations</a>
+<a href="automation.html">Custom Automation</a>
+<a href="demo.html">Demo</a>
+<a href="about.html">About</a>
+<a href="how-it-works.html">How It Works</a>
+<a href="contact.html">Contact</a>
+<a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-nav">Book a Demo</a>
+</div></div></nav>
+<section class="ops-hero">
+<div class="container">
+<div class="section-label fade-in">For service businesses</div>
+<h1 class="fade-in fade-in-d1">Build the system your business <em>actually needs</em></h1>
+<p class="fade-in fade-in-d2">Summit Operations is modular. Pick the parts that solve your biggest problems today, and add more as you grow. Every module is AI-powered, fully automated, and installed by our team.</p>
+<div class="fade-in fade-in-d3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+<a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-primary">Book Your Discovery Call &rarr;</a>
+<a href="demo.html" class="btn-secondary">Try the Interactive Demo</a>
+</div>
+<div class="proof fade-in fade-in-d4">
+<div class="proof-item"><span>&#10003;</span>Live in under a week</div>
+<div class="proof-item"><span>&#10003;</span>Start with as few as 2 modules</div>
+<div class="proof-item"><span>&#10003;</span>Built on tools you already use</div>
+</div>
+</div></section>
+
+<section class="problem">
+<div class="container">
+<div class="section-label fade-in" style="text-align:center;">The problem</div>
+<h2 class="fade-in fade-in-d1" style="text-align:center;">Sound familiar?</h2>
+<div class="problem-grid">
+<div class="problem-card fade-in"><h3>Leads going cold</h3><p>Someone fills out your form on Friday night. By Monday, they've called your competitor.</p></div>
+<div class="problem-card fade-in fade-in-d1"><h3>Proposals taking days</h3><p>You do the site visit, then take 3-5 days to send a number. By then, they're shopping around.</p></div>
+<div class="problem-card fade-in fade-in-d2"><h3>Admin eating your time</h3><p>Hours writing the same emails, chasing invoices, updating spreadsheets. Time you should spend on jobs.</p></div>
+</div></div></section>
+
+<section class="modules" id="modules">
+<div class="container">
+<div class="section-label fade-in" style="text-align:center;">Build your system</div>
+<h2 class="fade-in fade-in-d1" style="text-align:center;">Pick the modules your business needs</h2>
+<p class="modules-sub fade-in fade-in-d2">Click to select the modules that solve your biggest problems. Most clients start with 2-3 and add more as they grow.</p>
+<p class="modules-hint fade-in fade-in-d3">Start with the modules that matter most. Add more anytime.</p>
+<div class="modules-grid">
+
+<div class="mod-card fade-in">
+<div class="mod-header"><span class="mod-num">Module 01</span></div>
+<h3>Lead Capture &amp; Response</h3>
+<div class="mod-stat">60-second AI response</div>
+<ul class="mod-bullets"><li>AI reads project details and writes a personalized response</li><li>Lead scored automatically: Hot, Warm, or Cold</li><li>Email sent within 60 seconds of submission</li><li>Nurture follow-ups on Day 2, 5, and 10 if no reply</li><li>Calendly link included for instant booking</li></ul>
+<div class="mod-includes"><span class="mod-tag">AI scoring</span><span class="mod-tag">Auto-response</span><span class="mod-tag">Nurture sequence</span><span class="mod-tag">Calendly booking</span></div>
+</div>
+
+<div class="mod-card fade-in fade-in-d1">
+<div class="mod-header"><span class="mod-num">Module 02</span></div>
+<h3>Sales &amp; Estimation</h3>
+<div class="mod-stat">Same-day proposals</div>
+<ul class="mod-bullets"><li>Enter job details once after the site visit</li><li>AI calculates estimate range from your pricing tiers</li><li>Branded proposal generated in Google Docs</li><li>Emailed to the client the same day</li><li>Automatic follow-up at Day 3, 6, and 10</li></ul>
+<div class="mod-includes"><span class="mod-tag">AI estimates</span><span class="mod-tag">Branded proposals</span><span class="mod-tag">Auto follow-up</span></div>
+</div>
+
+<div class="mod-card fade-in">
+<div class="mod-header"><span class="mod-num">Module 03</span></div>
+<h3>Contracts</h3>
+<div class="mod-stat">Zero contracts forgotten</div>
+<ul class="mod-bullets"><li>Full contract auto-generated with scope and pricing</li><li>Sent for e-signature automatically</li><li>Reminders if unsigned at Day 2 and 5</li><li>Signing triggers deposit invoice instantly</li><li>Job record and setup created on signature</li></ul>
+<div class="mod-includes"><span class="mod-tag">Auto-generation</span><span class="mod-tag">E-signature</span><span class="mod-tag">Sign reminders</span><span class="mod-tag">Auto job setup</span></div>
+</div>
+
+<div class="mod-card fade-in fade-in-d1">
+<div class="mod-header"><span class="mod-num">Module 04</span></div>
+<h3>Job Planning</h3>
+<div class="mod-stat">Crews ready before day one</div>
+<ul class="mod-bullets"><li>AI generates full project plan on contract signing</li><li>Phases, materials, and estimated hours mapped out</li><li>Sub-contractors notified with their assignments</li><li>Materials list prepared for ordering</li><li>Timeline tracked phase by phase</li></ul>
+<div class="mod-includes"><span class="mod-tag">AI project plan</span><span class="mod-tag">Phase tracking</span><span class="mod-tag">Sub notifications</span><span class="mod-tag">Materials list</span></div>
+</div>
+
+<div class="mod-card fade-in">
+<div class="mod-header"><span class="mod-num">Module 05</span></div>
+<h3>Client Check-ins</h3>
+<div class="mod-stat">Happy clients, zero effort</div>
+<ul class="mod-bullets"><li>Weekly progress email sent to client automatically</li><li>AI writes plain-English updates on what's done and what's next</li><li>Mid-job satisfaction check at project midpoint</li><li>Concerns flagged and you're alerted immediately</li><li>Full communication history logged</li></ul>
+<div class="mod-includes"><span class="mod-tag">Weekly updates</span><span class="mod-tag">Satisfaction checks</span><span class="mod-tag">Concern alerts</span></div>
+</div>
+
+<div class="mod-card fade-in fade-in-d1">
+<div class="mod-header"><span class="mod-num">Module 06</span></div>
+<h3>Invoicing</h3>
+<div class="mod-stat">Paid the day the job ends</div>
+<ul class="mod-bullets"><li>Deposit invoice sent on contract signing</li><li>Final invoice sent on job completion</li><li>Polite payment reminders at Day 3, 7, and 14</li><li>QuickBooks integration</li><li>You never chase a payment again</li></ul>
+<div class="mod-includes"><span class="mod-tag">Deposit invoices</span><span class="mod-tag">Final invoices</span><span class="mod-tag">Payment reminders</span><span class="mod-tag">QuickBooks</span></div>
+</div>
+
+<div class="mod-card fade-in">
+<div class="mod-header"><span class="mod-num">Module 07</span></div>
+<h3>Post-Job</h3>
+<div class="mod-stat">5-star reviews on autopilot</div>
+<ul class="mod-bullets"><li>Personalized review request 24 hours after completion</li><li>Gentle follow-up at Day 5 if no review</li><li>Links directly to Google or Yelp</li><li>30-day check-in keeps the relationship warm</li><li>Opens the door to repeat business</li></ul>
+<div class="mod-includes"><span class="mod-tag">Review requests</span><span class="mod-tag">Review follow-up</span><span class="mod-tag">30-day check-in</span></div>
+</div>
+
+<div class="mod-card fade-in fade-in-d1">
+<div class="mod-header"><span class="mod-num">Module 08</span></div>
+<h3>Marketing AI</h3>
+<div class="mod-stat">Pipeline that fills itself</div>
+<ul class="mod-bullets"><li>Past client re-engagement every 90 days</li><li>Referral requests after positive experiences</li><li>Seasonal promotion campaigns on your schedule</li><li>Monthly performance report: leads, jobs, revenue</li><li>Pipeline health monitoring with alerts</li></ul>
+<div class="mod-includes"><span class="mod-tag">Re-engagement</span><span class="mod-tag">Referral requests</span><span class="mod-tag">Seasonal promos</span><span class="mod-tag">Monthly reports</span></div>
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:40px;" class="fade-in">
+<p style="font-size:1.1rem;color:var(--cloud);margin-bottom:16px;font-weight:500;">Want to see all 8 modules working together?</p>
+<a href="demo.html" class="btn-primary" style="font-size:1.05rem;padding:16px 36px;">Watch the Full Demo &rarr;</a>
+</div>
+
+</div>
+</section>
+
+
+
+<section style="padding:80px 0;text-align:center;">
+<div class="container">
+<div class="section-label fade-in">Pricing</div>
+<h2 class="fade-in fade-in-d1">Simple, flexible pricing</h2>
+<p class="fade-in fade-in-d2" style="color:var(--mist);max-width:520px;margin:0 auto 32px;font-size:1rem;line-height:1.7;">Pick the modules you need. Start small, add more as you grow. Every module is installed, configured, and maintained by our team.</p>
+<div class="fade-in fade-in-d3" style="background:var(--slate);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px;max-width:500px;margin:0 auto;">
+<div style="font-family:Playfair Display,serif;font-size:2.4rem;font-weight:700;color:var(--gold);margin-bottom:4px;">Starting at $100</div>
+<div style="font-size:1rem;color:var(--mist);margin-bottom:20px;">per module / per month</div>
+<div style="font-size:0.88rem;color:var(--cloud);line-height:1.6;margin-bottom:24px;text-align:left;max-width:340px;margin-left:auto;margin-right:auto;">
+<div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&#10003;&nbsp; Pick only the modules you need</div>
+<div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&#10003;&nbsp; We handle all setup and configuration</div>
+<div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&#10003;&nbsp; Live in under a week</div>
+<div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&#10003;&nbsp; Add modules anytime as you grow</div>
+<div style="padding:6px 0;">&#10003;&nbsp; Ongoing support and maintenance</div>
+</div>
+<a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-primary">Get Your Custom Quote &rarr;</a>
+</div>
+</div></section>
+
+<section style="padding:80px 0;">
+<div class="container">
+<div class="demo-box fade-in">
+<div class="section-label">See it in action</div>
+<h2 style="margin-bottom:12px;">Watch the system handle a lead end to end</h2>
+<p style="font-size:1rem;color:var(--mist);max-width:480px;margin:0 auto 32px;line-height:1.6;">Fill out a lead form and watch all 7 steps fire automatically. Personalized to your inputs.</p>
+<a href="demo.html" class="btn-primary" style="font-size:1.05rem;padding:16px 40px;">Try the Interactive Demo &rarr;</a>
+</div></div></section>
+
+<section class="roi">
+<div class="container">
+<div class="roi-box fade-in">
+<div class="section-label">The math</div>
+<h2>Even one module pays for itself.</h2>
+<p style="color:var(--mist);max-width:500px;margin:0 auto;">Most service businesses lose 20-30% of leads to slow follow-up. One recovered job covers months of automation costs.</p>
+<div class="roi-stats">
+<div class="roi-stat"><h3>+$8K</h3><p>Extra revenue/month</p></div>
+<div class="roi-stat"><h3>15+ hrs</h3><p>Saved on admin/month</p></div>
+<div class="roi-stat"><h3>$0</h3><p>Leads lost to silence</p></div>
+</div></div></div></section>
+
+<section class="industries">
+<div class="container">
+<div class="section-label fade-in">Industries</div>
+<h2 class="fade-in fade-in-d1">Built for the trades. Open to everyone.</h2>
+<div class="ind-tags fade-in fade-in-d2">
+<div class="ind-tag">Remodeling</div><div class="ind-tag">Roofing</div><div class="ind-tag">HVAC</div><div class="ind-tag">Landscaping</div><div class="ind-tag">Plumbing</div><div class="ind-tag">Electrical</div><div class="ind-tag">Pool &amp; Spa</div><div class="ind-tag">General Contracting</div><div class="ind-tag" style="border-color:rgba(232,168,56,0.15);color:var(--gold);">+ Any Service Business</div>
+</div></div></section>
+
+<section class="ops-final-cta">
+<div class="container">
+<div class="section-label fade-in">Ready?</div>
+<h2 class="fade-in fade-in-d1">Let's build the right system for your business.</h2>
+<p class="fade-in fade-in-d2" style="color:var(--mist);max-width:500px;margin:0 auto 32px;">Book a 30-minute discovery call. We'll figure out which modules make sense and give you a clear quote. No pressure, no surprises.</p>
+<a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-primary fade-in fade-in-d3" style="font-size:1.05rem;padding:16px 40px;">Book Your Discovery Call &rarr;</a>
+</div></section>
+
+<footer>
+<div class="container">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;">
+<div>
+<div style="font-family:Playfair Display,serif;font-size:1.1rem;font-weight:600;color:#F5C96A;">Summit Systems</div>
+<p style="font-size:0.82rem;color:#8A9BA8;margin-top:12px;">&copy; 2026 Summit Systems</p>
+<p style="font-size:0.78rem;color:#2D3E4A;">AI-powered operations &amp; automation.</p>
+</div>
+<div style="display:flex;gap:40px;flex-wrap:wrap;">
+<div>
+<p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#2D3E4A;font-weight:600;margin-bottom:10px;">Pages</p>
+<a href="index.html" style="display:block;font-size:13px;color:#8A9BA8;text-decoration:none;margin-bottom:6px;">Home</a>
+<a href="operations.html" style="display:block;font-size:13px;color:#8A9BA8;text-decoration:none;margin-bottom:6px;">Summit Operations</a>
+<a href="automation.html" style="display:block;font-size:13px;color:#8A9BA8;text-decoration:none;margin-bottom:6px;">Custom Automation</a>
+<a href="demo.html" style="display:block;font-size:13px;color:#8A9BA8;text-decoration:none;margin-bottom:6px;">Demo</a>
+<a href="about.html" style="display:block;font-size:13px;color:#8A9BA8;text-decoration:none;margin-bottom:6px;">About</a>
+<a href="how-it-works.html" style="display:block;font-size:13px;color:#8A9BA8;text-decoration:none;margin-bottom:6px;">How It Works</a>
+<a href="contact.html" style="display:block;font-size:13px;color:#8A9BA8;text-decoration:none;">Contact</a>
+</div>
+<div style="text-align:right;">
+<p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:#2D3E4A;font-weight:600;margin-bottom:10px;">Contact</p>
+<p style="font-size:13px;color:#C8D3DA;margin-bottom:4px;">Spencer Walraven</p>
+<p style="font-size:13px;color:#8A9BA8;margin-bottom:4px;">(616) 403-8939</p>
+<p style="font-size:13px;">summitsystemscrm@gmail.com</p>
+<p style="margin-top:10px;"><a href="https://calendly.com/spencerwalraven5" target="_blank" style="color:#E8A838;text-decoration:none;font-size:13px;font-weight:600;">Book a call &rarr;</a></p>
+</div></div></div></div></footer>
+<script>
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.style.animationPlayState='running';obs.unobserve(en.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(function(el){el.style.animationPlayState='paused';obs.observe(el);});
+
+function toggleDiagram(el){
+var cards=document.querySelectorAll('
+<script>
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.targe
+</body>
+</html>

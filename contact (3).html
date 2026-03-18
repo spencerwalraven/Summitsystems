@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Summit Systems</title>
+<meta name="description" content="Get in touch with Summit Systems. Book a discovery call, send us a message, or give us a call.">
+<meta property="og:title" content="Contact — Summit Systems">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23E8A838'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='18' fill='%230B1215'>S</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B1215;--slate:#1A2630;--stone:#2D3E4A;--mist:#8A9BA8;--cloud:#C8D3DA;--snow:#F4F6F7;--white:#FFFFFF;--gold:#E8A838;--gold-light:#F5C96A;--gold-glow:rgba(232,168,56,0.12);--green:#4CAF7D;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--snow);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+.container{max-width:1140px;margin:0 auto;padding:0 28px;}
+.fade-in{opacity:0;transform:translateY(30px);animation:fadeUp 0.7s ease forwards;}
+.fade-in-d1{animation-delay:0.1s;}.fade-in-d2{animation-delay:0.25s;}.fade-in-d3{animation-delay:0.4s;}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;background:rgba(11,18,21,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,168,56,0.08);}
+nav .container{display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;color:var(--gold-light);letter-spacing:-0.02em;display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-img{height:36px;width:auto;object-fit:contain;filter:brightness(1.1);}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{color:var(--mist);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--white);}
+.btn-nav{background:var(--gold);color:var(--ink);border:none;padding:10px 22px;border-radius:8px;font-weight:600;font-size:0.82rem;cursor:pointer;transition:all 0.25s;font-family:inherit;text-decoration:none;}
+.btn-nav:hover{background:var(--gold-light);}
+.btn-primary{background:var(--gold);color:var(--ink);padding:14px 32px;border-radius:10px;font-weight:600;font-size:1rem;border:none;cursor:pointer;transition:all 0.25s;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+.section-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);font-weight:600;margin-bottom:16px;}
+section{border-top:1px solid rgba(255,255,255,0.04);}
+section h2{font-family:'Playfair Display',serif;font-size:2.2rem;line-height:1.2;font-weight:600;color:var(--white);margin-bottom:20px;}
+footer{padding:40px 0;border-top:1px solid rgba(255,255,255,0.04);}
+footer a:hover{color:var(--white);}
+.mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+.mobile-menu span{display:block;width:22px;height:2px;background:var(--cloud);margin:5px 0;}
+.contact-hero{padding:160px 0 80px;text-align:center;position:relative;overflow:hidden;}
+.contact-hero::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(232,168,56,0.06) 0%,transparent 70%);pointer-events:none;}
+.contact-hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--white);margin-bottom:16px;}
+.contact-hero p{font-size:1.1rem;color:var(--mist);max-width:500px;margin:0 auto;line-height:1.7;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:0 0 80px;align-items:flex-start;}
+.contact-form{background:var(--slate);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px;}
+.contact-form h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:6px;}
+.contact-form>p{font-size:0.88rem;color:var(--mist);margin-bottom:24px;}
+.form-label{font-size:12px;color:var(--mist);margin-bottom:6px;display:block;text-transform:uppercase;letter-spacing:0.06em;}
+.form-input,.form-textarea{width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--stone);background:rgba(255,255,255,0.03);color:var(--white);font-size:14px;font-family:inherit;outline:none;transition:border-color 0.2s;margin-bottom:16px;}
+.form-input:focus,.form-textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,168,56,0.1);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--stone);}
+.form-textarea{min-height:120px;resize:vertical;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.submit-btn{background:var(--gold);color:var(--ink);border:none;padding:14px 32px;border-radius:10px;font-weight:600;font-size:15px;cursor:pointer;font-family:inherit;transition:all 0.25s;width:100%;}
+.submit-btn:hover{background:var(--gold-light);}
+.contact-method{margin-bottom:32px;}
+.contact-method-label{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);font-weight:600;margin-bottom:10px;}
+.contact-method h3{font-size:1.1rem;color:var(--white);margin-bottom:4px;font-weight:600;}
+.contact-method p{font-size:0.92rem;color:var(--mist);line-height:1.5;}
+.contact-method a{color:var(--gold-light);text-decoration:none;}
+.contact-method a:hover{color:var(--gold);}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}.nav-links{display:none;}.mobile-menu{display:block;}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(11,18,21,0.98);padding:20px 28px;gap:16px;border-bottom:1px solid rgba(232,168,56,0.08);}}
+@media(max-width:600px){.contact-hero h1{font-size:2rem;}.form-row{grid-template-columns:1fr;}}
+</style></head><body>
+
+<nav>
+<div class="container">
+<a href="index.html" class="logo"><img src="data:image/png;base64,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" alt="Summit Systems" class="logo-img">Summit Systems</a>
+<button class="mobile-menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="operations.html">Summit Operations</a>
+<a href="automation.html">Custom Automation</a>
+<a href="demo.html">Demo</a>
+<a href="about.html">About</a>
+<a href="how-it-works.html">How It Works</a>
+<a href="contact.html" class="active">Contact</a>
+<a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-nav">Book a Demo</a>
+</div></div></nav>
+
+<section class="contact-hero">
+<div class="container">
+<div class="section-label fade-in">Get in touch</div>
+<h1 class="fade-in fade-in-d1">Let's talk about your business</h1>
+<p class="fade-in fade-in-d2">Whether you want a full system install or a quick question answered, we're here.</p>
+</div></section>
+
+<section style="padding:0 0 80px;">
+<div class="container">
+<div class="contact-grid">
+<div class="contact-form fade-in">
+<h3>Send us a message</h3>
+<p>We'll get back to you within 24 hours.</p>
+<div class="form-row">
+<div><label class="form-label">First name</label><input class="form-input" placeholder="Your first name" id="cName"></div>
+<div><label class="form-label">Last name</label><input class="form-input" placeholder="Your last name" id="cLast"></div>
+</div>
+<label class="form-label">Email</label>
+<input class="form-input" type="email" placeholder="you@company.com" id="cEmail">
+<label class="form-label">Phone (optional)</label>
+<input class="form-input" type="tel" placeholder="(555) 123-4567" id="cPhone">
+<label class="form-label">What can we help with?</label>
+<textarea class="form-textarea" placeholder="Tell us about your business and what you're looking for..." id="cMessage"></textarea>
+<button class="submit-btn" onclick="submitContact()">Send Message</button>
+<p id="contactSuccess" style="display:none;color:var(--green);font-size:13px;margin-top:12px;text-align:center;font-weight:500;"></p>
+</div>
+<div class="contact-info fade-in fade-in-d2">
+<div class="contact-method">
+<div class="contact-method-label">Book a call</div>
+<h3>Schedule a discovery call</h3>
+<p>The fastest way to see if Summit Operations is right for your business. Pick a time that works.</p>
+<p style="margin-top:10px;"><a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-primary" style="font-size:0.9rem;padding:12px 24px;">Book on Calendly &rarr;</a></p>
+</div>
+<div class="contact-method">
+<div class="contact-method-label">Email</div>
+<h3>summitsystemscrm@gmail.com</h3>
+<p>For general inquiries, partnership opportunities, or questions about the system.</p>
+</div>
+<div class="contact-method">
+<div class="contact-method-label">Phone</div>
+<h3><a href="tel:+16164038939">(616) 403-8939</a></h3>
+<p>Call or text. We're usually available during business hours.</p>
+</div>
+<div class="contact-method">
+<div class="contact-method-label">Location</div>
+<h3>Phoenix, Arizona</h3>
+<p>Serving service businesses nationwide. Everything is set up remotely.</p>
+</div>
+</div>
+</div></div></section>
+
+<footer>
+<div class="container">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;">
+<div>
+<a href="index.html" class="logo" style="font-size:1.1rem;margin-bottom:12px;"><img src="data:image/png;base64,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" alt="Summit Systems" class="logo-img" style="height:28px;width:auto;">Summit Systems</a>
+<p style="font-size:0.82rem;color:var(--mist);margin-top:12px;">&copy; 2026 Summit Systems</p>
+<p style="font-size:0.78rem;color:var(--stone);">AI-powered operations &amp; automation.</p>
+</div>
+<div style="display:flex;gap:40px;flex-wrap:wrap;">
+<div>
+<p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);font-weight:600;margin-bottom:10px;">Pages</p>
+<a href="index.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">Home</a>
+<a href="operations.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">Summit Operations</a>
+<a href="automation.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">Custom Automation</a>
+<a href="demo.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">Demo</a>
+<a href="about.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">About</a>
+<a href="how-it-works.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">How It Works</a>
+<a href="contact.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;">Contact</a>
+</div>
+<div style="text-align:right;">
+<p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);font-weight:600;margin-bottom:10px;">Contact</p>
+<p style="font-size:13px;color:var(--cloud);margin-bottom:4px;">Spencer Walraven</p>
+<p style="font-size:13px;color:var(--mist);margin-bottom:4px;">(616) 403-8939</p>
+<p style="font-size:13px;">summitsystemscrm@gmail.com</p>
+<p style="margin-top:10px;"><a href="https://calendly.com/spencerwalraven5" target="_blank" style="color:var(--gold);text-decoration:none;font-size:13px;font-weight:600;">Book a call &rarr;</a></p>
+</div></div></div></div></footer>
+
+<script>
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.style.animationPlayState='running';obs.unobserve(en.target);}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(function(el){el.style.animationPlayState='paused';obs.observe(el);});
+
+function submitContact(){
+var name=document.getElementById('cName').value.trim();
+var last=document.getElementById('cLast').value.trim();
+var email=document.getElementById('cEmail').value.trim();
+var phone=document.getElementById('cPhone').value.trim();
+var msg=document.getElementById('cMessage').value.trim();
+if(!name||!email||!msg){alert('Please fill in your name, email, and message.');return;}
+var btn=document.querySelector('.contact-form .submit-btn');
+btn.textContent='Sending...';
+btn.disabled=true;
+fetch('https://formspree.io/f/xqeywkzr',{
+method:'POST',
+headers:{'Content-Type':'application/json','Accept':'application/json'},
+body:JSON.stringify({name:name+' '+last,email:email,phone:phone,message:msg})
+}).then(function(r){
+if(r.ok){
+btn.textContent='Message sent!';
+btn.style.background='#4CAF7D
+</body>
+</html>
