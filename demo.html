@@ -15,7 +15,7 @@
   --ink:#0A0C09;--slate:#131A10;--stone:#1E2615;--mist:#7A9490;
   --cloud:#B8CDCA;--snow:#EEF4F3;--white:#FFFFFF;
   --gold:#BF9438;--gold-light:#CDA44A;--gold-glow:rgba(175,135,55,0.15);
-  --gold-deep:#D4922A;--green:#4CAF7D;--green-glow:rgba(76,175,125,0.12);
+  --gold-deep:#D4922A;--green:#1E9476;--green-glow:rgba(30,148,118,0.14);
   --red:#E05C5C;--red-glow:rgba(224,92,92,0.12);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -68,13 +68,13 @@ nav .container{display:flex;align-items:center;justify-content:space-between;}
 .badge-done{background:var(--green-glow);color:var(--green);}
 .auto-card{display:flex;align-items:center;gap:12px;background:var(--gold-glow);border:1px solid rgba(175,135,55,0.2);border-radius:10px;padding:14px 16px;margin-bottom:10px;opacity:0;transform:translateX(-20px);transition:all 0.5s ease;}
 .auto-card.visible{opacity:1;transform:translateX(0);}
-.auto-card.green-card{background:var(--green-glow);border-color:rgba(76,175,125,0.15);}
+.auto-card.green-card{background:var(--green-glow);border-color:rgba(30,148,118,0.15);}
 .auto-icon{width:32px;height:32px;border-radius:8px;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .auto-icon.green-icon{background:var(--green);}
 .auto-icon svg{width:16px;height:16px;}
 .auto-label{font-size:11px;color:var(--gold-light);}
 .auto-label strong{display:block;color:var(--white);font-size:12px;margin-bottom:1px;}
-.green-card .auto-label{color:rgba(76,175,125,0.8);}
+.green-card .auto-label{color:rgba(30,148,118,0.8);}
 .auto-flow{display:flex;gap:4px;margin-top:6px;}
 .auto-flow-dot{width:6px;height:6px;border-radius:50%;background:var(--stone);transition:background 0.3s;}
 .auto-flow-dot.lit{background:var(--gold);}
@@ -175,7 +175,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;}
 .tool-tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--mist);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:2px 8px;margin-top:6px;}
 .tool-tag .int-dot{width:6px;height:6px;}
 /* Timer */
-.response-timer{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(76,175,125,0.08);border:1px solid rgba(76,175,125,0.15);border-radius:10px;padding:14px;margin:12px 0;text-align:center;}
+.response-timer{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(30,148,118,0.08);border:1px solid rgba(30,148,118,0.15);border-radius:10px;padding:14px;margin:12px 0;text-align:center;}
 .timer-val{font-size:28px;font-weight:700;color:var(--green);font-variant-numeric:tabular-nums;}
 .timer-label{font-size:12px;color:var(--green);}
 /* Email tracking */
@@ -188,7 +188,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;}
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
 .compare-card{border-radius:12px;padding:20px;text-align:center;}
 .compare-card.before{background:rgba(224,92,92,0.06);border:1px solid rgba(224,92,92,0.12);}
-.compare-card.after{background:var(--green-glow);border:1px solid rgba(76,175,125,0.15);}
+.compare-card.after{background:var(--green-glow);border:1px solid rgba(30,148,118,0.15);}
 .compare-title{font-size:12px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:12px;}
 .compare-card.before .compare-title{color:var(--red);}
 .compare-card.after .compare-title{color:var(--green);}
@@ -373,7 +373,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;}
 <div class="email-subject" id="nurtureSubject"></div>
 <div class="email-body" id="nurtureBody"></div>
 </div>
-<div style="background:var(--green-glow);border:1px solid rgba(76,175,125,0.15);border-radius:10px;padding:14px 16px;margin-top:16px;text-align:center;display:none;" id="nurtureResult">
+<div style="background:var(--green-glow);border:1px solid rgba(30,148,118,0.15);border-radius:10px;padding:14px 16px;margin-top:16px;text-align:center;display:none;" id="nurtureResult">
 <div style="font-size:13px;color:var(--green);font-weight:600;" id="nurtureResultText"></div>
 </div>
 <div class="email-tracking" id="emailTracking" style="display:none;">
@@ -683,7 +683,7 @@ setTimeout(()=>{
 timerDone=true;
 const finalTime=(3.5+Math.random()*3).toFixed(1);
 setTimeout(()=>{
-document.getElementById('responseTimer').innerHTML='<div style="width:100%;"><div class="timer-val" style="color:var(--green);">Drafted in '+finalTime+'s</div><div class="timer-label" style="margin-bottom:8px;">Email ready for '+leadData.name+'</div><div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;"><span style="font-size:11px;background:rgba(76,175,125,0.1);border:1px solid rgba(76,175,125,0.15);color:var(--green);padding:4px 10px;border-radius:4px;">Send instantly</span><span style="font-size:11px;background:rgba(175,135,55,0.15);border:1px solid rgba(175,135,55,0.2);color:var(--gold);padding:4px 10px;border-radius:4px;">Delay 5-30 min</span><span style="font-size:11px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--mist);padding:4px 10px;border-radius:4px;">Hold for your review</span></div><div style="font-size:13px;color:var(--cloud);margin-top:10px;">You choose when it sends. The AI drafts it, you control the timing.</div></div>';
+document.getElementById('responseTimer').innerHTML='<div style="width:100%;"><div class="timer-val" style="color:var(--green);">Drafted in '+finalTime+'s</div><div class="timer-label" style="margin-bottom:8px;">Email ready for '+leadData.name+'</div><div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;"><span style="font-size:11px;background:rgba(30,148,118,0.1);border:1px solid rgba(30,148,118,0.15);color:var(--green);padding:4px 10px;border-radius:4px;">Send instantly</span><span style="font-size:11px;background:rgba(175,135,55,0.15);border:1px solid rgba(175,135,55,0.2);color:var(--gold);padding:4px 10px;border-radius:4px;">Delay 5-30 min</span><span style="font-size:11px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--mist);padding:4px 10px;border-radius:4px;">Hold for your review</span></div><div style="font-size:13px;color:var(--cloud);margin-top:10px;">You choose when it sends. The AI drafts it, you control the timing.</div></div>';
 },50);
 },7000);
 

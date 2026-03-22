@@ -21,8 +21,8 @@
   --gold-light:#CDA44A;
   --gold-glow:rgba(175,135,55,0.15);
   --gold-deep:#7A5A1A;
-  --green:#4CAF7D;
-  --green-glow:rgba(76,175,125,0.12);
+  --green:#1E9476;
+  --green-glow:rgba(30,148,118,0.14);
   --red:#E05C5C;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -91,7 +91,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;}
 .path-card{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:40px 36px;transition:all 0.3s;position:relative;overflow:hidden;}
 .path-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;transition:opacity 0.3s;opacity:0;}
 .path-card.ops::before{background:linear-gradient(90deg,var(--gold-deep),var(--gold-light));}
-.path-card.custom::before{background:linear-gradient(90deg,#2D7A55,var(--green));}
+.path-card.custom::before{background:linear-gradient(90deg,#155E4A,var(--green));}
 .path-card:hover{border-color:rgba(255,255,255,0.12);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.3);}
 .path-card:hover::before{opacity:1;}
 .path-badge{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:20px;display:inline-block;padding:4px 12px;border-radius:4px;}

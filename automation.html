@@ -6,7 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="logo-icon.svg"><defs><linearGradient id='s' x1='100%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23C8D0CA'/><stop offset='100%25' stop-color='%237E8880'/></linearGradient><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23D4AA70'/><stop offset='100%25' stop-color='%239A6830'/></linearGradient></defs><path fill='url(%23s)' d='M20,0 L44,0 L52,10 L44,10 L44,26 L12,26 L12,36 L44,36 L44,54 L10,54 L10,64 L52,64 L52,38 L20,38 L20,28 L52,28 L52,0 Z'/><path fill='url(%23g)' d='M0,10 L36,10 L36,22 L4,22 L4,42 L36,42 L36,54 L0,54 L0,42 L28,42 L28,32 L0,32 Z'/></svg>">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0A0C09;--slate:#131A10;--stone:#1E2615;--mist:#7A9490;--cloud:#B8CDCA;--snow:#EEF4F3;--white:#FFFFFF;--gold:#BF9438;--gold-light:#CDA44A;--gold-glow:rgba(175,135,55,0.15);--gold-deep:#D4922A;--green:#4CAF7D;--green-glow:rgba(76,175,125,0.12);--red:#E05C5C;}
+:root{--ink:#0A0C09;--slate:#131A10;--stone:#1E2615;--mist:#7A9490;--cloud:#B8CDCA;--snow:#EEF4F3;--white:#FFFFFF;--gold:#BF9438;--gold-light:#CDA44A;--gold-glow:rgba(175,135,55,0.15);--gold-deep:#D4922A;--green:#1E9476;--green-glow:rgba(30,148,118,0.14);--red:#E05C5C;}
 *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--snow);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 .container{max-width:1140px;margin:0 auto;padding:0 28px;}
@@ -37,7 +37,7 @@ footer a:hover{color:var(--white);}
 @media(max-width:600px){section h2{font-size:1.8rem;}}
 
 .auto-hero{padding:160px 0 80px;text-align:center;position:relative;overflow:hidden;}
-.auto-hero::before{content:"";position:absolute;top:-300px;left:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(76,175,125,0.06) 0%,transparent 70%);pointer-events:none;}
+.auto-hero::before{content:"";position:absolute;top:-300px;left:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(30,148,118,0.06) 0%,transparent 70%);pointer-events:none;}
 .auto-hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--white);margin-bottom:16px;letter-spacing:-0.03em;}
 .auto-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--green),#6DD5A0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .auto-hero p{font-size:1.1rem;color:var(--mist);max-width:600px;margin:0 auto 32px;line-height:1.7;}
@@ -45,7 +45,7 @@ footer a:hover{color:var(--white);}
 .examples h2{text-align:center;margin-bottom:48px;}
 .examples-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .ex-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:28px 24px;transition:all 0.3s;}
-.ex-card:hover{border-color:rgba(76,175,125,0.25);transform:translateY(-4px);}
+.ex-card:hover{border-color:rgba(30,148,118,0.25);transform:translateY(-4px);}
 .ex-icon{font-size:1.2rem;margin-bottom:14px;width:40px;height:40px;background:var(--green-glow);border-radius:10px;display:flex;align-items:center;justify-content:center;}
 .ex-card h3{font-size:1rem;color:var(--white);margin-bottom:8px;}
 .ex-card p{font-size:0.85rem;color:var(--mist);line-height:1.5;}
@@ -53,7 +53,7 @@ footer a:hover{color:var(--white);}
 .process h2{text-align:center;margin-bottom:48px;}
 .process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:800px;margin:0 auto;}
 .p-step{text-align:center;padding:24px;}
-.p-num{width:48px;height:48px;border-radius:50%;background:var(--green-glow);border:2px solid rgba(76,175,125,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--green);}
+.p-num{width:48px;height:48px;border-radius:50%;background:var(--green-glow);border:2px solid rgba(30,148,118,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--green);}
 .p-step h3{font-size:1rem;color:var(--white);margin-bottom:8px;}
 .p-step p{font-size:0.85rem;color:var(--mist);line-height:1.5;}
 .auto-pricing{padding:80px 0;text-align:center;}
@@ -108,13 +108,13 @@ footer a:hover{color:var(--white);}
 <div class="section-label fade-in" style="color:var(--green);">Who is this for?</div>
 <h2 class="fade-in fade-in-d1">Anyone with a repetitive task</h2>
 <div class="fade-in fade-in-d2" style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:32px;">
-<div style="background:var(--green-glow);border:1px solid rgba(76,175,125,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Business owners</div>
-<div style="background:var(--green-glow);border:1px solid rgba(76,175,125,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Freelancers</div>
-<div style="background:var(--green-glow);border:1px solid rgba(76,175,125,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Creators &amp; marketers</div>
-<div style="background:var(--green-glow);border:1px solid rgba(76,175,125,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Real estate agents</div>
-<div style="background:var(--green-glow);border:1px solid rgba(76,175,125,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Small teams</div>
-<div style="background:var(--green-glow);border:1px solid rgba(76,175,125,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Students</div>
-<div style="background:var(--green-glow);border:1px solid rgba(76,175,125,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Anyone tired of manual work</div>
+<div style="background:var(--green-glow);border:1px solid rgba(30,148,118,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Business owners</div>
+<div style="background:var(--green-glow);border:1px solid rgba(30,148,118,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Freelancers</div>
+<div style="background:var(--green-glow);border:1px solid rgba(30,148,118,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Creators &amp; marketers</div>
+<div style="background:var(--green-glow);border:1px solid rgba(30,148,118,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Real estate agents</div>
+<div style="background:var(--green-glow);border:1px solid rgba(30,148,118,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Small teams</div>
+<div style="background:var(--green-glow);border:1px solid rgba(30,148,118,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Students</div>
+<div style="background:var(--green-glow);border:1px solid rgba(30,148,118,0.15);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:var(--green);">Anyone tired of manual work</div>
 </div>
 </div></section>
 
