@@ -14,7 +14,7 @@
 :root {
   --ink:#0A0C09;--slate:#131A10;--stone:#1E2615;--mist:#7A9490;
   --cloud:#B8CDCA;--snow:#EEF4F3;--white:#FFFFFF;
-  --gold:#C8952A;--gold-light:#E8B840;--gold-glow:rgba(200,149,42,0.15);
+  --gold:#BF9438;--gold-light:#CDA44A;--gold-glow:rgba(175,135,55,0.15);
   --gold-deep:#D4922A;--green:#4CAF7D;--green-glow:rgba(76,175,125,0.12);
   --red:#E05C5C;--red-glow:rgba(224,92,92,0.12);
 }
@@ -22,7 +22,7 @@
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--snow);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 .container{max-width:800px;margin:0 auto;padding:0 24px;}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;background:rgba(10,12,9,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,149,42,0.15);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;background:rgba(10,12,9,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(175,135,55,0.15);}
 nav .container{display:flex;align-items:center;justify-content:space-between;}
 .logo{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;color:var(--gold-light);letter-spacing:-0.02em;display:flex;align-items:center;gap:10px;text-decoration:none;}
 .logo-img{height:36px;width:auto;object-fit:contain;filter:brightness(1.1);}
@@ -66,7 +66,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;}
 .badge-auto{background:var(--gold-glow);color:var(--gold);}
 .badge-pending{background:rgba(255,255,255,0.05);color:var(--mist);}
 .badge-done{background:var(--green-glow);color:var(--green);}
-.auto-card{display:flex;align-items:center;gap:12px;background:var(--gold-glow);border:1px solid rgba(200,149,42,0.2);border-radius:10px;padding:14px 16px;margin-bottom:10px;opacity:0;transform:translateX(-20px);transition:all 0.5s ease;}
+.auto-card{display:flex;align-items:center;gap:12px;background:var(--gold-glow);border:1px solid rgba(175,135,55,0.2);border-radius:10px;padding:14px 16px;margin-bottom:10px;opacity:0;transform:translateX(-20px);transition:all 0.5s ease;}
 .auto-card.visible{opacity:1;transform:translateX(0);}
 .auto-card.green-card{background:var(--green-glow);border-color:rgba(76,175,125,0.15);}
 .auto-icon{width:32px;height:32px;border-radius:8px;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -151,7 +151,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;}
 .finale-stat.visible{opacity:1;transform:translateY(0);}
 .finale-val{font-size:28px;font-weight:700;margin-bottom:2px;}
 .finale-label{font-size:10px;color:var(--mist);text-transform:uppercase;letter-spacing:0.05em;}
-.finale-box{background:var(--gold-glow);border:1px solid rgba(200,149,42,0.25);border-radius:12px;padding:28px;text-align:center;margin:24px 0;opacity:0;transform:translateY(12px);transition:all 0.6s;}
+.finale-box{background:var(--gold-glow);border:1px solid rgba(175,135,55,0.25);border-radius:12px;padding:28px;text-align:center;margin:24px 0;opacity:0;transform:translateY(12px);transition:all 0.6s;}
 .finale-box.visible{opacity:1;transform:translateY(0);}
 .finale-box h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:8px;}
 .finale-box p{font-size:13px;color:var(--gold-light);margin-bottom:20px;line-height:1.5;}
@@ -205,7 +205,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;}
 @media(max-width:1100px){
 .nav-links{display:none;}
 .mobile-menu{display:block;}
-.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(11,18,21,0.98);padding:20px 28px;gap:16px;border-bottom:1px solid rgba(200,149,42,0.15);}
+.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(11,18,21,0.98);padding:20px 28px;gap:16px;border-bottom:1px solid rgba(175,135,55,0.15);}
 }
 @media(max-width:600px){
   .demo-intro h1{font-size:1.8rem;}
@@ -224,7 +224,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;}
 <body>
 <nav>
 <div class="container">
-<a href="index.html" class="logo"><img src="logo-icon.png" alt="SPEC AI" style="height:34px;width:auto;display:block;"><span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#E8B840;letter-spacing:-0.01em;">SPEC AI</span></a>
+<a href="index.html" class="logo"><img src="logo-icon.png" alt="SPEC AI" style="height:34px;width:auto;display:block;"><span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#CDA44A;letter-spacing:-0.01em;">SPEC AI</span></a>
 <button class="mobile-menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
 <div class="nav-links">
 <a href="index.html">Home</a>
@@ -683,7 +683,7 @@ setTimeout(()=>{
 timerDone=true;
 const finalTime=(3.5+Math.random()*3).toFixed(1);
 setTimeout(()=>{
-document.getElementById('responseTimer').innerHTML='<div style="width:100%;"><div class="timer-val" style="color:var(--green);">Drafted in '+finalTime+'s</div><div class="timer-label" style="margin-bottom:8px;">Email ready for '+leadData.name+'</div><div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;"><span style="font-size:11px;background:rgba(76,175,125,0.1);border:1px solid rgba(76,175,125,0.15);color:var(--green);padding:4px 10px;border-radius:4px;">Send instantly</span><span style="font-size:11px;background:rgba(200,149,42,0.15);border:1px solid rgba(200,149,42,0.2);color:var(--gold);padding:4px 10px;border-radius:4px;">Delay 5-30 min</span><span style="font-size:11px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--mist);padding:4px 10px;border-radius:4px;">Hold for your review</span></div><div style="font-size:13px;color:var(--cloud);margin-top:10px;">You choose when it sends. The AI drafts it, you control the timing.</div></div>';
+document.getElementById('responseTimer').innerHTML='<div style="width:100%;"><div class="timer-val" style="color:var(--green);">Drafted in '+finalTime+'s</div><div class="timer-label" style="margin-bottom:8px;">Email ready for '+leadData.name+'</div><div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;"><span style="font-size:11px;background:rgba(76,175,125,0.1);border:1px solid rgba(76,175,125,0.15);color:var(--green);padding:4px 10px;border-radius:4px;">Send instantly</span><span style="font-size:11px;background:rgba(175,135,55,0.15);border:1px solid rgba(175,135,55,0.2);color:var(--gold);padding:4px 10px;border-radius:4px;">Delay 5-30 min</span><span style="font-size:11px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--mist);padding:4px 10px;border-radius:4px;">Hold for your review</span></div><div style="font-size:13px;color:var(--cloud);margin-top:10px;">You choose when it sends. The AI drafts it, you control the timing.</div></div>';
 },50);
 },7000);
 
