@@ -3,161 +3,144 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SPEC AI — AI Operations &amp; Automation for Service Businesses</title>
 <meta name="description" content="SPEC AI builds AI-powered automation for service businesses. From our done-for-you operations system to fully custom workflows.">
-<meta property="og:title" content="SPEC AI — AI Operations & Automation">
-<meta property="og:description" content="AI-powered automation for service businesses. Done-for-you systems and custom workflows.">
-<meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#0A0908;
-  --slate:#161412;
-  --stone:#201E18;
-  --mist:#918A7A;
-  --cloud:#C8C2B4;
-  --snow:#F2EFE8;
-  --white:#FFFFFF;
-  --gold:#BF9438;
-  --gold-light:#CDA44A;
-  --gold-glow:rgba(175,135,55,0.15);
-  --gold-deep:#7A5A1A;
-  --green:#1E9476;
-  --green-glow:rgba(30,148,118,0.14);
-  --red:#E05C5C;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+:root{--ink:#0A0908;--slate:#161412;--stone:#201E18;--mist:#918A7A;--cloud:#C8C2B4;--snow:#F2EFE8;--white:#FFFFFF;--gold:#BF9438;--gold-light:#CDA44A;--gold-glow:rgba(175,135,55,0.15);--gold-deep:#7A5A1A;--teal:#1E9476;--teal-glow:rgba(30,148,118,0.14);--red:#E05C5C;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--snow);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 .container{max-width:1100px;margin:0 auto;padding:0 32px;}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(10,9,8,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(175,135,55,0.15);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(10,9,8,0.92);backdrop-filter:blur(24px);border-bottom:1px solid rgba(175,135,55,0.15);}
 nav .container{display:flex;align-items:center;justify-content:space-between;}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.logo-img{height:34px;width:auto;object-fit:contain;}
+.logo-img{height:34px;width:auto;}
+.logo-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--gold-light);letter-spacing:-0.01em;}
 .nav-links{display:flex;align-items:center;gap:20px;}
-.nav-links a{color:var(--mist);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.01em;transition:color 0.2s;}
+.nav-links a{color:var(--mist);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s;}
 .nav-links a:hover,.nav-links a.active{color:var(--white);}
-.btn-nav{background:var(--gold);color:var(--ink);border:none;padding:9px 20px;border-radius:7px;font-weight:600;font-size:0.82rem;cursor:pointer;transition:all 0.2s;font-family:inherit;text-decoration:none;letter-spacing:0.01em;}
-.btn-nav:hover{background:var(--gold-light);}
+.btn-nav{background:var(--gold);color:var(--ink);border:none;padding:9px 20px;border-radius:7px;font-weight:700;font-size:0.82rem;cursor:pointer;transition:all 0.2s;font-family:inherit;text-decoration:none;}
+.btn-nav:hover{background:var(--gold-light);transform:translateY(-1px);}
 .mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:8px;}
 .mobile-menu span{display:block;width:22px;height:2px;background:var(--cloud);margin:5px 0;transition:all 0.3s;}
-
-/* HERO */
-.hero{padding:148px 0 100px;text-align:center;position:relative;overflow:hidden;min-height:90vh;display:flex;align-items:center;}
-.hero .container{position:relative;z-index:2;}
-.hero-bg{position:absolute;inset:0;z-index:0;}
-.hero-bg-gradient{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(175,135,55,0.12) 0%, transparent 65%);}
-.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(175,135,55,0.04) 1px, transparent 1px),linear-gradient(90deg, rgba(175,135,55,0.04) 1px, transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 80%);}
-.hero-glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:900px;height:3px;background:linear-gradient(90deg,transparent,rgba(175,135,55,0.55),transparent);}
-
-.hero-logo-wrap{margin-bottom:40px;}
-.hero-logo{height:200px;width:auto;margin:0 auto;display:block;filter:drop-shadow(0 8px 40px rgba(175,135,55,0.3));}
-
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(175,135,55,0.12);border:1px solid rgba(175,135,55,0.25);border-radius:100px;padding:6px 18px;margin-bottom:32px;}
-.hero-eyebrow span{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--gold);font-weight:600;}
-.hero-eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
-
-.hero h1{font-family:'Playfair Display',serif;font-size:3.6rem;font-weight:700;color:var(--white);line-height:1.18;letter-spacing:-0.03em;max-width:740px;margin:0 auto 24px;}
+.hero{padding:130px 0 90px;text-align:center;position:relative;overflow:hidden;min-height:88vh;display:flex;align-items:center;}
+.hero .container{position:relative;z-index:2;width:100%;}
+.hero-bg-gradient{position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 0%,rgba(175,135,55,0.1) 0%,transparent 65%);}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(175,135,55,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(175,135,55,0.05) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 75% 85% at 50% 50%,black 0%,transparent 80%);}
+.hero-glow-line{position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:2px;background:linear-gradient(90deg,transparent,rgba(175,135,55,0.6),transparent);}
+.hero-logo{display:block;height:210px;width:auto;margin:0 auto 40px;filter:drop-shadow(0 10px 50px rgba(175,135,55,0.35));animation:logoFloat 5s ease-in-out infinite;}
+@keyframes logoFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.hero h1{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;color:var(--white);line-height:1.15;letter-spacing:-0.03em;max-width:760px;margin:0 auto 22px;}
 .hero h1 em{font-style:italic;background:linear-gradient(125deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:1.1rem;color:var(--mist);max-width:520px;margin:0 auto 44px;line-height:1.72;font-weight:400;}
-.hero-buttons{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
-.btn-primary{background:var(--gold);color:var(--ink);padding:15px 34px;border-radius:9px;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;transition:all 0.22s;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;letter-spacing:0.01em;}
-.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(175,135,55,0.32);}
-.btn-secondary{background:transparent;color:var(--cloud);padding:15px 32px;border-radius:9px;font-weight:500;font-size:0.95rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:all 0.22s;font-family:inherit;text-decoration:none;letter-spacing:0.01em;}
-.btn-secondary:hover{border-color:rgba(175,135,55,0.4);color:var(--white);background:rgba(175,135,55,0.08);}
-
-.hero-trust{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;}
+.hero-sub{font-size:1.1rem;color:var(--mist);max-width:520px;margin:0 auto 44px;line-height:1.75;}
+.hero-buttons{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:52px;}
+.btn-primary{background:var(--gold);color:var(--ink);padding:15px 34px;border-radius:9px;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;transition:all 0.22s;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(175,135,55,0.3);}
+.btn-secondary{background:transparent;color:var(--cloud);padding:15px 32px;border-radius:9px;font-weight:500;font-size:0.95rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:all 0.22s;font-family:inherit;text-decoration:none;}
+.btn-secondary:hover{border-color:rgba(175,135,55,0.4);color:var(--white);background:rgba(175,135,55,0.07);}
+.hero-trust{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;}
 .hero-trust-item{display:flex;align-items:center;gap:7px;font-size:0.8rem;color:var(--mist);}
-.hero-trust-item svg{color:var(--gold);flex-shrink:0;}
+.hero-trust-item svg{color:var(--gold);}
 .hero-trust-div{width:1px;height:14px;background:rgba(255,255,255,0.08);}
-
-/* STATS BAR */
-.stats-bar{padding:0;border-top:1px solid rgba(255,255,255,0.04);}
-.stats-bar-inner{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(255,255,255,0.04);}
-.stat-item{padding:36px 28px;text-align:center;border-right:1px solid rgba(255,255,255,0.04);position:relative;}
+.stats-bar{border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);}
+.stats-bar-inner{display:grid;grid-template-columns:repeat(4,1fr);}
+.stat-item{padding:36px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;transition:background 0.3s;}
+.stat-item:hover{background:rgba(175,135,55,0.04);}
 .stat-item:last-child{border-right:none;}
-.stat-item h3{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--gold);margin-bottom:6px;font-weight:600;line-height:1;}
-.stat-item p{font-size:0.8rem;color:var(--mist);letter-spacing:0.02em;}
-
-/* PATHS */
+.stat-item::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform 0.4s;}
+.stat-item:hover::after{transform:scaleX(1);}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--gold);font-weight:600;line-height:1;margin-bottom:8px;display:block;}
+.stat-item p{font-size:0.78rem;color:var(--mist);letter-spacing:0.03em;text-transform:uppercase;}
+.section-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--gold);font-weight:700;margin-bottom:14px;}
+.section-header{text-align:center;margin-bottom:56px;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--white);font-weight:600;letter-spacing:-0.02em;margin-bottom:14px;line-height:1.2;}
+.section-header p{font-size:1rem;color:var(--mist);max-width:500px;margin:0 auto;line-height:1.68;}
+section{border-top:1px solid rgba(255,255,255,0.04);}
+.pain{padding:90px 0;background:rgba(255,255,255,0.01);}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:960px;margin:0 auto;}
+.pain-card{background:rgba(224,92,92,0.04);border:1px solid rgba(224,92,92,0.1);border-radius:14px;padding:28px 24px;transition:all 0.3s;}
+.pain-card:hover{border-color:rgba(224,92,92,0.28);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.25);}
+.pain-icon{font-size:1.8rem;margin-bottom:14px;display:block;}
+.pain-card h3{font-size:1rem;color:var(--white);margin-bottom:8px;font-weight:600;}
+.pain-card p{font-size:0.85rem;color:var(--mist);line-height:1.65;}
+.pain-bottom{text-align:center;margin-top:48px;}
+.pain-bottom p{font-size:1.15rem;color:var(--cloud);font-family:'Playfair Display',serif;font-style:italic;}
+.pain-bottom span{color:var(--gold);}
+.serve{padding:80px 0;}
+.industries{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:860px;margin:0 auto;}
+.industry{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:24px 16px;text-align:center;transition:all 0.3s;cursor:default;}
+.industry:hover{border-color:rgba(175,135,55,0.4);background:rgba(175,135,55,0.06);transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,0,0.3);}
+.industry-icon{font-size:2rem;margin-bottom:10px;display:block;transition:transform 0.3s;}
+.industry:hover .industry-icon{transform:scale(1.2) rotate(-5deg);}
+.industry p{font-size:0.82rem;color:var(--cloud);font-weight:500;}
 .paths{padding:90px 0 100px;}
-.section-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);font-weight:600;margin-bottom:14px;}
-.paths .section-header{text-align:center;margin-bottom:52px;}
-.paths .section-header h2{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--white);font-weight:600;margin-bottom:14px;letter-spacing:-0.02em;}
-.paths .section-header p{font-size:1rem;color:var(--mist);max-width:480px;margin:0 auto;line-height:1.65;}
 .paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:880px;margin:0 auto;}
-.path-card{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:40px 36px;transition:all 0.3s;position:relative;overflow:hidden;}
-.path-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;transition:opacity 0.3s;opacity:0;}
-.path-card.ops::before{background:linear-gradient(90deg,var(--gold-deep),var(--gold-light));}
-.path-card.custom::before{background:linear-gradient(90deg,#155E4A,var(--green));}
-.path-card:hover{border-color:rgba(255,255,255,0.12);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.3);}
+.path-card{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:40px 36px;transition:all 0.35s;position:relative;overflow:hidden;}
+.path-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.3s;}
+.path-card.gold::before{background:linear-gradient(90deg,var(--gold-deep),var(--gold-light));}
+.path-card.teal::before{background:linear-gradient(90deg,#0F6B52,var(--teal));}
+.path-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,0.35);}
+.path-card.gold:hover{border-color:rgba(175,135,55,0.3);}
+.path-card.teal:hover{border-color:rgba(30,148,118,0.3);}
 .path-card:hover::before{opacity:1;}
 .path-badge{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:20px;display:inline-block;padding:4px 12px;border-radius:4px;}
-.path-badge.ops{background:var(--gold-glow);color:var(--gold);}
-.path-badge.custom{background:var(--green-glow);color:var(--green);}
-.path-card h3{font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--white);margin-bottom:12px;font-weight:600;}
+.path-badge.gold{background:rgba(175,135,55,0.12);color:var(--gold);}
+.path-badge.teal{background:var(--teal-glow);color:var(--teal);}
+.path-card h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--white);margin-bottom:12px;font-weight:600;}
 .path-card p{font-size:0.9rem;color:var(--mist);line-height:1.65;margin-bottom:22px;}
 .path-card ul{list-style:none;margin-bottom:28px;}
-.path-card ul li{font-size:0.85rem;color:var(--cloud);padding:6px 0;padding-left:20px;position:relative;border-bottom:1px solid rgba(255,255,255,0.04);}
+.path-card ul li{font-size:0.85rem;color:var(--cloud);padding:7px 0 7px 20px;position:relative;border-bottom:1px solid rgba(255,255,255,0.04);}
 .path-card ul li:last-child{border-bottom:none;}
-.path-card ul li::before{content:"\2713";position:absolute;left:0;color:var(--gold);font-weight:700;font-size:0.8rem;}
-.path-card.custom ul li::before{color:var(--green);}
-.path-link{font-size:0.88rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;letter-spacing:0.01em;}
-.path-link.ops{color:var(--gold);}
-.path-link.custom{color:var(--green);}
-.path-link:hover{gap:10px;}
-
-/* HOW IT WORKS */
-.how{padding:90px 0;background:rgba(255,255,255,0.01);border-top:1px solid rgba(255,255,255,0.04);}
-.how .section-header{text-align:center;margin-bottom:56px;}
-.how h2{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--white);font-weight:600;letter-spacing:-0.02em;margin-bottom:14px;}
-.how-sub{font-size:0.95rem;color:var(--mist);max-width:460px;margin:0 auto;}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:860px;margin:0 auto;}
-.step{text-align:center;padding:32px 24px;}
-.step-num{width:48px;height:48px;border-radius:50%;border:1px solid rgba(175,135,55,0.35);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);font-weight:600;}
+.path-card ul li::before{content:"\2713";position:absolute;left:0;font-weight:700;font-size:0.8rem;}
+.path-card.gold ul li::before{color:var(--gold);}
+.path-card.teal ul li::before{color:var(--teal);}
+.path-link{font-size:0.88rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap 0.2s;}
+.path-link.gold{color:var(--gold);}
+.path-link.teal{color:var(--teal);}
+.path-link:hover{gap:12px;}
+.how{padding:90px 0;background:rgba(255,255,255,0.01);}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:900px;margin:0 auto;position:relative;}
+.steps::before{content:"";position:absolute;top:24px;left:calc(16.66% + 24px);right:calc(16.66% + 24px);height:1px;background:linear-gradient(90deg,rgba(175,135,55,0.5),rgba(175,135,55,0.1),rgba(175,135,55,0.5));opacity:0.3;}
+.step{text-align:center;padding:0 28px;}
+.step-num{width:48px;height:48px;border-radius:50%;border:1px solid rgba(175,135,55,0.35);background:rgba(175,135,55,0.06);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);font-weight:600;position:relative;z-index:1;transition:all 0.3s;}
+.step:hover .step-num{background:rgba(175,135,55,0.18);border-color:var(--gold);box-shadow:0 0 24px rgba(175,135,55,0.25);}
 .step h4{font-size:1.05rem;color:var(--white);margin-bottom:10px;font-weight:600;}
 .step p{font-size:0.85rem;color:var(--mist);line-height:1.65;}
-
-/* CTA */
-.cta-section{padding:90px 0;text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.04);}
-.cta-section::before{content:"";position:absolute;bottom:-200px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(circle,rgba(175,135,55,0.08) 0%,transparent 65%);}
-.cta-section h2{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--white);font-weight:600;letter-spacing:-0.02em;margin-bottom:18px;}
-.cta-section p{font-size:1rem;color:var(--mist);max-width:440px;margin:0 auto 36px;line-height:1.65;}
-
-/* FOOTER */
-footer{padding:48px 0 36px;border-top:1px solid rgba(255,255,255,0.05);}
+.faq{padding:90px 0;}
+.faq-list{max-width:720px;margin:0 auto;}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.06);}
+.faq-q{width:100%;background:none;border:none;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;font-family:inherit;color:var(--white);font-size:1rem;font-weight:600;text-align:left;transition:color 0.2s;}
+.faq-q:hover{color:var(--gold-light);}
+.faq-icon{width:26px;height:26px;border-radius:50%;border:1px solid rgba(175,135,55,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:1.1rem;line-height:1;transition:all 0.35s;}
+.faq-item.open .faq-icon{background:rgba(175,135,55,0.12);border-color:var(--gold);transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.45s ease;}
+.faq-a p{font-size:0.92rem;color:var(--mist);line-height:1.72;padding-bottom:22px;}
+.faq-item.open .faq-a{max-height:250px;}
+.cta-section{padding:100px 0;text-align:center;position:relative;overflow:hidden;}
+.cta-section::before{content:"";position:absolute;bottom:-300px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(circle,rgba(175,135,55,0.08) 0%,transparent 65%);}
+.cta-section::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:700px;height:1px;background:linear-gradient(90deg,transparent,rgba(175,135,55,0.45),transparent);}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:2.8rem;color:var(--white);font-weight:600;letter-spacing:-0.02em;margin-bottom:18px;position:relative;}
+.cta-section p{font-size:1rem;color:var(--mist);max-width:440px;margin:0 auto 36px;line-height:1.68;position:relative;}
+footer{padding:48px 0 32px;border-top:1px solid rgba(255,255,255,0.05);}
 .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;}
-.footer-brand .logo-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--gold-light);text-decoration:none;display:flex;align-items:center;gap:8px;margin-bottom:12px;}
-.footer-brand p{font-size:0.8rem;color:var(--mist);line-height:1.6;max-width:220px;}
-.footer-links-col p.col-head{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--stone);font-weight:700;margin-bottom:12px;}
-.footer-links-col a{display:block;font-size:0.82rem;color:var(--mist);text-decoration:none;margin-bottom:8px;transition:color 0.2s;}
-.footer-links-col a:hover{color:var(--white);}
-.footer-bottom{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
-.footer-bottom p{font-size:0.78rem;color:var(--stone);}
-
-/* FADE IN */
-.fade-in{opacity:0;transform:translateY(24px);animation:fadeUp 0.65s ease forwards;animation-play-state:paused;}
-.fade-in-d1{animation-delay:0.12s;}.fade-in-d2{animation-delay:0.24s;}.fade-in-d3{animation-delay:0.38s;}.fade-in-d4{animation-delay:0.52s;}
+.footer-brand p{font-size:0.8rem;color:var(--mist);line-height:1.6;max-width:200px;margin-top:12px;}
+.footer-col-head{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--stone);font-weight:700;margin-bottom:12px;}
+.footer-col a{display:block;font-size:0.82rem;color:var(--mist);text-decoration:none;margin-bottom:8px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.04);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-bottom p{font-size:0.76rem;color:var(--stone);}
+.fade-in{opacity:0;transform:translateY(28px);animation:fadeUp 0.7s ease forwards;animation-play-state:paused;}
+.fade-in-d1{animation-delay:0.1s;}.fade-in-d2{animation-delay:0.2s;}.fade-in-d3{animation-delay:0.32s;}.fade-in-d4{animation-delay:0.44s;}.fade-in-d5{animation-delay:0.56s;}.fade-in-d6{animation-delay:0.68s;}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
-section{border-top:1px solid rgba(255,255,255,0.04);}
-
 @media(max-width:1100px){.nav-links{display:none;}.mobile-menu{display:block;}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,9,8,0.98);padding:20px 32px;gap:16px;border-bottom:1px solid rgba(175,135,55,0.12);}}
-@media(max-width:700px){.paths-grid{grid-template-columns:1fr;}.steps{grid-template-columns:1fr;}.hero h1{font-size:2.4rem;}.stats-bar-inner{grid-template-columns:1fr 1fr;}.stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.04);}.stat-item:nth-child(odd){border-right:1px solid rgba(255,255,255,0.04);}.hero-logo{height:140px;}}
+@media(max-width:720px){.paths-grid,.pain-grid{grid-template-columns:1fr;}.steps{grid-template-columns:1fr;gap:36px;}.steps::before{display:none;}.industries{grid-template-columns:repeat(2,1fr);}.hero h1{font-size:2.5rem;}.stats-bar-inner{grid-template-columns:1fr 1fr;}.stat-item:nth-child(2){border-right:none;}.stat-item:nth-child(3){border-top:1px solid rgba(255,255,255,0.05);border-right:1px solid rgba(255,255,255,0.05);}.stat-item:nth-child(4){border-top:1px solid rgba(255,255,255,0.05);}.hero-logo{height:150px;}.cta-section h2{font-size:2rem;}}
 </style></head><body>
-
-<!-- NAV -->
 <nav>
 <div class="container">
-  <a href="index.html" class="logo">
-    <img src="logo-icon.png" alt="SPEC AI" class="logo-img" style="height:38px;width:auto;">
-    <span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--gold-light);letter-spacing:-0.01em;">SPEC AI</span>
-  </a>
+  <a href="index.html" class="logo"><img src="logo-icon.png" alt="SPEC AI" class="logo-img"><span class="logo-name">SPEC AI</span></a>
   <button class="mobile-menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
   <div class="nav-links">
     <a href="index.html" class="active">Home</a>
-    <a href="operations.html">SPEC Operations</a>
+    <a href="operations.html">SPEC System</a>
     <a href="automation.html">Custom Automation</a>
     <a href="how-it-works.html">How It Works</a>
     <a href="about.html">About</a>
@@ -167,59 +150,77 @@ section{border-top:1px solid rgba(255,255,255,0.04);}
 </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" style="border-top:none;">
-  <div class="hero-bg">
-    <div class="hero-bg-gradient"></div>
-    <div class="hero-bg-grid"></div>
-  </div>
-  <div class="hero-glow"></div>
+  <div class="hero-bg-gradient"></div>
+  <div class="hero-bg-grid" id="heroGrid"></div>
+  <div class="hero-glow-line"></div>
   <div class="container">
-    <div class="fade-in" style="margin-bottom:32px;">
-      <img src="logo.png" alt="SPEC AI" style="height:220px;width:auto;margin:0 auto;display:block;filter:drop-shadow(0 12px 48px rgba(175,135,55,0.35));">
-    </div>
-    <div class="hero-eyebrow fade-in fade-in-d1">
-      <div class="hero-eyebrow-dot"></div>
-      <span>AI Automation for Service Businesses</span>
-    </div>
-    <h1 class="fade-in fade-in-d2">We automate the work you<br><em>shouldn't be doing</em></h1>
-    <p class="hero-sub fade-in fade-in-d3">From a complete AI operations system to fully custom workflows — SPEC AI builds the systems that let you focus on the work only you can do.</p>
-    <div class="hero-buttons fade-in fade-in-d4">
+    <img src="logo.png" alt="SPEC AI" class="hero-logo fade-in">
+    <h1 class="fade-in fade-in-d1">We automate the work you<br><em>shouldn't be doing</em></h1>
+    <p class="hero-sub fade-in fade-in-d2">From a complete AI operations system to fully custom workflows — SPEC AI builds the systems that let you focus on the work only you can do.</p>
+    <div class="hero-buttons fade-in fade-in-d3">
       <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-primary">Book a Discovery Call &rarr;</a>
       <a href="demo.html" class="btn-secondary">Try the Interactive Demo</a>
     </div>
     <div class="hero-trust fade-in fade-in-d4">
-      <div class="hero-trust-item">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>31 automations included</span>
-      </div>
+      <div class="hero-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>31 automations included</span></div>
       <div class="hero-trust-div"></div>
-      <div class="hero-trust-item">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Live in under a week</span>
-      </div>
+      <div class="hero-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Live in under a week</span></div>
       <div class="hero-trust-div"></div>
-      <div class="hero-trust-item">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Done-for-you setup</span>
-      </div>
+      <div class="hero-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Done-for-you setup</span></div>
     </div>
   </div>
 </section>
 
-<!-- STATS BAR -->
 <div class="stats-bar">
-  <div class="container" style="padding:0 32px;">
-    <div class="stats-bar-inner">
-      <div class="stat-item fade-in"><h3>31</h3><p>Automation scenarios</p></div>
-      <div class="stat-item fade-in fade-in-d1"><h3>60s</h3><p>AI lead response time</p></div>
-      <div class="stat-item fade-in fade-in-d2"><h3>11 hrs</h3><p>Saved per month</p></div>
-      <div class="stat-item fade-in fade-in-d3"><h3>1 week</h3><p>To go live</p></div>
-    </div>
+  <div class="stats-bar-inner">
+    <div class="stat-item fade-in"><span class="stat-num" data-target="31">0</span><p>Automation scenarios</p></div>
+    <div class="stat-item fade-in fade-in-d1"><span class="stat-num" data-target="60" data-suffix="s">0</span><p>AI lead response time</p></div>
+    <div class="stat-item fade-in fade-in-d2"><span class="stat-num" data-target="11" data-suffix=" hrs">0</span><p>Hours saved per month</p></div>
+    <div class="stat-item fade-in fade-in-d3"><span class="stat-num" data-target="1" data-suffix=" week">0</span><p>Average setup time</p></div>
   </div>
 </div>
 
-<!-- TWO PATHS -->
+<section class="pain">
+<div class="container">
+  <div class="section-header fade-in">
+    <div class="section-label">Sound familiar?</div>
+    <h2>Your business is running you.</h2>
+    <p>Most service businesses lose thousands every month — not from bad work, but from the chaos of running the business.</p>
+  </div>
+  <div class="pain-grid">
+    <div class="pain-card fade-in fade-in-d1"><span class="pain-icon">📱</span><h3>Leads go cold overnight</h3><p>Someone fills out your form at 9 PM on a Friday. By Monday they've already hired someone else.</p></div>
+    <div class="pain-card fade-in fade-in-d2"><span class="pain-icon">📄</span><h3>Proposals take forever</h3><p>You spend two hours writing a proposal that might not even close. Every. Single. Lead.</p></div>
+    <div class="pain-card fade-in fade-in-d3"><span class="pain-icon">💸</span><h3>Invoices go out late</h3><p>Cash flow suffers because you're too busy doing the work to chase the money.</p></div>
+    <div class="pain-card fade-in fade-in-d4"><span class="pain-icon">📞</span><h3>Clients call for updates</h3><p>Your phone never stops. Clients want to know what's happening so they call you instead of trusting the process.</p></div>
+    <div class="pain-card fade-in fade-in-d5"><span class="pain-icon">⭐</span><h3>Reviews don't happen</h3><p>You do great work but forget to ask. Every satisfied customer who doesn't leave a review is a missed referral.</p></div>
+    <div class="pain-card fade-in fade-in-d6"><span class="pain-icon">🌙</span><h3>You work nights &amp; weekends</h3><p>Admin work bleeds into personal time. Emails, follow-ups, scheduling — it never actually ends.</p></div>
+  </div>
+  <div class="pain-bottom fade-in" style="margin-top:48px;"><p>Every one of these problems has a <span>system</span> that fixes it.</p></div>
+</div>
+</section>
+
+<section class="serve">
+<div class="container">
+  <div class="section-header fade-in">
+    <div class="section-label">Who we serve</div>
+    <h2>Built for the trades &amp; service industry</h2>
+    <p>The SPEC System works out of the box for these industries — no customization required.</p>
+  </div>
+  <div class="industries">
+    <div class="industry fade-in fade-in-d1"><span class="industry-icon">🏠</span><p>Roofing</p></div>
+    <div class="industry fade-in fade-in-d2"><span class="industry-icon">❄️</span><p>HVAC</p></div>
+    <div class="industry fade-in fade-in-d3"><span class="industry-icon">🌿</span><p>Landscaping</p></div>
+    <div class="industry fade-in fade-in-d4"><span class="industry-icon">🔨</span><p>Remodeling</p></div>
+    <div class="industry fade-in fade-in-d1"><span class="industry-icon">🔧</span><p>Plumbing</p></div>
+    <div class="industry fade-in fade-in-d2"><span class="industry-icon">⚡</span><p>Electrical</p></div>
+    <div class="industry fade-in fade-in-d3"><span class="industry-icon">🎨</span><p>Painting</p></div>
+    <div class="industry fade-in fade-in-d4"><span class="industry-icon">🧹</span><p>Cleaning</p></div>
+  </div>
+  <p class="fade-in" style="text-align:center;margin-top:28px;font-size:0.85rem;color:var(--mist);">Don't see your industry? <a href="automation.html" style="color:var(--gold);text-decoration:none;font-weight:600;">Custom Automation</a> works for any business.</p>
+</div>
+</section>
+
 <section class="paths">
 <div class="container">
   <div class="section-header fade-in">
@@ -228,9 +229,9 @@ section{border-top:1px solid rgba(255,255,255,0.04);}
     <p>Whether you need a complete end-to-end system or a single workflow built — we've got you covered.</p>
   </div>
   <div class="paths-grid">
-    <div class="path-card ops fade-in fade-in-d1">
-      <div class="path-badge ops">Done-for-you system</div>
-      <h3>SPEC Operations</h3>
+    <div class="path-card gold fade-in fade-in-d1">
+      <div class="path-badge gold">Done-for-you system</div>
+      <h3>SPEC System</h3>
       <p>A complete AI-powered operations system for service businesses. 31 automations across 8 modules — installed and running in under a week.</p>
       <ul>
         <li>AI lead response in under 60 seconds</li>
@@ -239,10 +240,10 @@ section{border-top:1px solid rgba(255,255,255,0.04);}
         <li>Review requests and 30-day check-ins</li>
         <li>$3,000 install + $300/month</li>
       </ul>
-      <a href="operations.html" class="path-link ops">See the full system &rarr;</a>
+      <a href="operations.html" class="path-link gold">See the full system &rarr;</a>
     </div>
-    <div class="path-card custom fade-in fade-in-d2">
-      <div class="path-badge custom">Built for you</div>
+    <div class="path-card teal fade-in fade-in-d2">
+      <div class="path-badge teal">Built for you</div>
       <h3>Custom Automation</h3>
       <p>If you can describe it, we can automate it. We design and build custom AI-powered workflows for any repetitive task in any business.</p>
       <ul>
@@ -252,90 +253,84 @@ section{border-top:1px solid rgba(255,255,255,0.04);}
         <li>Custom dashboards &amp; reporting</li>
         <li>Scoped and priced per project</li>
       </ul>
-      <a href="automation.html" class="path-link custom">See what we can build &rarr;</a>
+      <a href="automation.html" class="path-link teal">See what we can build &rarr;</a>
     </div>
   </div>
 </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section class="how">
 <div class="container">
   <div class="section-header fade-in">
     <div class="section-label">The process</div>
     <h2>Simple from day one</h2>
-    <p class="how-sub">We handle everything — you just show up to the kickoff call.</p>
+    <p>We handle everything. You just show up to the kickoff call.</p>
   </div>
   <div class="steps">
-    <div class="step fade-in fade-in-d1">
-      <div class="step-num">01</div>
-      <h4>Discovery Call</h4>
-      <p>We learn your business, your tools, and your biggest pain points. 30 minutes is all it takes.</p>
-    </div>
-    <div class="step fade-in fade-in-d2">
-      <div class="step-num">02</div>
-      <h4>We Build &amp; Install</h4>
-      <p>Our team configures and deploys your entire system — connected to your existing tools and accounts.</p>
-    </div>
-    <div class="step fade-in fade-in-d3">
-      <div class="step-num">03</div>
-      <h4>You Run Your Business</h4>
-      <p>Your automations run 24/7 in the background. We monitor, maintain, and improve as you grow.</p>
-    </div>
+    <div class="step fade-in fade-in-d1"><div class="step-num">01</div><h4>Discovery Call</h4><p>We learn your business, your tools, and your biggest pain points. 30 minutes is all it takes.</p></div>
+    <div class="step fade-in fade-in-d2"><div class="step-num">02</div><h4>We Build &amp; Install</h4><p>Our team configures and deploys your entire system — connected to your existing tools and accounts.</p></div>
+    <div class="step fade-in fade-in-d3"><div class="step-num">03</div><h4>You Run Your Business</h4><p>Your automations run 24/7 in the background. We monitor, maintain, and keep improving as you grow.</p></div>
   </div>
 </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-<div class="container" style="position:relative;z-index:1;">
-  <div class="section-label fade-in">Ready?</div>
-  <h2 class="fade-in fade-in-d1">Let's talk about your business.</h2>
-  <p class="fade-in fade-in-d2">Book a 30-minute discovery call. No pressure — just a conversation about where automation can make the biggest difference.</p>
-  <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-primary fade-in fade-in-d3" style="font-size:1rem;padding:16px 44px;">Book Your Discovery Call &rarr;</a>
+<section class="faq">
+<div class="container">
+  <div class="section-header fade-in">
+    <div class="section-label">FAQ</div>
+    <h2>Questions we always get</h2>
+    <p>Straight answers — no fluff.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)"><span>How much does it cost?</span><div class="faq-icon">+</div></button><div class="faq-a"><p>The SPEC System is $3,000 to install and $300/month after that. The install fee covers setup, configuration, and connecting everything to your business. Custom automation projects are scoped individually.</p></div></div>
+    <div class="faq-item fade-in fade-in-d1"><button class="faq-q" onclick="toggleFaq(this)"><span>How long does setup take?</span><div class="faq-icon">+</div></button><div class="faq-a"><p>Most clients are fully live within 5–7 business days. We handle all the technical work — you just need to be available for a kickoff call and a final walkthrough.</p></div></div>
+    <div class="faq-item fade-in fade-in-d2"><button class="faq-q" onclick="toggleFaq(this)"><span>Do I need to be tech-savvy?</span><div class="faq-icon">+</div></button><div class="faq-a"><p>Not at all. We build and manage everything. Once it's live, the system runs in the background — you'll just notice fewer things falling through the cracks and more time back in your day.</p></div></div>
+    <div class="faq-item fade-in fade-in-d3"><button class="faq-q" onclick="toggleFaq(this)"><span>What tools does it connect to?</span><div class="faq-icon">+</div></button><div class="faq-a"><p>Gmail, Google Sheets, Calendly, QuickBooks, Slack, and hundreds more. If you already use something, we'll connect to it. If you don't, we'll recommend the best free or low-cost option.</p></div></div>
+    <div class="faq-item fade-in fade-in-d4"><button class="faq-q" onclick="toggleFaq(this)"><span>What if I want to cancel?</span><div class="faq-icon">+</div></button><div class="faq-a"><p>The monthly retainer is month-to-month — no long-term contracts. Cancel anytime. The system we build is yours and we'll give you full access to manage it yourself if you ever choose to.</p></div></div>
+    <div class="faq-item fade-in fade-in-d5"><button class="faq-q" onclick="toggleFaq(this)"><span>Is my data secure?</span><div class="faq-icon">+</div></button><div class="faq-a"><p>Yes. All automations run through industry-standard platforms (Make.com, Google, OpenAI). Your business data stays in your own accounts — we never store it on our servers. You own everything.</p></div></div>
+  </div>
 </div>
 </section>
 
-<!-- FOOTER -->
+<section class="cta-section">
+<div class="container" style="position:relative;z-index:1;">
+  <div class="section-label fade-in">Ready to stop drowning in admin?</div>
+  <h2 class="fade-in fade-in-d1">Let's build your system.</h2>
+  <p class="fade-in fade-in-d2">Book a free 30-minute discovery call. We'll walk through your business and show you exactly what we'd automate first.</p>
+  <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-primary fade-in fade-in-d3" style="font-size:1rem;padding:17px 48px;">Book Your Free Discovery Call &rarr;</a>
+</div>
+</section>
+
 <footer>
 <div class="container">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="index.html" class="logo-text">
-        <img src="logo-icon.svg" alt="SPEC AI" style="height:28px;width:auto;">
-        SPEC AI
-      </a>
+      <a href="index.html" class="logo"><img src="logo-icon.png" alt="SPEC AI" style="height:30px;width:auto;"><span class="logo-name">SPEC AI</span></a>
       <p>AI-powered operations and automation for service businesses.</p>
-      <p style="margin-top:8px;font-size:0.76rem;color:var(--stone);">Serving Customers with Excellent Craftsmanship</p>
+      <p style="font-size:0.72rem;color:var(--stone);margin-top:6px;font-style:italic;">Serving Customers with Excellent Craftsmanship</p>
     </div>
     <div style="display:flex;gap:48px;flex-wrap:wrap;">
-      <div class="footer-links-col">
-        <p class="col-head">Pages</p>
-        <a href="index.html">Home</a>
-        <a href="operations.html">SPEC Operations</a>
-        <a href="automation.html">Custom Automation</a>
-        <a href="how-it-works.html">How It Works</a>
-        <a href="demo.html">Demo</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-links-col">
-        <p class="col-head">Contact</p>
-        <a href="tel:6164038939">(616) 403-8939</a>
-        <a href="mailto:specaisystems@gmail.com">specaisystems@gmail.com</a>
-        <a href="https://calendly.com/spencerwalraven5" target="_blank" style="color:var(--gold);font-weight:600;margin-top:6px;">Book a Demo &rarr;</a>
-      </div>
+      <div class="footer-col"><p class="footer-col-head">Pages</p><a href="index.html">Home</a><a href="operations.html">SPEC System</a><a href="automation.html">Custom Automation</a><a href="how-it-works.html">How It Works</a><a href="demo.html">Demo</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><p class="footer-col-head">Contact</p><a href="tel:6164038939">(616) 403-8939</a><a href="mailto:specaisystems@gmail.com">specaisystems@gmail.com</a><a href="https://calendly.com/spencerwalraven5" target="_blank" style="color:var(--gold);font-weight:600;margin-top:4px;">Book a Demo &rarr;</a></div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 SPEC AI. All rights reserved.</p>
-    <p>specaisystems.com</p>
-  </div>
+  <div class="footer-bottom"><p>&copy; 2026 SPEC AI. All rights reserved.</p><p>specaisystems.com</p></div>
 </div>
 </footer>
 
 <script>
-var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.style.animationPlayState='running';obs.unobserve(en.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+// Scroll-triggered fade animations
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.style.animationPlayState='running';obs.unobserve(en.target);}});},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el);});
+
+// Animated counters
+var cObs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){var el=en.target,target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'',start=Date.now(),dur=1800;(function tick(){var p=Math.min((Date.now()-start)/dur,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*target)+suffix;if(p<1)requestAnimationFrame(tick);else el.textContent=target+suffix;})();cObs.unobserve(el);}});},{threshold:0.5});
+document.querySelectorAll('.stat-num[data-target]').forEach(function(el){cObs.observe(el);});
+
+// FAQ accordion
+function toggleFaq(btn){var item=btn.closest('.faq-item'),wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});if(!wasOpen)item.classList.add('open');}
+
+// Parallax hero grid on scroll
+window.addEventListener('scroll',function(){var s=window.pageYOffset,g=document.getElementById('heroGrid');if(g&&s<window.innerHeight)g.style.transform='translateY('+(s*0.25)+'px)';},{ passive:true });
 </script>
 </body></html>
