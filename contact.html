@@ -5,7 +5,7 @@
 <meta name="description" content="Get in touch with SPEC Systems. Book a discovery call, send us a message, or give us a call.">
 <meta property="og:title" content="Contact — SPEC Systems">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="logo-icon.svg"><defs><linearGradient id='s' x1='100%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23C8D0CA'/><stop offset='100%25' stop-color='%237E8880'/></linearGradient><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23D4AA70'/><stop offset='100%25' stop-color='%239A6830'/></linearGradient></defs><path fill='url(%23s)' d='M20,0 L44,0 L52,10 L44,10 L44,26 L12,26 L12,36 L44,36 L44,54 L10,54 L10,64 L52,64 L52,38 L20,38 L20,28 L52,28 L52,0 Z'/><path fill='url(%23g)' d='M0,10 L36,10 L36,22 L4,22 L4,42 L36,42 L36,54 L0,54 L0,42 L28,42 L28,32 L0,32 Z'/></svg>">
+<link rel="icon" type="image/svg+xml" href="logo-icon.svg">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0A0908;--slate:#161412;--stone:#201E18;--mist:#918A7A;--cloud:#C8C2B4;--snow:#F2EFE8;--white:#FFFFFF;--gold:#BF9438;--gold-light:#CDA44A;--gold-glow:rgba(175,135,55,0.15);--green:#1E9476;}
@@ -33,146 +33,244 @@ footer{padding:40px 0;border-top:1px solid rgba(255,255,255,0.04);}
 footer a:hover{color:var(--white);}
 .mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:8px;}
 .mobile-menu span{display:block;width:22px;height:2px;background:var(--cloud);margin:5px 0;}
+
+/* Contact */
 .contact-hero{padding:160px 0 80px;text-align:center;position:relative;overflow:hidden;}
 .contact-hero::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(175,135,55,0.08) 0%,transparent 70%);pointer-events:none;}
 .contact-hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--white);margin-bottom:16px;}
+.contact-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .contact-hero p{font-size:1.1rem;color:var(--mist);max-width:500px;margin:0 auto;line-height:1.7;}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:0 0 80px;align-items:flex-start;}
-.contact-form{background:var(--slate);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px;}
-.contact-form h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:6px;}
-.contact-form>p{font-size:0.88rem;color:var(--mist);margin-bottom:24px;}
-.form-label{font-size:12px;color:var(--mist);margin-bottom:6px;display:block;text-transform:uppercase;letter-spacing:0.06em;}
-.form-input,.form-textarea{width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--stone);background:rgba(255,255,255,0.03);color:var(--white);font-size:14px;font-family:inherit;outline:none;transition:border-color 0.2s;margin-bottom:16px;}
-.form-input:focus,.form-textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(175,135,55,0.15);}
-.form-input::placeholder,.form-textarea::placeholder{color:var(--stone);}
+.contact-form{background:var(--slate);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:36px;}
+.contact-form h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);margin-bottom:6px;}
+.contact-form>p{font-size:0.88rem;color:var(--mist);margin-bottom:28px;}
+.form-label{font-size:11px;color:var(--mist);margin-bottom:6px;display:block;text-transform:uppercase;letter-spacing:0.07em;font-weight:600;}
+.form-input,.form-textarea,.form-select{width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--white);font-size:14px;font-family:inherit;outline:none;transition:border-color 0.2s;margin-bottom:20px;}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(175,135,55,0.12);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--mist);opacity:0.5;}
+.form-select{appearance:none;cursor:pointer;color:var(--snow);}
+.form-select option{background:var(--slate);color:var(--snow);}
 .form-textarea{min-height:120px;resize:vertical;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.submit-btn{background:var(--gold);color:var(--ink);border:none;padding:14px 32px;border-radius:10px;font-weight:600;font-size:15px;cursor:pointer;font-family:inherit;transition:all 0.25s;width:100%;}
-.submit-btn:hover{background:var(--gold-light);}
-.contact-method{margin-bottom:32px;}
-.contact-method-label{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);font-weight:600;margin-bottom:10px;}
-.contact-method h3{font-size:1.1rem;color:var(--white);margin-bottom:4px;font-weight:600;}
-.contact-method p{font-size:0.92rem;color:var(--mist);line-height:1.5;}
+.submit-btn{background:var(--gold);color:var(--ink);border:none;padding:14px 32px;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;font-family:inherit;transition:all 0.25s;width:100%;letter-spacing:-0.01em;}
+.submit-btn:hover{background:var(--gold-light);transform:translateY(-1px);}
+.submit-btn:disabled{opacity:0.7;cursor:not-allowed;transform:none;}
+.contact-info{padding-top:8px;}
+.contact-method{margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.contact-method:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.contact-method-label{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);font-weight:600;margin-bottom:10px;}
+.contact-method h3{font-size:1.1rem;color:var(--white);margin-bottom:6px;font-weight:600;}
+.contact-method p{font-size:0.92rem;color:var(--mist);line-height:1.6;}
 .contact-method a{color:var(--gold-light);text-decoration:none;}
 .contact-method a:hover{color:var(--gold);}
-@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}.nav-links{display:none;}.mobile-menu{display:block;}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(11,18,21,0.98);padding:20px 28px;gap:16px;border-bottom:1px solid rgba(175,135,55,0.15);}}
-@media(max-width:600px){.contact-hero h1{font-size:2rem;}.form-row{grid-template-columns:1fr;}}
+.trust-bar{background:var(--slate);border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:32px 40px;margin-bottom:80px;display:flex;align-items:center;justify-content:space-around;gap:24px;flex-wrap:wrap;}
+.trust-item{text-align:center;}
+.trust-item .num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold-light);display:block;margin-bottom:4px;}
+.trust-item span:last-child{font-size:0.78rem;color:var(--mist);text-transform:uppercase;letter-spacing:0.06em;}
+
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}.nav-links{display:none;}.mobile-menu{display:block;}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,9,8,0.98);padding:20px 28px;gap:16px;border-bottom:1px solid rgba(175,135,55,0.15);z-index:200;}}
+@media(max-width:600px){.contact-hero h1{font-size:2rem;}.form-row{grid-template-columns:1fr;}.trust-bar{padding:24px;}}
 </style></head><body>
 
 <nav>
 <div class="container">
-<a href="index.html" class="logo"><img src="logo-icon.png" alt="SPEC Systems" style="height:34px;width:auto;display:block;"><span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#CDA44A;letter-spacing:-0.01em;">SPEC Systems</span></a>
+<a href="index.html" class="logo">
+  <img src="logo-icon.png" alt="SPEC Systems" style="height:34px;width:auto;display:block;">
+  <span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#CDA44A;letter-spacing:-0.01em;">SPEC Systems</span>
+</a>
 <button class="mobile-menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
 <div class="nav-links">
-<a href="index.html">Home</a>
-<a href="operations.html">SPEC System</a>
-<a href="automation.html">Custom Automation</a>
-<a href="demo.html">Demo</a>
-<a href="about.html">About</a>
-<a href="how-it-works.html">How It Works</a>
-<a href="contact.html" class="active">Contact</a>
-<a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-nav">Book a Demo</a>
-</div></div></nav>
+  <a href="index.html">Home</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="operations.html">Full System</a>
+  <a href="automation.html">Custom Agents</a>
+  <a href="about.html">About</a>
+  <a href="contact.html" class="active">Contact</a>
+  <a href="demo.html" class="btn-nav">See Demo</a>
+</div>
+</div></nav>
 
-<section class="contact-hero">
+<section class="contact-hero" style="border-top:none;">
 <div class="container">
 <div class="section-label fade-in">Get in touch</div>
-<h1 class="fade-in fade-in-d1">Let's talk about your business</h1>
-<p class="fade-in fade-in-d2">Whether you want a full system install or a quick question answered, we're here.</p>
+<h1 class="fade-in fade-in-d1">Let's talk about your <em>business</em></h1>
+<p class="fade-in fade-in-d2">Whether you want a full system install or just want to see it in action — we're easy to reach.</p>
 </div></section>
 
-<section style="padding:0 0 80px;">
+<section style="padding:0 0 20px;border-top:none;">
+<div class="container">
+<div class="trust-bar fade-in">
+  <div class="trust-item"><span class="num">&lt; 24hr</span><span>Response time</span></div>
+  <div class="trust-item"><span class="num">$0</span><span>Obligation to book a call</span></div>
+  <div class="trust-item"><span class="num">30 min</span><span>Discovery call</span></div>
+  <div class="trust-item"><span class="num">100%</span><span>Remote setup</span></div>
+</div>
+</div></section>
+
+<section style="padding:0 0 80px;border-top:none;">
 <div class="container">
 <div class="contact-grid">
-<div class="contact-form fade-in">
-<h3>Send us a message</h3>
-<p>We'll get back to you within 24 hours.</p>
-<div class="form-row">
-<div><label class="form-label">First name</label><input class="form-input" placeholder="Your first name" id="cName"></div>
-<div><label class="form-label">Last name</label><input class="form-input" placeholder="Your last name" id="cLast"></div>
+
+  <!-- Form -->
+  <div class="contact-form fade-in">
+    <h3>Send us a message</h3>
+    <p>Tell us about your business and we'll reach out within one business day.</p>
+
+    <div class="form-row">
+      <div>
+        <label class="form-label">First name</label>
+        <input class="form-input" placeholder="Marcus" id="cName">
+      </div>
+      <div>
+        <label class="form-label">Last name</label>
+        <input class="form-input" placeholder="Webb" id="cLast">
+      </div>
+    </div>
+
+    <label class="form-label">Business email</label>
+    <input class="form-input" type="email" placeholder="you@yourbusiness.com" id="cEmail">
+
+    <label class="form-label">Phone (optional)</label>
+    <input class="form-input" type="tel" placeholder="(616) 555-0192" id="cPhone">
+
+    <label class="form-label">Business type</label>
+    <select class="form-select" id="cType">
+      <option value="">Select your industry...</option>
+      <option>Home Remodeling / Renovation</option>
+      <option>Roofing</option>
+      <option>HVAC</option>
+      <option>Plumbing</option>
+      <option>Landscaping / Lawn Care</option>
+      <option>Painting</option>
+      <option>Electrical</option>
+      <option>General Contracting</option>
+      <option>Other Service Business</option>
+    </select>
+
+    <label class="form-label">What are you looking for?</label>
+    <textarea class="form-textarea" placeholder="Tell us where you're at — lead follow-up taking too long, quoting is manual, clients aren't getting updates... we've heard it all. What's your biggest pain point?" id="cMessage"></textarea>
+
+    <button class="submit-btn" id="submitBtn" onclick="submitContact()">Send Message &rarr;</button>
+    <p id="contactSuccess" style="display:none;color:var(--green);font-size:13px;margin-top:14px;text-align:center;font-weight:600;"></p>
+    <p id="contactError" style="display:none;color:#E05C5C;font-size:13px;margin-top:14px;text-align:center;"></p>
+  </div>
+
+  <!-- Info -->
+  <div class="contact-info fade-in fade-in-d2">
+    <div class="contact-method">
+      <div class="contact-method-label">Fastest option</div>
+      <h3>Book a discovery call</h3>
+      <p>30 minutes. We'll walk through your current process, show you what SPEC can automate, and give you a straight answer on whether it's a fit.</p>
+      <p style="margin-top:16px;">
+        <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-primary" style="font-size:0.9rem;padding:12px 24px;display:inline-flex;">
+          Book on Calendly &rarr;
+        </a>
+      </p>
+    </div>
+
+    <div class="contact-method">
+      <div class="contact-method-label">Email</div>
+      <h3><a href="mailto:summitsystemscrm@gmail.com">summitsystemscrm@gmail.com</a></h3>
+      <p>For general questions, partnership inquiries, or anything else. We read every email.</p>
+    </div>
+
+    <div class="contact-method">
+      <div class="contact-method-label">Phone / Text</div>
+      <h3><a href="tel:+16164038939">(616) 403-8939</a></h3>
+      <p>Call or text Spencer directly. We're available during normal business hours and usually respond fast.</p>
+    </div>
+
+    <div class="contact-method">
+      <div class="contact-method-label">Location</div>
+      <h3>Phoenix, Arizona</h3>
+      <p>We work with service businesses nationwide. Everything — setup, onboarding, support — is handled remotely.</p>
+    </div>
+  </div>
+
 </div>
-<label class="form-label">Email</label>
-<input class="form-input" type="email" placeholder="you@company.com" id="cEmail">
-<label class="form-label">Phone (optional)</label>
-<input class="form-input" type="tel" placeholder="(555) 123-4567" id="cPhone">
-<label class="form-label">What can we help with?</label>
-<textarea class="form-textarea" placeholder="Tell us about your business and what you're looking for..." id="cMessage"></textarea>
-<button class="submit-btn" onclick="submitContact()">Send Message</button>
-<p id="contactSuccess" style="display:none;color:var(--green);font-size:13px;margin-top:12px;text-align:center;font-weight:500;"></p>
-</div>
-<div class="contact-info fade-in fade-in-d2">
-<div class="contact-method">
-<div class="contact-method-label">Book a call</div>
-<h3>Schedule a discovery call</h3>
-<p>The fastest way to see if SPEC System is right for your business. Pick a time that works.</p>
-<p style="margin-top:10px;"><a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-primary" style="font-size:0.9rem;padding:12px 24px;">Book on Calendly &rarr;</a></p>
-</div>
-<div class="contact-method">
-<div class="contact-method-label">Email</div>
-<h3>summitsystemscrm@gmail.com</h3>
-<p>For general inquiries, partnership opportunities, or questions about the system.</p>
-</div>
-<div class="contact-method">
-<div class="contact-method-label">Phone</div>
-<h3><a href="tel:+16164038939">(616) 403-8939</a></h3>
-<p>Call or text. We're usually available during business hours.</p>
-</div>
-<div class="contact-method">
-<div class="contact-method-label">Location</div>
-<h3>Phoenix, Arizona</h3>
-<p>Serving service businesses nationwide. Everything is set up remotely.</p>
-</div>
-</div>
-</div></div></section>
+</div></section>
 
 <footer>
 <div class="container">
 <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;">
 <div>
-<a href="index.html" class="logo" style="font-size:1.1rem;margin-bottom:12px;"><img src="logo-icon.png" alt="SPEC Systems" style="height:36px;width:auto;display:block;"> SPEC Systems</a>
-<p style="font-size:0.82rem;color:var(--mist);margin-top:12px;">&copy; 2026 SPEC Systems</p>
-<p style="font-size:0.78rem;color:var(--stone);">Speed &middot; Precision &middot; Execution &middot; Consistency</p>
+  <a href="index.html" class="logo" style="font-size:1.1rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+    <img src="logo-icon.png" alt="SPEC Systems" style="height:32px;width:auto;display:block;"> SPEC Systems
+  </a>
+  <p style="font-size:0.82rem;color:var(--mist);margin-top:12px;">&copy; 2026 SPEC Systems</p>
+  <p style="font-size:0.78rem;color:var(--stone);margin-top:4px;">Speed &middot; Precision &middot; Execution &middot; Consistency</p>
 </div>
 <div style="display:flex;gap:40px;flex-wrap:wrap;">
 <div>
-<p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);font-weight:600;margin-bottom:10px;">Pages</p>
-<a href="index.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">Home</a>
-<a href="operations.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">SPEC System</a>
-<a href="automation.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">Custom Automation</a>
-<a href="demo.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">Demo</a>
-<a href="about.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">About</a>
-<a href="how-it-works.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">How It Works</a>
-<a href="contact.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;">Contact</a>
+  <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);font-weight:600;margin-bottom:10px;">Pages</p>
+  <a href="index.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">Home</a>
+  <a href="how-it-works.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">How It Works</a>
+  <a href="operations.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">Full System</a>
+  <a href="automation.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">Custom Agents</a>
+  <a href="about.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">About</a>
+  <a href="demo.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;margin-bottom:6px;">Demo</a>
+  <a href="contact.html" style="display:block;font-size:13px;color:var(--mist);text-decoration:none;">Contact</a>
 </div>
 <div style="text-align:right;">
-<p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);font-weight:600;margin-bottom:10px;">Contact</p>
-<p style="font-size:13px;color:var(--cloud);margin-bottom:4px;">Spencer Walraven</p>
-<p style="font-size:13px;color:var(--mist);margin-bottom:4px;">(616) 403-8939</p>
-<p style="font-size:13px;">summitsystemscrm@gmail.com</p>
-<p style="margin-top:10px;"><a href="https://calendly.com/spencerwalraven5" target="_blank" style="color:var(--gold);text-decoration:none;font-size:13px;font-weight:600;">Book a call &rarr;</a></p>
-</div></div></div></div></footer>
+  <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone);font-weight:600;margin-bottom:10px;">Contact</p>
+  <p style="font-size:13px;color:var(--cloud);margin-bottom:4px;">Spencer Walraven</p>
+  <p style="font-size:13px;color:var(--mist);margin-bottom:4px;">(616) 403-8939</p>
+  <p style="font-size:13px;color:var(--mist);margin-bottom:10px;">summitsystemscrm@gmail.com</p>
+  <a href="https://calendly.com/spencerwalraven5" target="_blank" style="color:var(--gold);text-decoration:none;font-size:13px;font-weight:600;">Book a call &rarr;</a>
+</div>
+</div>
+</div>
+</div></footer>
 
 <script>
 var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.style.animationPlayState='running';obs.unobserve(en.target);}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fade-in').forEach(function(el){el.style.animationPlayState='paused';obs.observe(el);});
 
 function submitContact(){
-var name=document.getElementById('cName').value.trim();
-var last=document.getElementById('cLast').value.trim();
-var email=document.getElementById('cEmail').value.trim();
-var phone=document.getElementById('cPhone').value.trim();
-var msg=document.getElementById('cMessage').value.trim();
-if(!name||!email||!msg){alert('Please fill in your name, email, and message.');return;}
-var btn=document.querySelector('.contact-form .submit-btn');
-btn.textContent='Sending...';
-btn.disabled=true;
-fetch('https://formspree.io/f/xqeywkzr',{
-method:'POST',
-headers:{'Content-Type':'application/json','Accept':'application/json'},
-body:JSON.stringify({name:name+' '+last,email:email,phone:phone,message:msg})
-}).then(function(r){
-if(r.ok){
-btn.textContent='Message sent!';
-btn.style.background='#1E9476
-</body>
-</html>
+  var name = document.getElementById('cName').value.trim();
+  var last = document.getElementById('cLast').value.trim();
+  var email = document.getElementById('cEmail').value.trim();
+  var phone = document.getElementById('cPhone').value.trim();
+  var type = document.getElementById('cType').value.trim();
+  var msg = document.getElementById('cMessage').value.trim();
+  var btn = document.getElementById('submitBtn');
+  var successEl = document.getElementById('contactSuccess');
+  var errorEl = document.getElementById('contactError');
+
+  successEl.style.display = 'none';
+  errorEl.style.display = 'none';
+
+  if(!name || !email || !msg){
+    errorEl.textContent = 'Please fill in your name, email, and message.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch('https://formspree.io/f/xqeywkzr', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify({name: name+' '+last, email: email, phone: phone, businessType: type, message: msg})
+  }).then(function(r){
+    if(r.ok){
+      btn.textContent = 'Message sent!';
+      btn.style.background = '#1E9476';
+      successEl.textContent = "Got it! We'll be in touch within one business day.";
+      successEl.style.display = 'block';
+    } else {
+      btn.textContent = 'Send Message \u2192';
+      btn.disabled = false;
+      errorEl.textContent = 'Something went wrong. Try emailing us directly at summitsystemscrm@gmail.com';
+      errorEl.style.display = 'block';
+    }
+  }).catch(function(){
+    btn.textContent = 'Send Message \u2192';
+    btn.disabled = false;
+    errorEl.textContent = 'Network error. Please email us at summitsystemscrm@gmail.com';
+    errorEl.style.display = 'block';
+  });
+}
+</script>
+</body></html>
