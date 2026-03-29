@@ -4,8 +4,8 @@
     {
       "name": "spec-ai-website",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "/tmp/summitsystems"],
-      "port": 3456
+      "runtimeArgs": ["-m", "http.server", "3458", "--directory", "/tmp/spec-website"],
+      "port": 3458
     }
   ]
 }
