@@ -81,14 +81,14 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .btn-ghost:hover{color:var(--navy);border-bottom-color:var(--navy);}
 
 /* ── SCROLL REVEALS ── */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.55s ease,transform 0.55s ease;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-d1{transition-delay:0.07s;}
-.reveal-d2{transition-delay:0.14s;}
-.reveal-d3{transition-delay:0.21s;}
-.reveal-d4{transition-delay:0.28s;}
-.reveal-d5{transition-delay:0.35s;}
-.reveal-d6{transition-delay:0.42s;}
+.reveal-d1{transition-delay:0.08s;}
+.reveal-d2{transition-delay:0.16s;}
+.reveal-d3{transition-delay:0.24s;}
+.reveal-d4{transition-delay:0.32s;}
+.reveal-d5{transition-delay:0.40s;}
+.reveal-d6{transition-delay:0.48s;}
 
 /* ── SHARED ── */
 .section-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.16em;color:var(--gold);font-weight:700;margin-bottom:12px;display:block;}
@@ -104,6 +104,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 
 @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.6;transform:scale(1.4);}}
 @keyframes slide-ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+@keyframes float-panel{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
 /* ── HERO ── */
 #hero{
@@ -149,6 +150,9 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .trust-check svg{width:9px;height:9px;stroke:var(--green);}
 
 /* ── HERO PANEL ── */
+.hero-right{
+  animation:float-panel 6s ease-in-out infinite;
+}
 .agent-panel{
   background:var(--white);
   border:1px solid var(--border);
@@ -203,7 +207,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .stat-label{font-size:0.78rem;color:var(--muted);font-weight:500;line-height:1.45;}
 
 /* ── PAIN POINTS ── */
-#pain{padding:100px 0;background:var(--cream);}
+#pain{padding:120px 0;background:var(--cream);}
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .pain-card{
   background:var(--white);border:1px solid var(--border-light);
@@ -223,8 +227,47 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .fix-dot{width:5px;height:5px;background:var(--green);border-radius:50%;flex-shrink:0;margin-top:5px;}
 .pain-fix p{font-size:0.79rem;color:var(--green-text);line-height:1.5;font-weight:500;}
 
+/* ── DEMO CTA SECTION ── */
+#demo-cta{
+  padding:100px 0;
+  background:var(--navy);
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+#demo-cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(168,128,14,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.demo-cta-inner{position:relative;z-index:1;}
+.demo-cta-inner h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:600;color:#fff;
+  letter-spacing:-0.03em;margin-bottom:14px;line-height:1.18;
+}
+.demo-cta-inner p.demo-sub{
+  font-size:1.02rem;color:rgba(255,255,255,0.55);max-width:460px;margin:0 auto 32px;line-height:1.7;
+}
+.btn-demo{
+  background:var(--gold);color:#fff;padding:16px 40px;border-radius:8px;
+  font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all 0.2s;
+  font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  letter-spacing:-0.01em;
+  box-shadow:0 4px 24px rgba(168,128,14,0.3);
+}
+.btn-demo:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 36px rgba(168,128,14,0.4);}
+.demo-login-hint{
+  font-size:0.82rem;color:rgba(255,255,255,0.4);margin-top:16px;
+  font-family:'DM Sans',monospace;letter-spacing:0.02em;
+}
+.demo-login-hint code{
+  background:rgba(255,255,255,0.08);padding:2px 8px;border-radius:4px;
+  font-size:0.8rem;color:rgba(255,255,255,0.6);
+}
+
 /* ── AGENT SHOWCASE ── */
-#agents{padding:100px 0;background:var(--white);}
+#agents{padding:120px 0;background:var(--white);}
 .agents-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
 .agent-card{
   background:var(--cream);border:1px solid var(--border-light);
@@ -238,9 +281,9 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .agent-tag{margin-top:auto;}
 
 /* ── HOW IT WORKS ── */
-#how{padding:100px 0;background:var(--cream-alt);}
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.step-card{background:var(--white);padding:48px 40px;position:relative;}
+#how{padding:120px 0;background:var(--cream-alt);}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;}
+.step-card{background:var(--white);padding:48px 40px;position:relative;border:1px solid var(--border-light);}
 .step-card:first-child{border-radius:12px 0 0 12px;}
 .step-card:last-child{border-radius:0 12px 12px 0;}
 .step-number{
@@ -250,8 +293,20 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .step-title{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:10px;letter-spacing:-0.01em;}
 .step-body{font-size:0.88rem;color:var(--muted);line-height:1.7;}
 
+/* Step connector arrows */
+.step-connector{
+  position:absolute;top:50%;right:-18px;z-index:2;
+  width:36px;height:36px;
+  background:var(--cream-alt);
+  border:2px solid var(--border);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transform:translateY(-50%);
+}
+.step-connector svg{width:14px;height:14px;stroke:var(--gold);stroke-width:2.5;fill:none;}
+
 /* ── COMPARISON ── */
-#comparison{padding:100px 0;background:var(--white);}
+#comparison{padding:120px 0;background:var(--white);}
 .comparison-table{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);}
 .comparison-table thead tr{background:var(--navy);}
 .comparison-table th{padding:18px 24px;text-align:left;font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.06em;text-transform:uppercase;}
@@ -268,73 +323,71 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .comparison-table .spec-col-header{background:rgba(168,128,14,0.06);}
 
 /* ── INDUSTRIES ── */
-#industries{padding:72px 0;background:var(--cream);}
+#industries{padding:88px 0;background:var(--cream);}
 .industries-inner{text-align:center;}
+.industries-inner h2{
+  font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,1.8rem);
+  color:var(--navy);font-weight:600;letter-spacing:-0.02em;margin-top:10px;margin-bottom:8px;
+}
 .industry-tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px;}
 .industry-tile{
   background:var(--white);border:1px solid var(--border);
-  border-radius:8px;padding:10px 20px;
+  border-radius:8px;padding:12px 22px;
   font-size:0.85rem;font-weight:600;color:var(--navy);
   letter-spacing:0.01em;transition:all 0.2s;cursor:default;
+  box-shadow:0 1px 4px rgba(14,28,47,0.04);
 }
-.industry-tile:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-bg);}
+.industry-tile:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-bg);transform:translateY(-2px);box-shadow:var(--shadow);}
 .industries-note{font-size:0.84rem;color:var(--muted);margin-top:20px;}
 
 /* ── PRICING ── */
-#pricing{padding:100px 0;background:var(--white);}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto;}
+#pricing{padding:120px 0;background:var(--white);}
+.pricing-wrapper{max-width:520px;margin:0 auto;}
 .pricing-card{
-  background:var(--cream);border:1px solid var(--border-light);
-  border-radius:14px;padding:36px 30px;display:flex;flex-direction:column;position:relative;
-  transition:box-shadow 0.2s;
+  background:var(--navy);border:1px solid var(--navy);
+  border-radius:18px;padding:44px 38px;display:flex;flex-direction:column;position:relative;
+  box-shadow:0 20px 60px rgba(14,28,47,0.25),0 0 0 1px rgba(168,128,14,0.15);
+  transition:box-shadow 0.3s,transform 0.3s;
 }
-.pricing-card:hover{box-shadow:var(--shadow-md);}
-.pricing-card.featured{
-  background:var(--navy);border-color:var(--navy);
-  box-shadow:var(--shadow-lg);transform:scale(1.03);
+.pricing-card:hover{
+  box-shadow:0 24px 72px rgba(14,28,47,0.30),0 0 0 1px rgba(168,128,14,0.25),0 0 80px rgba(168,128,14,0.08);
+  transform:translateY(-4px);
 }
 .pricing-badge{
   position:absolute;top:-1px;left:50%;transform:translateX(-50%);
   background:var(--gold);color:var(--white);
   font-size:0.62rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;
-  padding:4px 14px;border-radius:0 0 8px 8px;
+  padding:5px 18px;border-radius:0 0 8px 8px;
 }
-.pricing-tier{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--muted);margin-bottom:10px;}
-.pricing-card.featured .pricing-tier{color:rgba(255,255,255,0.5);}
-.pricing-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:18px;letter-spacing:-0.01em;}
-.pricing-card.featured .pricing-name{color:#fff;}
-.pricing-setup{font-size:0.8rem;color:var(--muted);margin-bottom:4px;}
-.pricing-setup strong{color:var(--text);}
-.pricing-card.featured .pricing-setup{color:rgba(255,255,255,0.6);}
-.pricing-card.featured .pricing-setup strong{color:#fff;}
-.pricing-monthly{margin-bottom:24px;}
-.pricing-monthly .price{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--navy);letter-spacing:-0.04em;}
-.pricing-card.featured .pricing-monthly .price{color:var(--gold-light);}
-.pricing-monthly .per{font-size:0.8rem;color:var(--muted);margin-left:4px;}
-.pricing-card.featured .pricing-monthly .per{color:rgba(255,255,255,0.5);}
-.pricing-divider{height:1px;background:var(--border-light);margin-bottom:20px;}
-.pricing-card.featured .pricing-divider{background:rgba(255,255,255,0.12);}
-.pricing-features{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;flex:1;}
-.pricing-features li{display:flex;align-items:flex-start;gap:8px;font-size:0.82rem;color:var(--muted);line-height:1.5;}
-.pricing-card.featured .pricing-features li{color:rgba(255,255,255,0.75);}
-.pricing-features li .check{color:var(--green);flex-shrink:0;margin-top:1px;font-weight:700;}
-.pricing-card.featured .pricing-features li .check{color:#6EE7B7;}
+.pricing-tier{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.5);margin-bottom:10px;}
+.pricing-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:#fff;margin-bottom:20px;letter-spacing:-0.01em;}
+.pricing-setup{font-size:0.85rem;color:rgba(255,255,255,0.6);margin-bottom:4px;}
+.pricing-setup strong{color:#fff;}
+.pricing-monthly{margin-bottom:26px;}
+.pricing-monthly .price{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--gold-light);letter-spacing:-0.04em;}
+.pricing-monthly .per{font-size:0.85rem;color:rgba(255,255,255,0.5);margin-left:4px;}
+.pricing-divider{height:1px;background:rgba(255,255,255,0.12);margin-bottom:22px;}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:30px;flex:1;}
+.pricing-features li{display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.5;}
+.pricing-features li .check{color:#6EE7B7;flex-shrink:0;margin-top:1px;font-weight:700;}
 .pricing-cta{
-  display:block;text-align:center;padding:12px;border-radius:8px;
-  font-size:0.85rem;font-weight:700;text-decoration:none;transition:all 0.2s;letter-spacing:-0.01em;
+  display:block;text-align:center;padding:14px;border-radius:8px;
+  font-size:0.9rem;font-weight:700;text-decoration:none;transition:all 0.2s;letter-spacing:-0.01em;
+  background:var(--gold);color:#fff;
 }
-.pricing-cta.primary{background:var(--gold);color:#fff;}
-.pricing-cta.primary:hover{background:var(--gold-light);transform:translateY(-1px);}
-.pricing-cta.dark{background:var(--navy);color:#fff;}
-.pricing-cta.dark:hover{background:var(--navy-mid);}
-.pricing-cta.outline{background:transparent;color:var(--navy);border:1.5px solid var(--border);}
-.pricing-cta.outline:hover{border-color:var(--navy);}
-.pricing-note{text-align:center;margin-top:32px;font-size:0.84rem;color:var(--muted);}
+.pricing-cta:hover{background:var(--gold-light);transform:translateY(-1px);}
+.pricing-note{text-align:center;margin-top:28px;font-size:0.84rem;color:var(--muted);}
 .pricing-note a{color:var(--gold);text-decoration:none;font-weight:600;}
+.pricing-roi{
+  text-align:center;margin-top:16px;
+  font-size:0.82rem;color:var(--green-text);font-weight:600;
+  background:var(--green-bg);display:inline-block;
+  padding:6px 16px;border-radius:20px;border:1px solid rgba(26,122,94,0.15);
+}
 
 /* ── FINAL CTA ── */
 #cta-final{
-  padding:112px 0;background:var(--navy);position:relative;overflow:hidden;text-align:center;
+  padding:120px 0;background:var(--navy);position:relative;overflow:hidden;text-align:center;
 }
 #cta-final::before{
   content:'';position:absolute;inset:0;
@@ -376,25 +429,26 @@ footer{background:var(--navy-mid);border-top:1px solid rgba(255,255,255,0.06);pa
 .footer-bottom p{font-size:0.78rem;color:rgba(255,255,255,0.3);}
 .footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;}
 .footer-bottom a:hover{color:rgba(255,255,255,0.6);}
+.footer-links-bottom{display:flex;gap:20px;}
+.footer-links-bottom a{font-size:0.78rem;}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:48px;}
   .hero-right{display:none;}
-  .pricing-grid{grid-template-columns:1fr;max-width:420px;}
-  .pricing-card.featured{transform:scale(1);}
   .agents-grid{grid-template-columns:repeat(2,1fr);}
   .footer-inner{grid-template-columns:1fr 1fr;}
   .comparison-table{font-size:0.82rem;}
+  .step-connector{display:none;}
 }
 @media(max-width:768px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
   .pain-grid{grid-template-columns:1fr;}
   .steps-grid{grid-template-columns:1fr;gap:0;}
-  .step-card{border-radius:0;}
-  .step-card:first-child{border-radius:12px 12px 0 0;}
-  .step-card:last-child{border-radius:0 0 12px 12px;}
+  .step-card{border-radius:0!important;}
+  .step-card:first-child{border-radius:12px 12px 0 0!important;}
+  .step-card:last-child{border-radius:0 0 12px 12px!important;}
   .stats-grid{grid-template-columns:repeat(2,1fr);}
   .stat-item:nth-child(2){border-right:none;}
   .stat-item:nth-child(3){border-top:1px solid var(--border-light);}
@@ -404,9 +458,13 @@ footer{background:var(--navy-mid);border-top:1px solid rgba(255,255,255,0.06);pa
   #hero{padding:100px 0 60px;}
   .footer-inner{grid-template-columns:1fr;}
   .footer-bottom{flex-direction:column;gap:10px;text-align:center;}
+  .footer-links-bottom{justify-content:center;}
   .cta-buttons{flex-direction:column;align-items:stretch;max-width:320px;margin:0 auto;}
   #comparison{overflow-x:auto;}
   .comparison-table{min-width:560px;}
+  .step-connector{display:none;}
+  #pain,#agents,#how,#comparison,#pricing,#cta-final{padding:80px 0;}
+  .pricing-card{padding:36px 28px;}
 }
 </style>
 </head>
@@ -629,6 +687,19 @@ footer{background:var(--navy-mid);border-top:1px solid rgba(255,255,255,0.06);pa
   </div>
 </section>
 
+<!-- ── SEE IT IN ACTION ── -->
+<section id="demo-cta">
+  <div class="container">
+    <div class="demo-cta-inner reveal">
+      <span class="section-label" style="color:var(--gold-light);">Live demo</span>
+      <h2>See the dashboard your business deserves</h2>
+      <p class="demo-sub">Real data. Real agents. Click around — it's a live system.</p>
+      <a href="https://spec-agent-production.up.railway.app/login" target="_blank" class="btn-demo">Open Live Demo &rarr;</a>
+      <p class="demo-login-hint">Login: <code>demo</code> / <code>demo123</code></p>
+    </div>
+  </div>
+</section>
+
 <!-- ── AGENT SHOWCASE ── -->
 <section id="agents">
   <div class="container">
@@ -757,11 +828,17 @@ footer{background:var(--navy-mid);border-top:1px solid rgba(255,255,255,0.06);pa
         <div class="step-number">01</div>
         <div class="step-title">One call. We learn your business.</div>
         <p class="step-body">30-minute call. We learn your services, your pricing, how you talk to clients. That's all we need.</p>
+        <div class="step-connector">
+          <svg viewBox="0 0 24 24"><polyline points="9,6 15,12 9,18" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
       </div>
       <div class="step-card reveal reveal-d2">
         <div class="step-number">02</div>
         <div class="step-title">We build it. You approve it.</div>
         <p class="step-body">We connect your email, calendar, and phone. Configure all 16 agents. Test everything. You just review and say go.</p>
+        <div class="step-connector">
+          <svg viewBox="0 0 24 24"><polyline points="9,6 15,12 9,18" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
       </div>
       <div class="step-card reveal reveal-d4">
         <div class="step-number">03</div>
@@ -847,6 +924,7 @@ footer{background:var(--navy-mid);border-top:1px solid rgba(255,255,255,0.06);pa
   <div class="container">
     <div class="industries-inner reveal">
       <span class="section-label">Who it's built for</span>
+      <h2>Built for home service businesses</h2>
       <div class="industry-tiles">
         <div class="industry-tile">Home Remodeling</div>
         <div class="industry-tile">Roofing</div>
@@ -870,10 +948,8 @@ footer{background:var(--navy-mid);border-top:1px solid rgba(255,255,255,0.06);pa
       <h2>Simple, transparent pricing</h2>
       <p>One plan. Everything included. Done-for-you setup and a dedicated configuration call.</p>
     </div>
-    <div class="pricing-grid" style="grid-template-columns:1fr;max-width:480px;">
-
-      <!-- Single Featured Plan -->
-      <div class="pricing-card featured reveal" style="transform:none;">
+    <div class="pricing-wrapper">
+      <div class="pricing-card reveal">
         <div class="pricing-badge">Everything Included</div>
         <div class="pricing-tier">Full CRM</div>
         <div class="pricing-name">All 16 Agents</div>
@@ -890,11 +966,13 @@ footer{background:var(--navy-mid);border-top:1px solid rgba(255,255,255,0.06);pa
           <li><span class="check">✓</span>Done-for-you setup</li>
           <li><span class="check">✓</span>Ongoing support &amp; updates</li>
         </ul>
-        <a href="https://calendly.com/spencerwalraven5" class="pricing-cta primary" target="_blank">Book Your Setup Call</a>
+        <a href="https://calendly.com/spencerwalraven5" class="pricing-cta" target="_blank">Book Your Setup Call</a>
       </div>
-
     </div>
-    <p class="pricing-note">No contracts. Cancel anytime. ROI in your first month.</p>
+    <p class="pricing-note">No contracts. Cancel anytime. <a href="https://calendly.com/spencerwalraven5" target="_blank">Questions? Let's talk.</a></p>
+    <div style="text-align:center;">
+      <span class="pricing-roi">Most businesses see ROI in the first month</span>
+    </div>
   </div>
 </section>
 
@@ -940,7 +1018,11 @@ footer{background:var(--navy-mid);border-top:1px solid rgba(255,255,255,0.06);pa
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 SPEC Systems. All rights reserved.</p>
-      <p><a href="contact.html">Contact</a></p>
+      <div class="footer-links-bottom">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="#pricing">Pricing</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -960,11 +1042,32 @@ document.querySelectorAll('.mobile-nav a').forEach(a => {
   });
 });
 
-// Scroll reveals
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// Scroll reveals — IntersectionObserver
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Make hero elements visible immediately (no scroll needed)
+document.addEventListener('DOMContentLoaded', () => {
+  const heroLeft = document.querySelector('.hero-left');
+  const heroRight = document.querySelector('.hero-right');
+  if (heroLeft) heroLeft.style.opacity = '1';
+  if (heroRight) {
+    heroRight.style.opacity = '0';
+    heroRight.style.transform = 'translateY(20px)';
+    heroRight.style.transition = 'opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s';
+    requestAnimationFrame(() => {
+      heroRight.style.opacity = '1';
+      heroRight.style.transform = 'translateY(0)';
+    });
+  }
+});
 </script>
 </body>
 </html>
