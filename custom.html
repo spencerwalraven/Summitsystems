@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SPEC Custom — AI Agents Built for Your Workflow</title>
+<meta name="description" content="Custom AI agents designed, built, and deployed for your exact workflow. Plugs into your existing tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:      #F7F4EF;
+  --cream-alt:  #EDE9E0;
+  --white:      #FFFFFF;
+  --navy:       #0E1C2F;
+  --navy-mid:   #1B3455;
+  --gold:       #A8800E;
+  --gold-light: #C9A227;
+  --green:      #1A7A5E;
+  --muted:      #6B6B6B;
+  --text:       #111111;
+  --border:     #DDD9D0;
+  --shadow:     0 2px 16px rgba(14,28,47,0.07);
+  --shadow-md:  0 6px 32px rgba(14,28,47,0.10);
+  --shadow-lg:  0 16px 56px rgba(14,28,47,0.13);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
+
+/* ── NAV ── */
+nav{padding:20px 0;background:rgba(247,244,239,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:100;}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{width:38px;height:38px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.logo-mark svg{width:20px;height:20px;}
+.logo-name{font-weight:700;font-size:1.15rem;color:var(--navy);letter-spacing:-0.02em;}
+.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--navy);}
+.btn-nav{background:var(--gold);color:#fff !important;border:none;padding:10px 22px;border-radius:8px;font-weight:700;font-size:0.85rem;cursor:pointer;transition:all 0.2s;text-decoration:none;}
+.btn-nav:hover{filter:brightness(1.1);transform:translateY(-1px);}
+
+/* ── HERO ── */
+.hero{display:flex;align-items:center;justify-content:center;padding:140px 32px 80px;text-align:center;}
+.hero-inner{max-width:800px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:99px;padding:6px 16px;font-size:0.75rem;font-weight:600;color:var(--navy);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:32px;}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.hero h1{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:var(--navy);margin-bottom:24px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero p{font-size:1.15rem;color:var(--muted);line-height:1.7;max-width:620px;margin:0 auto 32px;}
+.btn-hero{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;padding:16px 32px;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.2s;}
+.btn-hero:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+
+/* ── SECTIONS ── */
+.section{padding:80px 32px;max-width:1100px;margin:0 auto;width:100%;}
+.section-header{text-align:center;margin-bottom:56px;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--navy);font-weight:600;margin-bottom:12px;letter-spacing:-0.02em;}
+.section-header p{font-size:1rem;color:var(--muted);max-width:560px;margin:0 auto;}
+
+/* ── STEPS ── */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.step{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:40px 32px;text-align:center;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);}
+.step:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--gold);}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;margin:0 auto 20px;}
+.step h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);font-weight:600;margin-bottom:12px;}
+.step p{font-size:0.9rem;color:var(--muted);line-height:1.7;}
+
+/* ── GRID CARDS ── */
+.use-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.use-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:36px 28px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);}
+.use-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--gold);}
+.use-card-icon{font-size:28px;margin-bottom:16px;}
+.use-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);font-weight:600;margin-bottom:10px;}
+.use-card p{font-size:0.88rem;color:var(--muted);line-height:1.7;}
+
+/* ── VALUE PROPS ── */
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.value{text-align:center;padding:32px 24px;}
+.value h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);font-weight:600;margin-bottom:12px;}
+.value p{font-size:0.9rem;color:var(--muted);line-height:1.7;}
+
+/* ── CTA SECTION ── */
+.cta-section{background:var(--navy);padding:80px 32px;text-align:center;margin-top:40px;}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:2.2rem;color:#fff;font-weight:600;margin-bottom:24px;letter-spacing:-0.02em;}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;padding:16px 32px;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.2s;}
+.btn-cta:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+
+/* ── DIVIDER ── */
+.divider{width:60px;height:3px;background:var(--gold);border-radius:3px;margin:0 auto 56px;}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:40px 32px;text-align:center;}
+footer p{color:rgba(255,255,255,0.4);font-size:0.78rem;}
+footer a{color:rgba(255,255,255,0.6);text-decoration:none;margin:0 12px;font-size:0.82rem;transition:color 0.2s;}
+footer a:hover{color:#fff;}
+.footer-links{margin-bottom:16px;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .steps,.use-grid,.values{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto;}
+  .hero h1{font-size:2.6rem;}
+  .nav-links a:not(.btn-nav){display:none;}
+}
+@media(max-width:480px){
+  .hero h1{font-size:2rem;}
+  .hero{padding:110px 20px 50px;}
+  .section{padding:60px 20px;}
+  .cta-section{padding:60px 20px;}
+}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+      <span class="logo-name">SPEC</span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-nav">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner reveal">
+    <div class="hero-badge"><span class="dot"></span> Custom AI Solutions</div>
+    <h1>AI agents built for <em>your</em> workflow.</h1>
+    <p>Every business is different. We design, build, and deploy custom AI agents that plug into your existing tools and automate the work you don't have time for.</p>
+    <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-hero">Book a Discovery Call <span>&#8594;</span></a>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="section reveal">
+  <div class="section-header">
+    <h2>How It Works</h2>
+    <p>Three steps from bottleneck to breakthrough.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Discovery Call</h3>
+      <p>We learn your business, your tools, your bottlenecks. 30 minutes.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>We Build It</h3>
+      <p>Custom agents designed for your exact workflow. You review and approve.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>It Runs</h3>
+      <p>Your agents go live. We monitor, optimize, and support.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE CAN BUILD -->
+<div class="section reveal">
+  <div class="section-header">
+    <h2>What We Can Build</h2>
+    <p>If it's repetitive, we can automate it.</p>
+  </div>
+  <div class="use-grid">
+    <div class="use-card">
+      <div class="use-card-icon">📈</div>
+      <h3>Sales Automation</h3>
+      <p>Lead scoring, outreach, follow-ups, proposal generation.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-card-icon">⚙️</div>
+      <h3>Operations</h3>
+      <p>Job scheduling, team coordination, inventory management.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-card-icon">💬</div>
+      <h3>Client Communication</h3>
+      <p>Automated updates, review requests, check-ins.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-card-icon">📊</div>
+      <h3>Internal Tools</h3>
+      <p>Custom dashboards, reporting, data analysis.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-card-icon">🛟</div>
+      <h3>Support</h3>
+      <p>Ticket routing, FAQ bots, escalation handling.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-card-icon">🔗</div>
+      <h3>Integrations</h3>
+      <p>Connect your CRM, email, calendar, accounting &mdash; we build the bridge.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHY SPEC CUSTOM -->
+<div class="section reveal">
+  <div class="section-header">
+    <h2>Why SPEC Custom</h2>
+  </div>
+  <div class="values">
+    <div class="value">
+      <h3>Built by the team behind SPEC Systems</h3>
+      <p>Not freelancers. The same engineers who built a 16-agent CRM from scratch.</p>
+    </div>
+    <div class="value">
+      <h3>Plugs into what you have</h3>
+      <p>Gmail, Slack, QuickBooks, Salesforce, whatever you use &mdash; we make it work together.</p>
+    </div>
+    <div class="value">
+      <h3>Ongoing optimization</h3>
+      <p>We don't just build and leave. Your agents get smarter over time.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section reveal">
+  <h2>Ready to automate your workflow?</h2>
+  <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-cta">Book a Discovery Call <span>&#8594;</span></a>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="systems.html">SPEC Systems</a>
+    <a href="custom.html">SPEC Custom</a>
+    <a href="digital.html">SPEC Digital</a>
+  </div>
+  <p>&copy; 2026 SPEC. All rights reserved.</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.08, rootMargin: '-30px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
