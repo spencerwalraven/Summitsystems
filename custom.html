@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SPEC Custom — AI Agents Built for Your Workflow</title>
-<meta name="description" content="Custom AI agents designed, built, and deployed for your exact workflow. Plugs into your existing tools.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPEC Custom — Tell Us What to Automate. We'll Build the Agent.</title>
+<meta name="description" content="Custom AI agents designed, built, and deployed for your exact workflow. Works with Gmail, Slack, QuickBooks, Salesforce, and 200+ tools. Deployed in under 2 weeks.">
+<meta property="og:title" content="SPEC Custom — AI Agents Built for Your Workflow">
+<meta property="og:description" content="Every business has repetitive work. We design and deploy AI agents that handle it — automatically, 24/7, in your existing tools.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 :root {
   --cream:      #F7F4EF;
@@ -14,240 +17,603 @@
   --white:      #FFFFFF;
   --navy:       #0E1C2F;
   --navy-mid:   #1B3455;
+  --navy-light: #2D4A6E;
   --gold:       #A8800E;
   --gold-light: #C9A227;
+  --gold-bg:    rgba(168,128,14,0.08);
   --green:      #1A7A5E;
+  --green-bg:   rgba(26,122,94,0.08);
+  --green-text: #16654E;
   --muted:      #6B6B6B;
+  --muted-light:#9A9A9A;
   --text:       #111111;
   --border:     #DDD9D0;
+  --border-light:#EAE6DE;
   --shadow:     0 2px 16px rgba(14,28,47,0.07);
   --shadow-md:  0 6px 32px rgba(14,28,47,0.10);
   --shadow-lg:  0 16px 56px rgba(14,28,47,0.13);
 }
+
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+.container{max-width:1140px;margin:0 auto;padding:0 32px;}
 
 /* ── NAV ── */
-nav{padding:20px 0;background:rgba(247,244,239,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:100;}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.logo-mark{width:38px;height:38px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;}
-.logo-mark svg{width:20px;height:20px;}
-.logo-name{font-weight:700;font-size:1.15rem;color:var(--navy);letter-spacing:-0.02em;}
-.nav-links{display:flex;gap:32px;align-items:center;}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:0;
+  background:rgba(247,244,239,0.96);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border-light);
+}
+nav .container{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.logo-img{height:30px;width:auto;}
+.logo-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--navy);letter-spacing:-0.01em;}
+.logo-back{font-size:0.9rem;color:var(--muted);margin-right:2px;}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.83rem;font-weight:500;letter-spacing:0.01em;transition:color 0.18s;white-space:nowrap;}
 .nav-links a:hover{color:var(--navy);}
-.btn-nav{background:var(--gold);color:#fff !important;border:none;padding:10px 22px;border-radius:8px;font-weight:700;font-size:0.85rem;cursor:pointer;transition:all 0.2s;text-decoration:none;}
-.btn-nav:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.btn-nav{
+  background:var(--gold);color:#fff!important;border:none;
+  padding:9px 22px;border-radius:7px;font-weight:600;font-size:0.82rem;
+  cursor:pointer;transition:all 0.18s;font-family:inherit;text-decoration:none;white-space:nowrap;
+  letter-spacing:0.01em;
+}
+.btn-nav:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:var(--shadow-md);}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all 0.25s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:20px 32px 28px;z-index:199;flex-direction:column;gap:18px;box-shadow:var(--shadow-md);}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{color:var(--navy);text-decoration:none;font-size:0.95rem;font-weight:500;padding:8px 0;border-bottom:1px solid var(--border-light);}
+.mobile-nav .btn-nav{text-align:center;margin-top:8px;}
+
+/* ── BUTTONS ── */
+.btn-primary{background:var(--navy);color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:0.93rem;border:none;cursor:pointer;transition:all 0.2s;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;letter-spacing:-0.01em;}
+.btn-primary:hover{background:var(--navy-mid);transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.btn-secondary{background:transparent;color:var(--navy);padding:14px 30px;border-radius:8px;font-weight:600;font-size:0.93rem;border:1.5px solid var(--border);cursor:pointer;transition:all 0.2s;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+.btn-secondary:hover{border-color:var(--navy);background:rgba(14,28,47,0.04);}
+.btn-gold-lg{
+  background:var(--gold);color:#fff;padding:16px 40px;border-radius:8px;
+  font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all 0.2s;
+  font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  letter-spacing:-0.01em;box-shadow:0 4px 24px rgba(168,128,14,0.3);
+}
+.btn-gold-lg:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 36px rgba(168,128,14,0.4);}
+
+/* ── SCROLL REVEALS ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-d1{transition-delay:0.08s;}
+.reveal-d2{transition-delay:0.16s;}
+.reveal-d3{transition-delay:0.24s;}
+
+/* ── SHARED ── */
+.section-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.16em;color:var(--gold);font-weight:700;margin-bottom:12px;display:block;}
+.section-header{text-align:center;margin-bottom:64px;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);color:var(--navy);font-weight:600;letter-spacing:-0.03em;margin-bottom:14px;line-height:1.18;}
+.section-header p{font-size:1.02rem;color:var(--muted);max-width:500px;margin:0 auto;line-height:1.7;}
+
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.6;transform:scale(1.4);}}
 
 /* ── HERO ── */
-.hero{display:flex;align-items:center;justify-content:center;padding:140px 32px 80px;text-align:center;}
-.hero-inner{max-width:800px;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:99px;padding:6px 16px;font-size:0.75rem;font-weight:600;color:var(--navy);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:32px;}
-.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
-.hero h1{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:var(--navy);margin-bottom:24px;}
-.hero h1 em{font-style:italic;color:var(--gold);}
-.hero p{font-size:1.15rem;color:var(--muted);line-height:1.7;max-width:620px;margin:0 auto 32px;}
-.btn-hero{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;padding:16px 32px;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.2s;}
-.btn-hero:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:120px 0 80px;
+  background:var(--cream);
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+#hero::before{
+  content:'';position:absolute;
+  top:-20%;right:-10%;
+  width:600px;height:600px;
+  background:radial-gradient(ellipse,rgba(168,128,14,0.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:20px;padding:6px 14px;margin-bottom:28px;
+}
+.hero-badge .dot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:pulse-dot 2s infinite;flex-shrink:0;}
+.hero-badge span{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--navy);}
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,5vw,3.8rem);
+  font-weight:600;line-height:1.08;letter-spacing:-0.035em;
+  color:var(--navy);margin-bottom:22px;
+}
+.hero-h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{font-size:1.06rem;color:var(--muted);line-height:1.72;max-width:600px;margin:0 auto 36px;}
+.hero-ctas{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+.trust-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 28px;}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--muted);}
+.trust-check{
+  width:17px;height:17px;background:var(--green-bg);border:1px solid rgba(26,122,94,0.25);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.trust-check svg{width:9px;height:9px;stroke:var(--green);}
 
-/* ── SECTIONS ── */
-.section{padding:80px 32px;max-width:1100px;margin:0 auto;width:100%;}
-.section-header{text-align:center;margin-bottom:56px;}
-.section-header h2{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--navy);font-weight:600;margin-bottom:12px;letter-spacing:-0.02em;}
-.section-header p{font-size:1rem;color:var(--muted);max-width:560px;margin:0 auto;}
+/* ── STATS BAR ── */
+#stats{background:var(--white);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);}
+.stat-item{padding:40px 28px;text-align:center;border-right:1px solid var(--border-light);}
+.stat-item:last-child{border-right:none;}
+.stat-number{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px;letter-spacing:-0.04em;}
+.stat-label{font-size:0.78rem;color:var(--muted);font-weight:500;line-height:1.45;}
 
-/* ── STEPS ── */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
-.step{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:40px 32px;text-align:center;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);}
-.step:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--gold);}
-.step-num{width:48px;height:48px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;margin:0 auto 20px;}
-.step h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);font-weight:600;margin-bottom:12px;}
-.step p{font-size:0.9rem;color:var(--muted);line-height:1.7;}
+/* ── USE CASE CARDS (expandable) ── */
+#use-cases{padding:120px 0;background:var(--cream);}
+.usecase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1000px;margin:0 auto;}
+.usecase-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px 20px;cursor:pointer;transition:all 0.2s;}
+.usecase-card:hover{border-color:var(--gold);box-shadow:0 4px 20px rgba(168,128,14,0.08);transform:translateY(-2px);}
+.usecase-card.open{border-color:var(--gold);background:var(--cream-alt);}
+.usecase-top{display:flex;align-items:center;gap:12px;}
+.usecase-icon{font-size:1.6rem;flex-shrink:0;}
+.usecase-info{flex:1;min-width:0;}
+.usecase-name{font-weight:700;color:var(--navy);font-size:0.88rem;}
+.usecase-count{font-size:0.68rem;color:var(--muted);margin-top:2px;}
+.usecase-arrow{font-size:0.7rem;color:var(--muted);transition:transform 0.2s;flex-shrink:0;}
+.usecase-card.open .usecase-arrow{transform:rotate(180deg);}
+.usecase-list{max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
+.usecase-card.open .usecase-list{max-height:600px;}
+.usecase-list ul{list-style:none;padding:14px 0 0;margin:0;}
+.usecase-list li{font-size:0.78rem;color:var(--muted);padding:6px 0;border-top:1px solid var(--border-light);line-height:1.5;}
+.usecase-list li:first-child{border-top:none;}
+.usecase-list li span{margin-right:6px;}
 
-/* ── GRID CARDS ── */
-.use-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.use-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:36px 28px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);}
-.use-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--gold);}
-.use-card-icon{font-size:28px;margin-bottom:16px;}
-.use-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);font-weight:600;margin-bottom:10px;}
-.use-card p{font-size:0.88rem;color:var(--muted);line-height:1.7;}
+/* ── HOW IT WORKS ── */
+#process{padding:120px 0;background:var(--white);}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.step-card{
+  background:var(--cream);border:1px solid var(--border-light);
+  border-radius:14px;padding:40px 32px;text-align:center;
+  transition:box-shadow 0.25s,transform 0.25s;
+}
+.step-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);}
+.step-num{
+  width:52px;height:52px;border-radius:50%;background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;
+  margin:0 auto 22px;
+}
+.step-card h3{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--navy);font-weight:600;margin-bottom:14px;}
+.step-card p{font-size:0.9rem;color:var(--muted);line-height:1.7;}
 
-/* ── VALUE PROPS ── */
-.values{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
-.value{text-align:center;padding:32px 24px;}
-.value h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);font-weight:600;margin-bottom:12px;}
-.value p{font-size:0.9rem;color:var(--muted);line-height:1.7;}
+/* ── CAPABILITIES GRID ── */
+#capabilities{padding:120px 0;background:var(--cream);}
+.cap-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;max-width:1000px;margin:0 auto;}
+.cap-item{
+  background:var(--white);border:1px solid var(--border-light);
+  border-radius:12px;padding:28px 20px;text-align:center;
+  transition:box-shadow 0.2s,transform 0.2s;
+}
+.cap-item:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:var(--gold);}
+.cap-icon{font-size:1.8rem;margin-bottom:12px;}
+.cap-label{font-size:0.82rem;color:var(--navy);font-weight:600;line-height:1.4;}
 
-/* ── CTA SECTION ── */
-.cta-section{background:var(--navy);padding:80px 32px;text-align:center;margin-top:40px;}
-.cta-section h2{font-family:'Playfair Display',serif;font-size:2.2rem;color:#fff;font-weight:600;margin-bottom:24px;letter-spacing:-0.02em;}
-.btn-cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;padding:16px 32px;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.2s;}
-.btn-cta:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:var(--shadow-md);}
-
-/* ── DIVIDER ── */
-.divider{width:60px;height:3px;background:var(--gold);border-radius:3px;margin:0 auto 56px;}
+/* ── FINAL CTA ── */
+#cta-final{padding:120px 0;background:var(--navy);position:relative;overflow:hidden;text-align:center;}
+#cta-final::before{
+  content:'';position:absolute;top:-40%;left:-20%;
+  width:700px;height:700px;
+  background:radial-gradient(ellipse,rgba(168,128,14,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cta-inner{position:relative;z-index:1;max-width:640px;margin:0 auto;}
+.cta-inner h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,4vw,2.6rem);font-weight:600;color:#fff;
+  letter-spacing:-0.03em;margin-bottom:20px;line-height:1.18;
+}
+.cta-inner p{font-size:1rem;color:rgba(255,255,255,0.55);max-width:480px;margin:0 auto 36px;line-height:1.7;}
+.btn-cta-gold{
+  background:var(--gold);color:#fff;padding:16px 40px;border-radius:8px;
+  font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all 0.2s;
+  font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  box-shadow:0 4px 24px rgba(168,128,14,0.35);
+}
+.btn-cta-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 36px rgba(168,128,14,0.45);}
+.cta-note{font-size:0.85rem;color:rgba(255,255,255,0.4);margin-top:20px;line-height:1.6;}
 
 /* ── FOOTER ── */
-footer{background:var(--navy);padding:40px 32px;text-align:center;}
-footer p{color:rgba(255,255,255,0.4);font-size:0.78rem;}
-footer a{color:rgba(255,255,255,0.6);text-decoration:none;margin:0 12px;font-size:0.82rem;transition:color 0.2s;}
-footer a:hover{color:#fff;}
-.footer-links{margin-bottom:16px;}
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:52px 0 32px;}
+.footer-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:48px;margin-bottom:44px;}
+.footer-brand{flex:1;max-width:280px;}
+.footer-logo-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#fff;}
+.footer-brand p{font-size:0.83rem;color:rgba(255,255,255,0.45);margin-top:10px;line-height:1.7;}
+.footer-links-row{display:flex;gap:28px;align-items:center;flex-wrap:wrap;}
+.footer-links-row a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:color 0.18s;}
+.footer-links-row a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;text-align:center;}
+.footer-bottom p{font-size:0.78rem;color:rgba(255,255,255,0.3);}
 
 /* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .usecase-grid{grid-template-columns:repeat(2,1fr);}
+  .cap-grid{grid-template-columns:repeat(3,1fr);}
+}
 @media(max-width:860px){
-  .steps,.use-grid,.values{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto;}
-  .hero h1{font-size:2.6rem;}
   .nav-links a:not(.btn-nav){display:none;}
+  .hamburger{display:flex;}
+  .steps-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .stat-item:nth-child(2){border-right:none;}
+  .footer-inner{flex-direction:column;gap:28px;}
+}
+@media(max-width:768px){
+  .usecase-grid{grid-template-columns:1fr;}
+  .cap-grid{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:480px){
-  .hero h1{font-size:2rem;}
-  .hero{padding:110px 20px 50px;}
-  .section{padding:60px 20px;}
-  .cta-section{padding:60px 20px;}
+  .hero-h1{font-size:2rem;}
+  #hero{padding:100px 0 60px;}
+  #use-cases,#process,#capabilities,#cta-final{padding:80px 0;}
+  .cap-grid{grid-template-columns:repeat(2,1fr);}
+  .stats-grid{grid-template-columns:1fr;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border-light);}
+  .stat-item:last-child{border-bottom:none;}
 }
-
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.reveal.visible{opacity:1;transform:translateY(0);}
 </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav>
-  <div class="nav-inner">
+  <div class="container">
     <a href="index.html" class="logo">
-      <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-      <span class="logo-name">SPEC</span>
+      <img src="logo-icon.svg" alt="SPEC" class="logo-img" onerror="this.style.display='none'">
+      <span class="logo-name"><span class="logo-back">&larr;</span> SPEC Custom</span>
     </a>
     <div class="nav-links">
-      <a href="about.html">About</a>
+      <a href="#use-cases">Use Cases</a>
+      <a href="#process">Process</a>
       <a href="contact.html">Contact</a>
       <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-nav">Book a Call</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#use-cases">Use Cases</a>
+  <a href="#process">Process</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-nav">Book a Call</a>
+</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner reveal">
-    <div class="hero-badge"><span class="dot"></span> Custom AI Solutions</div>
-    <h1>AI agents built for <em>your</em> workflow.</h1>
-    <p>Every business is different. We design, build, and deploy custom AI agents that plug into your existing tools and automate the work you don't have time for.</p>
-    <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-hero">Book a Discovery Call <span>&#8594;</span></a>
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner reveal">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>Custom AI Agents &middot; Any Business</span>
+      </div>
+      <h1 class="hero-h1">Tell us what to automate.<br>We'll build the <em>agent.</em></h1>
+      <p class="hero-sub">Every business has repetitive work that eats up time. We design and deploy AI agents that handle it &mdash; automatically, 24/7, in your existing tools.</p>
+      <div class="hero-ctas">
+        <a href="#use-cases" class="btn-primary">See Use Cases <span>&rarr;</span></a>
+        <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-secondary">Book a Call</a>
+      </div>
+      <div class="trust-bar">
+        <div class="trust-item">
+          <div class="trust-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Works with Gmail, Slack, QuickBooks, Salesforce, and 200+ tools
+        </div>
+        <div class="trust-item">
+          <div class="trust-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Deployed in under 2 weeks
+        </div>
+        <div class="trust-item">
+          <div class="trust-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          No coding required from you
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<div class="section reveal">
-  <div class="section-header">
-    <h2>How It Works</h2>
-    <p>Three steps from bottleneck to breakthrough.</p>
-  </div>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h3>Discovery Call</h3>
-      <p>We learn your business, your tools, your bottlenecks. 30 minutes.</p>
+<!-- ── STATS BAR ── -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-number">200+</div>
+      <div class="stat-label">Tools we integrate with</div>
     </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h3>We Build It</h3>
-      <p>Custom agents designed for your exact workflow. You review and approve.</p>
+    <div class="stat-item reveal reveal-d1">
+      <div class="stat-number">2 wks</div>
+      <div class="stat-label">Average deployment time</div>
     </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h3>It Runs</h3>
-      <p>Your agents go live. We monitor, optimize, and support.</p>
+    <div class="stat-item reveal reveal-d2">
+      <div class="stat-number">24/7</div>
+      <div class="stat-label">Your agents never sleep</div>
+    </div>
+    <div class="stat-item reveal reveal-d3">
+      <div class="stat-number">$0</div>
+      <div class="stat-label">Coding required from you</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- WHAT WE CAN BUILD -->
-<div class="section reveal">
-  <div class="section-header">
-    <h2>What We Can Build</h2>
-    <p>If it's repetitive, we can automate it.</p>
-  </div>
-  <div class="use-grid">
-    <div class="use-card">
-      <div class="use-card-icon">📈</div>
-      <h3>Sales Automation</h3>
-      <p>Lead scoring, outreach, follow-ups, proposal generation.</p>
+<!-- ── USE CASES ── -->
+<section id="use-cases">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Use Cases</span>
+      <h2>What can we build for you?</h2>
+      <p>Click any category to see what's possible. If it's repetitive, we can automate it.</p>
     </div>
-    <div class="use-card">
-      <div class="use-card-icon">⚙️</div>
-      <h3>Operations</h3>
-      <p>Job scheduling, team coordination, inventory management.</p>
-    </div>
-    <div class="use-card">
-      <div class="use-card-icon">💬</div>
-      <h3>Client Communication</h3>
-      <p>Automated updates, review requests, check-ins.</p>
-    </div>
-    <div class="use-card">
-      <div class="use-card-icon">📊</div>
-      <h3>Internal Tools</h3>
-      <p>Custom dashboards, reporting, data analysis.</p>
-    </div>
-    <div class="use-card">
-      <div class="use-card-icon">🛟</div>
-      <h3>Support</h3>
-      <p>Ticket routing, FAQ bots, escalation handling.</p>
-    </div>
-    <div class="use-card">
-      <div class="use-card-icon">🔗</div>
-      <h3>Integrations</h3>
-      <p>Connect your CRM, email, calendar, accounting &mdash; we build the bridge.</p>
-    </div>
-  </div>
-</div>
+    <div class="usecase-grid reveal">
 
-<!-- WHY SPEC CUSTOM -->
-<div class="section reveal">
-  <div class="section-header">
-    <h2>Why SPEC Custom</h2>
-  </div>
-  <div class="values">
-    <div class="value">
-      <h3>Built by the team behind SPEC Systems</h3>
-      <p>Not freelancers. The same engineers who built a 16-agent CRM from scratch.</p>
-    </div>
-    <div class="value">
-      <h3>Plugs into what you have</h3>
-      <p>Gmail, Slack, QuickBooks, Salesforce, whatever you use &mdash; we make it work together.</p>
-    </div>
-    <div class="value">
-      <h3>Ongoing optimization</h3>
-      <p>We don't just build and leave. Your agents get smarter over time.</p>
-    </div>
-  </div>
-</div>
+      <div class="usecase-card" onclick="this.classList.toggle('open')">
+        <div class="usecase-top">
+          <div class="usecase-icon">📈</div>
+          <div class="usecase-info"><div class="usecase-name">Sales &amp; Lead Management</div><div class="usecase-count">5 automations</div></div>
+          <div class="usecase-arrow">&#9660;</div>
+        </div>
+        <div class="usecase-list"><ul>
+          <li><span>&#9672;</span> AI qualifies inbound leads and scores them automatically</li>
+          <li><span>&#9672;</span> Personalized follow-up sequences that stop when the lead replies</li>
+          <li><span>&#9672;</span> Meeting scheduling &mdash; AI coordinates calendars and sends confirmations</li>
+          <li><span>&#9672;</span> Pipeline monitoring &mdash; alerts when deals go cold or need attention</li>
+          <li><span>&#9672;</span> Win/loss analysis &mdash; AI reviews closed deals and identifies patterns</li>
+        </ul></div>
+      </div>
 
-<!-- CTA -->
-<div class="cta-section reveal">
-  <h2>Ready to automate your workflow?</h2>
-  <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-cta">Book a Discovery Call <span>&#8594;</span></a>
-</div>
+      <div class="usecase-card" onclick="this.classList.toggle('open')">
+        <div class="usecase-top">
+          <div class="usecase-icon">🛟</div>
+          <div class="usecase-info"><div class="usecase-name">Customer Support</div><div class="usecase-count">5 automations</div></div>
+          <div class="usecase-arrow">&#9660;</div>
+        </div>
+        <div class="usecase-list"><ul>
+          <li><span>&#9672;</span> AI answers support tickets using your knowledge base</li>
+          <li><span>&#9672;</span> Smart routing &mdash; complex issues escalate to the right human</li>
+          <li><span>&#9672;</span> Response drafting &mdash; AI writes replies, human clicks send</li>
+          <li><span>&#9672;</span> SLA monitoring &mdash; alerts before deadlines are missed</li>
+          <li><span>&#9672;</span> Customer sentiment tracking across all conversations</li>
+        </ul></div>
+      </div>
 
+      <div class="usecase-card" onclick="this.classList.toggle('open')">
+        <div class="usecase-top">
+          <div class="usecase-icon">&#9881;&#65039;</div>
+          <div class="usecase-info"><div class="usecase-name">Operations &amp; Logistics</div><div class="usecase-count">5 automations</div></div>
+          <div class="usecase-arrow">&#9660;</div>
+        </div>
+        <div class="usecase-list"><ul>
+          <li><span>&#9672;</span> Inventory monitoring &mdash; alerts when stock is low, auto-generates POs</li>
+          <li><span>&#9672;</span> Vendor communication &mdash; AI sends RFQs, compares quotes, tracks deliveries</li>
+          <li><span>&#9672;</span> Quality control checklists &mdash; digital sign-offs with photo documentation</li>
+          <li><span>&#9672;</span> Process automation &mdash; any repetitive workflow turned into an AI agent</li>
+          <li><span>&#9672;</span> Equipment maintenance scheduling &mdash; predictive alerts based on usage</li>
+        </ul></div>
+      </div>
+
+      <div class="usecase-card" onclick="this.classList.toggle('open')">
+        <div class="usecase-top">
+          <div class="usecase-icon">👥</div>
+          <div class="usecase-info"><div class="usecase-name">HR &amp; Recruiting</div><div class="usecase-count">4 automations</div></div>
+          <div class="usecase-arrow">&#9660;</div>
+        </div>
+        <div class="usecase-list"><ul>
+          <li><span>&#9672;</span> Resume screening &mdash; AI shortlists candidates based on your criteria</li>
+          <li><span>&#9672;</span> Interview scheduling &mdash; coordinates between candidates and hiring managers</li>
+          <li><span>&#9672;</span> Onboarding automation &mdash; sends docs, sets up accounts, assigns training</li>
+          <li><span>&#9672;</span> Employee FAQ bot &mdash; answers HR policy questions instantly</li>
+        </ul></div>
+      </div>
+
+      <div class="usecase-card" onclick="this.classList.toggle('open')">
+        <div class="usecase-top">
+          <div class="usecase-icon">💰</div>
+          <div class="usecase-info"><div class="usecase-name">Finance &amp; Accounting</div><div class="usecase-count">4 automations</div></div>
+          <div class="usecase-arrow">&#9660;</div>
+        </div>
+        <div class="usecase-list"><ul>
+          <li><span>&#9672;</span> Invoice processing &mdash; AI extracts data, matches POs, flags discrepancies</li>
+          <li><span>&#9672;</span> Payment chasing &mdash; automated follow-ups on overdue invoices</li>
+          <li><span>&#9672;</span> Expense categorization &mdash; AI sorts transactions for bookkeeping</li>
+          <li><span>&#9672;</span> Financial reporting &mdash; weekly/monthly reports generated automatically</li>
+        </ul></div>
+      </div>
+
+      <div class="usecase-card" onclick="this.classList.toggle('open')">
+        <div class="usecase-top">
+          <div class="usecase-icon">📊</div>
+          <div class="usecase-info"><div class="usecase-name">Data &amp; Analytics</div><div class="usecase-count">4 automations</div></div>
+          <div class="usecase-arrow">&#9660;</div>
+        </div>
+        <div class="usecase-list"><ul>
+          <li><span>&#9672;</span> Dashboard monitoring &mdash; AI watches KPIs and alerts on anomalies</li>
+          <li><span>&#9672;</span> Report generation &mdash; scheduled or on-demand business reports</li>
+          <li><span>&#9672;</span> Data cleanup &mdash; AI identifies duplicates, missing fields, inconsistencies</li>
+          <li><span>&#9672;</span> Competitive intelligence &mdash; monitors competitor pricing and activity</li>
+        </ul></div>
+      </div>
+
+      <div class="usecase-card" onclick="this.classList.toggle('open')">
+        <div class="usecase-top">
+          <div class="usecase-icon">📢</div>
+          <div class="usecase-info"><div class="usecase-name">Marketing &amp; Content</div><div class="usecase-count">4 automations</div></div>
+          <div class="usecase-arrow">&#9660;</div>
+        </div>
+        <div class="usecase-list"><ul>
+          <li><span>&#9672;</span> Social media scheduling &mdash; AI generates posts from your content</li>
+          <li><span>&#9672;</span> Email campaign management &mdash; personalized sequences based on behavior</li>
+          <li><span>&#9672;</span> Review management &mdash; monitors and responds to online reviews</li>
+          <li><span>&#9672;</span> Content repurposing &mdash; turns one piece of content into 10 formats</li>
+        </ul></div>
+      </div>
+
+      <div class="usecase-card" onclick="this.classList.toggle('open')">
+        <div class="usecase-top">
+          <div class="usecase-icon">🏠</div>
+          <div class="usecase-info"><div class="usecase-name">Real Estate &amp; Property</div><div class="usecase-count">4 automations</div></div>
+          <div class="usecase-arrow">&#9660;</div>
+        </div>
+        <div class="usecase-list"><ul>
+          <li><span>&#9672;</span> Tenant communication &mdash; AI handles maintenance requests and updates</li>
+          <li><span>&#9672;</span> Lease management &mdash; renewal reminders, rent collection follow-ups</li>
+          <li><span>&#9672;</span> Property listing syndication &mdash; distribute listings across platforms</li>
+          <li><span>&#9672;</span> Market analysis &mdash; AI monitors comps and price trends</li>
+        </ul></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section id="process">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Process</span>
+      <h2>How it works</h2>
+      <p>Three steps from bottleneck to breakthrough.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <h3>Discovery Call</h3>
+        <p>30-minute call where we map out your workflows and identify what to automate. No prep needed &mdash; just tell us where you're spending too much time.</p>
+      </div>
+      <div class="step-card reveal reveal-d1">
+        <div class="step-num">2</div>
+        <h3>We Build It</h3>
+        <p>Our team designs and deploys your custom agents in under 2 weeks. You approve everything before it goes live. No surprises.</p>
+      </div>
+      <div class="step-card reveal reveal-d2">
+        <div class="step-num">3</div>
+        <h3>It Runs</h3>
+        <p>Your agents work 24/7 inside your existing tools. We monitor, maintain, and improve them over time so they only get better.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CAPABILITIES ── -->
+<section id="capabilities">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Capabilities</span>
+      <h2>What can an agent actually do?</h2>
+      <p>Anything you do repeatedly on a screen, an agent can do faster.</p>
+    </div>
+    <div class="cap-grid reveal">
+      <div class="cap-item">
+        <div class="cap-icon">&#128231;</div>
+        <div class="cap-label">Send and read emails</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">&#128196;</div>
+        <div class="cap-label">Create documents and reports</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">&#128202;</div>
+        <div class="cap-label">Update spreadsheets and databases</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">&#128197;</div>
+        <div class="cap-label">Manage calendars and scheduling</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">&#128172;</div>
+        <div class="cap-label">Respond to messages</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">&#128269;</div>
+        <div class="cap-label">Search and analyze data</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">&#128276;</div>
+        <div class="cap-label">Send alerts and notifications</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">&#128222;</div>
+        <div class="cap-label">Answer and make phone calls</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">&#128722;</div>
+        <div class="cap-label">Process orders and payments</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">&#128279;</div>
+        <div class="cap-label">Connect any tool to any other tool</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section id="cta-final">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2>Every hour your team spends on repetitive work is an hour they're not growing your business.</h2>
+      <a href="https://calendly.com/spencerwalraven5" target="_blank" class="btn-cta-gold">Book a Discovery Call <span>&rarr;</span></a>
+      <p class="cta-note">We'll map your workflows and show you exactly what we'd automate &mdash; no commitment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-links">
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="systems.html">SPEC Systems</a>
-    <a href="custom.html">SPEC Custom</a>
-    <a href="digital.html">SPEC Digital</a>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-name">SPEC</div>
+        <p>AI agents, custom builds, and digital solutions for service businesses that want to grow.</p>
+      </div>
+      <div class="footer-links-row">
+        <a href="index.html">Home</a>
+        <a href="systems.html">SPEC Systems</a>
+        <a href="custom.html">SPEC Custom</a>
+        <a href="digital.html">SPEC Digital</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SPEC. All rights reserved.</p>
+    </div>
   </div>
-  <p>&copy; 2026 SPEC. All rights reserved.</p>
 </footer>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-}, { threshold: 0.08, rootMargin: '-30px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+});
+document.querySelectorAll('.mobile-nav a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+  });
+});
+
+// Scroll reveals
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
