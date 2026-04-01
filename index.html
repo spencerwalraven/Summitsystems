@@ -28,28 +28,31 @@
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
 
 /* ── NAV ── */
-nav{padding:20px 0;background:rgba(247,244,239,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:100;}
+nav{padding:20px 0;background:rgba(14,28,47,0.4);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,0.1);position:fixed;top:0;left:0;right:0;z-index:100;}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .logo-mark{width:38px;height:38px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;}
 .logo-mark svg{width:20px;height:20px;}
-.logo-name{font-weight:700;font-size:1.15rem;color:var(--navy);letter-spacing:-0.02em;}
+.logo-name{font-weight:700;font-size:1.15rem;color:#fff;letter-spacing:-0.02em;}
 .nav-links{display:flex;gap:32px;align-items:center;}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;}
-.nav-links a:hover{color:var(--navy);}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:#fff;}
 .btn-nav{background:var(--gold);color:#fff !important;border:none;padding:10px 22px;border-radius:8px;font-weight:700;font-size:0.85rem;cursor:pointer;transition:all 0.2s;text-decoration:none;}
 .btn-nav:hover{filter:brightness(1.1);transform:translateY(-1px);}
 
 /* ── HERO ── */
-.hero{flex:1;display:flex;align-items:center;justify-content:center;padding:140px 32px 60px;text-align:center;}
-.hero-inner{max-width:800px;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:99px;padding:6px 16px;font-size:0.75rem;font-weight:600;color:var(--navy);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:32px;}
+.hero{position:relative;display:flex;align-items:center;justify-content:center;padding:140px 32px 60px;text-align:center;min-height:85vh;overflow:hidden;}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.hero-overlay{position:absolute;inset:0;background:rgba(14,28,47,0.55);z-index:1;}
+.hero-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,28,47,0.7) 0%,transparent 40%,rgba(14,28,47,0.3) 100%);z-index:1;}
+.hero-inner{max-width:800px;position:relative;z-index:2;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);border-radius:99px;padding:6px 16px;font-size:0.75rem;font-weight:600;color:#fff;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:32px;}
 .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
-.hero h1{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:var(--navy);margin-bottom:24px;}
-.hero h1 em{font-style:italic;color:var(--gold);}
-.hero p{font-size:1.15rem;color:var(--muted);line-height:1.7;max-width:600px;margin:0 auto 16px;}
-.hero-sub{font-size:0.88rem;color:var(--muted);opacity:0.7;margin-bottom:0;}
+.hero h1{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:#fff;margin-bottom:24px;}
+.hero h1 em{font-style:italic;color:var(--gold-light);}
+.hero p{font-size:1.15rem;color:rgba(255,255,255,0.8);line-height:1.7;max-width:600px;margin:0 auto 16px;}
+.hero-sub{font-size:0.88rem;color:rgba(255,255,255,0.6);opacity:0.7;margin-bottom:0;}
 
 /* ── CARDS ── */
 .cards-section{padding:0 32px 100px;}
@@ -126,6 +129,9 @@ footer a:hover{color:#fff;}
 </nav>
 
 <section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline src="spec-hero.mp4"></video>
+  <div class="hero-overlay"></div>
+  <div class="hero-gradient"></div>
   <div class="hero-inner reveal">
     <div class="hero-badge"><span class="dot"></span> AI-Powered Solutions</div>
     <h1>We build systems that <em>run</em> your business.</h1>
