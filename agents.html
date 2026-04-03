@@ -445,7 +445,7 @@ body.portrait-mode .portrait-wrap{display:flex;}
     <p>Zero calls. Zero emails written. Zero admin work. Just results.</p>
     <div class="hero-actions">
       <button class="btn-start" id="btnStart" onclick="handleStartBtn()">▶ Start Demo</button>
-      <button class="btn-portrait" id="btnPortrait" onclick="togglePortrait()">📱 Portrait Mode</button>
+      <button class="btn-portrait" id="btnPortrait" onclick="togglePortrait()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Portrait Mode</button>
     </div>
     <div class="hero-meta" id="heroMeta">← → arrow keys · click any agent to jump</div>
   </div>
@@ -484,7 +484,7 @@ body.portrait-mode .portrait-wrap{display:flex;}
       </div>
       <div class="output-wrap" id="outputWrap">
         <div class="intro-state" id="introState">
-          <span class="big-icon">⚡</span>
+          <span class="big-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
           <h2>See every agent in action</h2>
           <p>A real $1,745 landscaping job — handled start to finish by AI. Hit Start Demo to watch it unfold.</p>
           <div class="intro-grid">
@@ -528,7 +528,7 @@ body.portrait-mode .portrait-wrap{display:flex;}
     <div class="portrait-content">
       <div class="portrait-agent-card" id="pCard">
         <div class="p-agent-header">
-          <span class="p-icon" id="pIcon">⚡</span>
+          <span class="p-icon" id="pIcon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
           <div>
             <div class="p-agent-name" id="pName">Ready to Start</div>
             <div class="p-agent-phase" id="pPhase">Hit Start below</div>
@@ -557,7 +557,7 @@ body.portrait-mode .portrait-wrap{display:flex;}
    =========================== */
 const agents = [
   {
-    id:1, name:"Lead Agent", icon:"⚡", phase:"New Lead",
+    id:1, name:"Lead Agent", icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>', phase:"New Lead",
     timestamp:"Mon 11:47 PM",
     action:"Marcus Webb submitted a lawn care inquiry — scored 91/100. Drafting personalized response...",
     timeSaved:"45 min", rightPanel:"email",
@@ -569,13 +569,13 @@ const agents = [
     }
   },
   {
-    id:2, name:"Nurture Agent", icon:"🔄", phase:"New Lead",
+    id:2, name:"Nurture Agent", icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>', phase:"New Lead",
     timestamp:"Tue 9:00 AM",
     action:"Marcus hasn't replied yet. Launching 3-step nurture sequence — send times optimized for maximum open rates.",
     timeSaved:"1.5 hrs", rightPanel:"sequence",
     sequence:{steps:[
       {day:"Day 1", subject:"Quick question about your lawn, Marcus", status:"Sent"},
-      {day:"Day 3", subject:"Before & after from a job near you 🌿", status:"Scheduled"},
+      {day:"Day 3", subject:'Before & after from a job near you <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M12 22c-4-4-8-7.5-8-12a8 8 0 0116 0c0 4.5-4 8-8 12z"/><path d="M12 10c-2 2-2 4 0 6"/><path d="M12 10c2 2 2 4 0 6"/></svg>', status:"Scheduled"},
       {day:"Day 7", subject:"Last chance — spring slots filling up fast", status:"Scheduled"}
     ]}
   },
@@ -663,7 +663,7 @@ const agents = [
     }
   },
   {
-    id:9, name:"Invoice Agent", icon:"💰", phase:"Job Setup",
+    id:9, name:"Invoice Agent", icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="6" x2="12" y2="18"/><path d="M8.5 9.5a2.5 2.5 0 015 0c0 2.5-5 2.5-5 5a2.5 2.5 0 005 0"/></svg>', phase:"Job Setup",
     timestamp:"Thu 4:53 PM",
     action:"Sending 50% deposit invoice via Stripe. QuickBooks customer record created automatically.",
     timeSaved:"1 hr", rightPanel:"invoice",
@@ -692,7 +692,7 @@ const agents = [
     }
   },
   {
-    id:11, name:"Progress Agent", icon:"📊", phase:"Active Job",
+    id:11, name:"Progress Agent", icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="17" x2="7" y2="13"/><line x1="12" y1="17" x2="12" y2="9"/><line x1="17" y1="17" x2="17" y2="5"/></svg>', phase:"Active Job",
     timestamp:"Fri 5:00 PM",
     action:"Job completed Day 1. Sending progress update to Marcus with job photos and what's next.",
     timeSaved:"45 min", rightPanel:"email",
@@ -764,11 +764,11 @@ const agents = [
     learning:{
       insights:[
         {icon:"📍", text:"Naperville — highest close rate area (87%)"},
-        {icon:"💰", text:"Mulching upsell accepted by 3 of 4 clients (+$840 avg)"},
+        {icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="6" x2="12" y2="18"/><path d="M8.5 9.5a2.5 2.5 0 015 0c0 2.5-5 2.5-5 5a2.5 2.5 0 005 0"/></svg>', text:"Mulching upsell accepted by 3 of 4 clients (+$840 avg)"},
         {icon:"⏱️", text:"Spring cleanups close 2× faster than fall bookings"},
         {icon:"👷", text:"Mike D. — top crew performer this week (4.9★ avg)"},
         {icon:"🔁", text:"Marcus Webb converted to monthly recurring service"},
-        {icon:"📈", text:"Proposals with photos close 34% more often — use more"}
+        {icon:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>', text:"Proposals with photos close 34% more often — use more"}
       ],
       applied:"Pricing model, pitch templates & crew routing updated automatically"
     }
@@ -876,7 +876,7 @@ function restart(){
   boot();
   document.getElementById('outputWrap').innerHTML=`
     <div class="intro-state" id="introState">
-      <span class="big-icon">⚡</span>
+      <span class="big-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
       <h2>See every agent in action</h2>
       <p>A real $1,745 landscaping job — handled start to finish by AI.</p>
       <div class="intro-grid">
@@ -1146,7 +1146,7 @@ function buildSequence(s){
     <div class="seq-active">Active</div>
   </div>
   <div class="seq-steps-list">${steps}</div>
-  <div class="seq-footer">⚡ Timing selected based on open-rate data for landscaping leads</div>
+  <div class="seq-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Timing selected based on open-rate data for landscaping leads</div>
 </div>`;
 }
 
@@ -1175,7 +1175,7 @@ function buildEstimate(e){
   </div>
   ${rows}
   <div class="est-total"><span class="est-total-label">Total Estimate</span><span class="est-total-val">${e.total}</span></div>
-  <div class="est-footer">⚡ ${e.note}</div>
+  <div class="est-footer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${e.note}</div>
 </div>`;
 }
 
@@ -1251,7 +1251,7 @@ function buildInvoice(inv){
     <div class="inv-paid-label">✓ ${inv.status}</div>
     <div class="inv-paid-time">Paid ${inv.paidAt}</div>
   </div>
-  <div class="inv-qb-row">⚡ ${inv.qb}</div>
+  <div class="inv-qb-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> ${inv.qb}</div>
 </div>`;
 }
 
