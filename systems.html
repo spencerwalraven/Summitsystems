@@ -292,13 +292,71 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .agent-card{
   background:var(--cream);border:1px solid var(--border-light);
   border-radius:10px;padding:22px 20px;
-  transition:all 0.2s;position:relative;
+  transition:all 0.35s cubic-bezier(0.22,1,0.36,1);position:relative;overflow:hidden;
 }
 .agent-card:hover{background:var(--white);border-color:var(--border);box-shadow:var(--shadow-md);transform:translateY(-2px);}
 .agent-num{font-size:0.62rem;font-weight:700;color:var(--muted-light);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;}
 .agent-name{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:-0.01em;}
-.agent-desc{font-size:0.78rem;color:var(--muted);line-height:1.55;margin-bottom:12px;}
+.agent-desc{font-size:0.78rem;color:var(--muted);line-height:1.55;margin-bottom:8px;}
 .agent-tag{margin-top:auto;}
+/* Agent mini-demo animations */
+.agent-demo{
+  margin-top:10px;padding-top:10px;border-top:1px solid var(--border-light);
+  min-height:48px;position:relative;overflow:hidden;
+  opacity:0;transform:translateY(8px);
+  transition:opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+}
+.agent-card.active .agent-demo{opacity:1;transform:translateY(0);}
+/* Status dot */
+.agent-status-dot{
+  position:absolute;top:8px;right:0;width:7px;height:7px;border-radius:50%;
+  background:#2a7a5e;opacity:0;transition:opacity 0.4s ease 0.6s;
+}
+.agent-card.active .agent-status-dot{opacity:1;animation:status-breathe 2s ease-in-out infinite;}
+@keyframes status-breathe{0%,100%{opacity:0.6;box-shadow:0 0 0 0 rgba(42,122,94,0.4);}50%{opacity:1;box-shadow:0 0 0 4px rgba(42,122,94,0);}}
+/* Typing animation */
+.demo-typing{font-size:0.7rem;color:var(--muted);font-family:monospace;overflow:hidden;white-space:nowrap;width:0;transition:none;}
+.agent-card.active .demo-typing{animation:typewrite 1.5s steps(40) 0.8s forwards;}
+@keyframes typewrite{from{width:0;}to{width:100%;}}
+/* Bar fill animation */
+.demo-bar-track{height:4px;background:var(--border-light);border-radius:2px;margin-top:6px;overflow:hidden;}
+.demo-bar-fill{height:100%;border-radius:2px;width:0;transition:none;}
+.agent-card.active .demo-bar-fill{animation:barfill 1.2s cubic-bezier(0.22,1,0.36,1) 0.6s forwards;}
+@keyframes barfill{to{width:var(--fill);}}
+/* Count up display */
+.demo-metric{display:flex;align-items:baseline;gap:4px;}
+.demo-metric-num{font-size:1.4rem;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums;}
+.demo-metric-label{font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
+/* Message bubble */
+.demo-msg{
+  font-size:0.68rem;line-height:1.5;color:var(--navy);
+  background:var(--white);border:1px solid var(--border-light);
+  border-radius:8px 8px 8px 2px;padding:6px 10px;
+  max-width:90%;opacity:0;transform:translateY(6px) scale(0.96);
+  transition:opacity 0.4s ease, transform 0.4s ease;
+}
+.agent-card.active .demo-msg{opacity:1;transform:translateY(0) scale(1);transition-delay:0.7s;}
+.demo-msg-reply{border-radius:8px 8px 2px 8px;margin-left:auto;background:var(--gold-bg);border-color:rgba(168,128,14,0.15);transition-delay:1.2s!important;}
+.agent-card.active .demo-msg-reply{opacity:1;transform:translateY(0) scale(1);}
+/* Stacked list items */
+.demo-list-item{
+  display:flex;align-items:center;gap:6px;
+  font-size:0.68rem;color:var(--muted);padding:3px 0;
+  opacity:0;transform:translateX(-8px);
+  transition:opacity 0.3s ease, transform 0.3s ease;
+}
+.demo-list-item .demo-check{color:#2a7a5e;font-weight:700;font-size:0.72rem;}
+.agent-card.active .demo-list-item:nth-child(1){opacity:1;transform:translateX(0);transition-delay:0.6s;}
+.agent-card.active .demo-list-item:nth-child(2){opacity:1;transform:translateX(0);transition-delay:0.8s;}
+.agent-card.active .demo-list-item:nth-child(3){opacity:1;transform:translateX(0);transition-delay:1.0s;}
+/* Doc generation */
+.demo-doc{display:flex;flex-direction:column;gap:4px;}
+.demo-doc-line{height:3px;background:var(--border-light);border-radius:1.5px;width:0;transition:none;}
+.agent-card.active .demo-doc-line:nth-child(1){animation:docline 0.6s ease 0.6s forwards;--dw:100%;}
+.agent-card.active .demo-doc-line:nth-child(2){animation:docline 0.6s ease 0.8s forwards;--dw:85%;}
+.agent-card.active .demo-doc-line:nth-child(3){animation:docline 0.6s ease 1.0s forwards;--dw:70%;}
+.agent-card.active .demo-doc-line:nth-child(4){animation:docline 0.6s ease 1.2s forwards;--dw:90%;}
+@keyframes docline{to{width:var(--dw);background:var(--border);}}
 
 /* ── COMPARISON ── */
 #comparison{padding:120px 0;background:var(--cream);}
@@ -630,104 +688,230 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <p>Each one owns a specific part of your business and runs it without being told.</p>
     </div>
     <div class="agents-grid">
+      <!-- Agent 01 — Lead Agent: typing outreach email -->
       <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 01</div>
         <div class="agent-name">Lead Agent</div>
         <div class="agent-desc">Scores incoming leads, sends personalized outreach in under 60 seconds.</div>
         <div class="agent-tag"><span class="tag tag-gold">Lead &amp; Sales</span></div>
+        <div class="agent-demo">
+          <div class="demo-metric"><span class="demo-metric-num" data-agent-count="47">0</span><span class="demo-metric-label">leads scored today</span></div>
+          <div class="demo-bar-track"><div class="demo-bar-fill" style="--fill:87%;background:var(--gold);"></div></div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d1">
+
+      <!-- Agent 02 — Nurture: message sequence -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 02</div>
         <div class="agent-name">Nurture Agent</div>
         <div class="agent-desc">Sends follow-up sequences automatically. Stops when the lead replies.</div>
         <div class="agent-tag"><span class="tag tag-gold">Lead &amp; Sales</span></div>
+        <div class="agent-demo">
+          <div class="demo-list-item"><span class="demo-check">&#10003;</span> Day 1: Introduction sent</div>
+          <div class="demo-list-item"><span class="demo-check">&#10003;</span> Day 3: Before &amp; after photos</div>
+          <div class="demo-list-item"><span class="demo-check" style="opacity:0.4;">&#8226;</span> Day 7: Final follow-up</div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d2">
+
+      <!-- Agent 03 — Calendly: confirmation message -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 03</div>
         <div class="agent-name">Calendly Agent</div>
         <div class="agent-desc">Detects bookings, sends confirmations, texts the lead, notifies the owner.</div>
         <div class="agent-tag"><span class="tag tag-gold">Lead &amp; Sales</span></div>
+        <div class="agent-demo">
+          <div class="demo-msg">Site visit confirmed for Thursday at 10 AM. See you then!</div>
+          <div class="demo-msg demo-msg-reply" style="margin-top:6px;">Sounds great, thank you!</div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d3">
+
+      <!-- Agent 04 — Email Reply: typing reply -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 04</div>
         <div class="agent-name">Email Reply Agent</div>
         <div class="agent-desc">Reads every inbound email, understands context, replies naturally.</div>
         <div class="agent-tag"><span class="tag tag-gold">Lead &amp; Sales</span></div>
+        <div class="agent-demo">
+          <div class="demo-typing">Re: Backyard project — Hi Jennifer, absolutely we can...</div>
+        </div>
       </div>
 
+      <!-- Agent 05 — Proposal: document generating -->
       <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 05</div>
         <div class="agent-name">Proposal Agent</div>
         <div class="agent-desc">Generates 4-tier proposals (Budget, Mid-Range, High-End, Luxury) after a site visit.</div>
         <div class="agent-tag"><span class="tag tag-blue">Estimates</span></div>
+        <div class="agent-demo">
+          <div class="demo-doc">
+            <div class="demo-doc-line"></div>
+            <div class="demo-doc-line"></div>
+            <div class="demo-doc-line"></div>
+            <div class="demo-doc-line"></div>
+          </div>
+          <div style="font-size:0.65rem;color:var(--muted);margin-top:6px;opacity:0;" class="demo-gen-label">4-tier proposal generated</div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d1">
+
+      <!-- Agent 06 — Estimate: bar chart filling -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 06</div>
         <div class="agent-name">Estimate Agent</div>
         <div class="agent-desc">Builds detailed estimates with materials, labor, margin, and supplier recommendations.</div>
         <div class="agent-tag"><span class="tag tag-blue">Estimates</span></div>
+        <div class="agent-demo">
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:0.65rem;color:var(--muted);"><span style="width:50px;">Materials</span><div class="demo-bar-track" style="flex:1;"><div class="demo-bar-fill" style="--fill:72%;background:#2d4a6e;"></div></div></div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:0.65rem;color:var(--muted);"><span style="width:50px;">Labor</span><div class="demo-bar-track" style="flex:1;"><div class="demo-bar-fill" style="--fill:58%;background:var(--gold);"></div></div></div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:0.65rem;color:var(--muted);"><span style="width:50px;">Margin</span><div class="demo-bar-track" style="flex:1;"><div class="demo-bar-fill" style="--fill:35%;background:#2a7a5e;"></div></div></div>
+          </div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d2">
+
+      <!-- Agent 07 — Follow-up: sequence checklist -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 07</div>
         <div class="agent-name">Proposal Follow-up</div>
         <div class="agent-desc">Follows up on unanswered proposals with a 3-step sequence.</div>
         <div class="agent-tag"><span class="tag tag-blue">Estimates</span></div>
+        <div class="agent-demo">
+          <div class="demo-list-item"><span class="demo-check">&#10003;</span> Friendly check-in (Day 2)</div>
+          <div class="demo-list-item"><span class="demo-check">&#10003;</span> Value reminder (Day 5)</div>
+          <div class="demo-list-item"><span class="demo-check">&#10003;</span> Final nudge (Day 9)</div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d3">
+
+      <!-- Agent 08 — Contract: doc lines -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 08</div>
         <div class="agent-name">Contract Agent</div>
         <div class="agent-desc">Generates contracts from approved proposals, sends for signature.</div>
         <div class="agent-tag"><span class="tag tag-green">Contracts</span></div>
+        <div class="agent-demo">
+          <div class="demo-msg">Contract sent to Marcus Thompson for e-signature</div>
+          <div class="demo-bar-track" style="margin-top:6px;"><div class="demo-bar-fill" style="--fill:100%;background:#2a7a5e;"></div></div>
+        </div>
       </div>
 
+      <!-- Agent 09 — Welcome: checklist -->
       <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 09</div>
         <div class="agent-name">Welcome Agent</div>
         <div class="agent-desc">Sends onboarding info when contract is signed, triggers deposit invoice.</div>
         <div class="agent-tag"><span class="tag tag-green">Contracts</span></div>
+        <div class="agent-demo">
+          <div class="demo-list-item"><span class="demo-check">&#10003;</span> Welcome email sent</div>
+          <div class="demo-list-item"><span class="demo-check">&#10003;</span> Portal link activated</div>
+          <div class="demo-list-item"><span class="demo-check">&#10003;</span> Deposit invoice sent</div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d1">
+
+      <!-- Agent 10 — Job Planning: phases -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 10</div>
         <div class="agent-name">Job Planning Agent</div>
         <div class="agent-desc">Breaks jobs into phases, assigns tasks, notifies subcontractors.</div>
         <div class="agent-tag"><span class="tag tag-blue">Job Management</span></div>
+        <div class="agent-demo">
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:0.65rem;color:var(--muted);"><span style="width:50px;">Phase 1</span><div class="demo-bar-track" style="flex:1;"><div class="demo-bar-fill" style="--fill:100%;background:#2a7a5e;"></div></div></div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:0.65rem;color:var(--muted);"><span style="width:50px;">Phase 2</span><div class="demo-bar-track" style="flex:1;"><div class="demo-bar-fill" style="--fill:65%;background:var(--gold);"></div></div></div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:0.65rem;color:var(--muted);"><span style="width:50px;">Phase 3</span><div class="demo-bar-track" style="flex:1;"><div class="demo-bar-fill" style="--fill:15%;background:#2d4a6e;"></div></div></div>
+          </div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d2">
+
+      <!-- Agent 11 — Client: chat bubbles -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 11</div>
         <div class="agent-name">Client Agent</div>
         <div class="agent-desc">Sends weekly progress updates, handles inbound messages, runs satisfaction checks.</div>
         <div class="agent-tag"><span class="tag tag-blue">Job Management</span></div>
+        <div class="agent-demo">
+          <div class="demo-msg">Week 2 update: Hardscaping 100% complete. Planting begins Monday.</div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d3">
+
+      <!-- Agent 12 — Invoice: metric counter -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 12</div>
         <div class="agent-name">Invoice Agent</div>
         <div class="agent-desc">Generates deposit and final invoices, follows up automatically if unpaid.</div>
         <div class="agent-tag"><span class="tag tag-orange">Finance</span></div>
+        <div class="agent-demo">
+          <div class="demo-metric"><span class="demo-metric-num" data-agent-count="2460" data-agent-prefix="$">$0</span><span class="demo-metric-label">collected this week</span></div>
+          <div class="demo-bar-track"><div class="demo-bar-fill" style="--fill:100%;background:#2a7a5e;"></div></div>
+        </div>
       </div>
 
+      <!-- Agent 13 — Completion: review stars -->
       <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 13</div>
         <div class="agent-name">Completion Agent</div>
         <div class="agent-desc">Handles job closeout, requests Google reviews, schedules 30-day check-in.</div>
         <div class="agent-tag"><span class="tag tag-purple">Growth</span></div>
+        <div class="agent-demo">
+          <div class="demo-list-item"><span class="demo-check">&#10003;</span> Job marked complete</div>
+          <div class="demo-list-item"><span class="demo-check">&#10003;</span> Review request sent</div>
+          <div class="demo-list-item"><span class="demo-check">&#10003;</span> 30-day check-in scheduled</div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d1">
+
+      <!-- Agent 14 — Marketing: campaign metrics -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 14</div>
         <div class="agent-name">Marketing Agent</div>
         <div class="agent-desc">Monthly performance reports, re-engagement campaigns, referral campaigns.</div>
         <div class="agent-tag"><span class="tag tag-purple">Growth</span></div>
+        <div class="agent-demo">
+          <div style="display:flex;gap:12px;">
+            <div><div class="demo-metric-num" style="font-size:1.1rem;" data-agent-count="34">0</div><div class="demo-metric-label">open rate %</div></div>
+            <div><div class="demo-metric-num" style="font-size:1.1rem;" data-agent-count="12">0</div><div class="demo-metric-label">re-engaged</div></div>
+          </div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d2">
+
+      <!-- Agent 15 — Learning: progress bar -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 15</div>
         <div class="agent-name">Learning Agent</div>
         <div class="agent-desc">Analyzes completed jobs, identifies pricing patterns, improves future estimates.</div>
         <div class="agent-tag"><span class="tag tag-purple">Growth</span></div>
+        <div class="agent-demo">
+          <div class="demo-metric"><span class="demo-metric-num" data-agent-count="92">0</span><span class="demo-metric-label">% estimate accuracy</span></div>
+          <div class="demo-bar-track"><div class="demo-bar-fill" style="--fill:92%;background:var(--gold);"></div></div>
+        </div>
       </div>
-      <div class="agent-card reveal reveal-d3">
+
+      <!-- Agent 16 — Performance: crew scores -->
+      <div class="agent-card reveal">
+        <div class="agent-status-dot"></div>
         <div class="agent-num">Agent 16</div>
         <div class="agent-name">Performance Agent</div>
         <div class="agent-desc">Tracks team performance, crew scores, job phase completion.</div>
         <div class="agent-tag"><span class="tag tag-purple">Growth</span></div>
+        <div class="agent-demo">
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:0.65rem;color:var(--muted);"><span style="width:50px;">Crew A</span><div class="demo-bar-track" style="flex:1;"><div class="demo-bar-fill" style="--fill:94%;background:#2a7a5e;"></div></div></div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:0.65rem;color:var(--muted);"><span style="width:50px;">Crew B</span><div class="demo-bar-track" style="flex:1;"><div class="demo-bar-fill" style="--fill:78%;background:var(--gold);"></div></div></div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:0.65rem;color:var(--muted);"><span style="width:50px;">Crew C</span><div class="demo-bar-track" style="flex:1;"><div class="demo-bar-fill" style="--fill:85%;background:#2d4a6e;"></div></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1214,8 +1398,39 @@ document.querySelectorAll('.pain-card').forEach((card, i) => {
   card.style.transitionDelay = (i * 0.12) + 's';
 });
 
-// Staggered agent cards
-document.querySelectorAll('.agent-card, .addon-card').forEach((card, i) => {
+// Staggered agent cards with activation
+const agentObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.classList.contains('active')) {
+      entry.target.classList.add('active');
+      // Animate mini counters inside this card
+      entry.target.querySelectorAll('[data-agent-count]').forEach(el => {
+        const target = parseInt(el.getAttribute('data-agent-count')) || 0;
+        const prefix = el.getAttribute('data-agent-prefix') || '';
+        const dur = 1200;
+        const start = performance.now();
+        function tick(now) {
+          const p = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = prefix + Math.round(eased * target).toLocaleString();
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        setTimeout(() => requestAnimationFrame(tick), 800);
+      });
+      // Show gen label if present
+      const genLabel = entry.target.querySelector('.demo-gen-label');
+      if (genLabel) setTimeout(() => { genLabel.style.opacity = '1'; genLabel.style.transition = 'opacity 0.4s ease'; }, 1400);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.agent-card').forEach((card, i) => {
+  card.style.transitionDelay = (i % 4 * 0.1) + 's';
+  agentObserver.observe(card);
+});
+
+// Staggered addon cards
+document.querySelectorAll('.addon-card').forEach((card, i) => {
   card.style.transitionDelay = (i * 0.08) + 's';
 });
 
