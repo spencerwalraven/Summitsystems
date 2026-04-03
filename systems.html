@@ -1064,10 +1064,10 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let w, h, particles = [];
-  const COUNT = 80;
-  const DIST = 150;
-  const GOLD = { r: 168, g: 128, b: 14 };
-  const WHITE = { r: 200, g: 200, b: 210 };
+  const COUNT = 140;
+  const DIST = 200;
+  const GOLD = { r: 198, g: 158, b: 44 };
+  const WHITE = { r: 220, g: 220, b: 230 };
 
   function resize() {
     const rect = canvas.parentElement.getBoundingClientRect();
@@ -1081,13 +1081,13 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   function init() {
     particles = [];
     for (let i = 0; i < COUNT; i++) {
-      const isGold = Math.random() < 0.15;
+      const isGold = Math.random() < 0.2;
       particles.push({
         x: Math.random() * w, y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-        r: isGold ? 2.2 : (Math.random() * 1.2 + 0.6),
+        vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5,
+        r: isGold ? 3 : (Math.random() * 1.8 + 0.8),
         color: isGold ? GOLD : WHITE,
-        alpha: isGold ? 0.8 : (Math.random() * 0.4 + 0.15),
+        alpha: isGold ? 0.9 : (Math.random() * 0.5 + 0.25),
         isGold: isGold,
         phase: Math.random() * Math.PI * 2
       });
@@ -1110,12 +1110,12 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
         const dy = particles[i].y - particles[j].y;
         const d = Math.sqrt(dx * dx + dy * dy);
         if (d < DIST) {
-          const op = (1 - d / DIST) * 0.12;
+          const op = (1 - d / DIST) * 0.25;
           const gold = particles[i].isGold || particles[j].isGold;
           ctx.strokeStyle = gold
-            ? 'rgba(168,128,14,' + (op * 2.5) + ')'
-            : 'rgba(200,200,210,' + op + ')';
-          ctx.lineWidth = 0.5;
+            ? 'rgba(198,158,44,' + (op * 2) + ')'
+            : 'rgba(220,220,230,' + op + ')';
+          ctx.lineWidth = gold ? 1 : 0.7;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
@@ -1126,17 +1126,17 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
     // Dots
     for (const p of particles) {
       let a = p.alpha;
-      if (p.isGold) a = 0.5 + Math.sin(t * 0.001 + p.phase) * 0.3;
+      if (p.isGold) a = 0.6 + Math.sin(t * 0.0015 + p.phase) * 0.35;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(' + p.color.r + ',' + p.color.g + ',' + p.color.b + ',' + a + ')';
       ctx.fill();
       if (p.isGold) {
-        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
-        g.addColorStop(0, 'rgba(168,128,14,' + (a * 0.3) + ')');
-        g.addColorStop(1, 'rgba(168,128,14,0)');
+        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 6);
+        g.addColorStop(0, 'rgba(198,158,44,' + (a * 0.4) + ')');
+        g.addColorStop(1, 'rgba(198,158,44,0)');
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.r * 6, 0, Math.PI * 2);
         ctx.fillStyle = g;
         ctx.fill();
       }
