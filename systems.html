@@ -292,8 +292,11 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .agent-card{
   background:var(--cream);border:1px solid var(--border-light);
   border-radius:10px;padding:22px 20px;
-  transition:all 0.35s cubic-bezier(0.22,1,0.36,1);position:relative;overflow:hidden;
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(30px) scale(0.97);
+  transition:opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1), background 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
+.agent-card.visible{opacity:1;transform:translateY(0) scale(1);}
 .agent-card:hover{background:var(--white);border-color:var(--border);box-shadow:var(--shadow-md);transform:translateY(-2px);}
 .agent-num{font-size:0.62rem;font-weight:700;color:var(--muted-light);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;}
 .agent-name{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:-0.01em;}
@@ -1398,34 +1401,54 @@ document.querySelectorAll('.pain-card').forEach((card, i) => {
   card.style.transitionDelay = (i * 0.12) + 's';
 });
 
-// Staggered agent cards with activation
+// Agent cards — sequential scroll-triggered activation
+let agentQueue = [];
+let agentRunning = false;
+
+function activateAgent(card) {
+  card.classList.add('visible');
+  card.classList.add('active');
+  // Animate counters
+  card.querySelectorAll('[data-agent-count]').forEach(el => {
+    const target = parseInt(el.getAttribute('data-agent-count')) || 0;
+    const prefix = el.getAttribute('data-agent-prefix') || '';
+    const dur = 1200;
+    const start = performance.now();
+    function tick(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(eased * target).toLocaleString();
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    setTimeout(() => requestAnimationFrame(tick), 400);
+  });
+  const genLabel = card.querySelector('.demo-gen-label');
+  if (genLabel) setTimeout(() => { genLabel.style.opacity = '1'; genLabel.style.transition = 'opacity 0.4s ease'; }, 1000);
+}
+
+function processAgentQueue() {
+  if (agentRunning || agentQueue.length === 0) return;
+  agentRunning = true;
+  const card = agentQueue.shift();
+  activateAgent(card);
+  setTimeout(() => {
+    agentRunning = false;
+    processAgentQueue();
+  }, 200);
+}
+
 const agentObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting && !entry.target.classList.contains('active')) {
-      entry.target.classList.add('active');
-      // Animate mini counters inside this card
-      entry.target.querySelectorAll('[data-agent-count]').forEach(el => {
-        const target = parseInt(el.getAttribute('data-agent-count')) || 0;
-        const prefix = el.getAttribute('data-agent-prefix') || '';
-        const dur = 1200;
-        const start = performance.now();
-        function tick(now) {
-          const p = Math.min((now - start) / dur, 1);
-          const eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = prefix + Math.round(eased * target).toLocaleString();
-          if (p < 1) requestAnimationFrame(tick);
-        }
-        setTimeout(() => requestAnimationFrame(tick), 800);
-      });
-      // Show gen label if present
-      const genLabel = entry.target.querySelector('.demo-gen-label');
-      if (genLabel) setTimeout(() => { genLabel.style.opacity = '1'; genLabel.style.transition = 'opacity 0.4s ease'; }, 1400);
+      agentQueue.push(entry.target);
+      processAgentQueue();
     }
   });
-}, { threshold: 0.3 });
+}, { threshold: 0.15 });
 
 document.querySelectorAll('.agent-card').forEach((card, i) => {
-  card.style.transitionDelay = (i % 4 * 0.1) + 's';
+  // Remove the reveal class delays — we control timing via queue
+  card.style.transitionDelay = '0s';
   agentObserver.observe(card);
 });
 
