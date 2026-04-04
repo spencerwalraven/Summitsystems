@@ -40,8 +40,51 @@ nav{padding:20px 0;background:rgba(247,244,239,0.96);backdrop-filter:blur(24px);
 .btn-nav{background:var(--gold);color:#fff !important;border:none;padding:10px 22px;border-radius:8px;font-weight:700;font-size:0.85rem;cursor:pointer;transition:all 0.2s;text-decoration:none;}
 .btn-nav:hover{filter:brightness(1.1);transform:translateY(-1px);}
 
+/* ── Hero Wireframe SVG ── */
+.hero-wireframe{
+  position:absolute;inset:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;opacity:0.45;
+}
+.wf{fill:none;stroke:rgba(14,28,47,0.1);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:600;stroke-dashoffset:600;}
+.wf-fill{fill:rgba(14,28,47,0.03);stroke:rgba(14,28,47,0.08);stroke-width:1;
+  opacity:0;}
+/* Browser frame */
+.wf-frame{animation:wf-draw 2s cubic-bezier(0.22,1,0.36,1) 0.1s forwards;}
+.wf-dots{opacity:0;animation:wf-in 0.3s ease 0.6s forwards;}
+/* Nav bar */
+.wf-nav{animation:wf-draw 1.5s cubic-bezier(0.22,1,0.36,1) 0.8s forwards;}
+.wf-nav-items .wf-fill{animation:wf-in 0.3s ease 1.2s forwards;}
+.wf-nav-items .wf-fill:nth-child(2){animation-delay:1.3s;}
+.wf-nav-items .wf-fill:nth-child(3){animation-delay:1.4s;}
+.wf-nav-items .wf-fill:nth-child(4){animation-delay:1.5s;}
+/* Hero block */
+.wf-hero-block{animation:wf-in 0.6s ease 1.6s forwards;}
+/* Content cards */
+.wf-card-1{animation:wf-in 0.4s ease 2.2s forwards;}
+.wf-card-2{animation:wf-in 0.4s ease 2.4s forwards;}
+.wf-card-3{animation:wf-in 0.4s ease 2.6s forwards;}
+/* Text lines */
+.wf-line{stroke-dasharray:300;stroke-dashoffset:300;}
+.wf-l1{animation:wf-draw 1.5s ease 2.8s forwards;}
+.wf-l2{animation:wf-draw 1.3s ease 3s forwards;}
+.wf-l3{animation:wf-draw 1s ease 3.2s forwards;}
+.wf-l4{animation:wf-draw 1.2s ease 3.1s forwards;}
+/* CTA button */
+.wf-cta{animation:wf-in 0.4s ease 3.4s forwards;}
+/* Separator */
+.wf-sep{animation:wf-draw 1.5s ease 2.6s forwards;}
+/* Gold accents */
+.wf-gold{fill:rgba(168,128,14,0.3);opacity:0;}
+.wf-g1{animation:wf-goldIn 0.5s ease 1.8s forwards;}
+.wf-g2{animation:wf-goldIn 0.5s ease 2.5s forwards;}
+.wf-g3{animation:wf-goldIn 0.5s ease 3.5s forwards;}
+@keyframes wf-draw{to{stroke-dashoffset:0;}}
+@keyframes wf-in{to{opacity:1;}}
+@keyframes wf-goldIn{0%{opacity:0;r:0;}60%{opacity:1;r:5;}100%{opacity:1;r:4;}}
+
 /* ── HERO ── */
-.hero{display:flex;align-items:center;justify-content:center;padding:140px 32px 80px;text-align:center;}
+.hero{display:flex;align-items:center;justify-content:center;padding:140px 32px 80px;text-align:center;position:relative;overflow:hidden;}
 .hero-inner{max-width:800px;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:99px;padding:6px 16px;font-size:0.75rem;font-weight:600;color:var(--navy);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:32px;}
 .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
@@ -153,7 +196,56 @@ footer a:hover{color:#fff;}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner reveal">
+  <svg class="hero-wireframe" viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Browser frame -->
+    <rect class="wf wf-frame" x="200" y="60" width="1000" height="580" rx="12" />
+    <!-- Browser top bar -->
+    <line class="wf wf-nav" x1="200" y1="100" x2="1200" y2="100" />
+    <!-- Browser dots -->
+    <g class="wf-dots">
+      <circle cx="228" cy="80" r="5" fill="rgba(14,28,47,0.12)" />
+      <circle cx="248" cy="80" r="5" fill="rgba(14,28,47,0.12)" />
+      <circle cx="268" cy="80" r="5" fill="rgba(14,28,47,0.12)" />
+    </g>
+    <!-- Nav menu items -->
+    <g class="wf-nav-items">
+      <rect class="wf-fill" x="900" y="74" width="40" height="10" rx="3" />
+      <rect class="wf-fill" x="950" y="74" width="50" height="10" rx="3" />
+      <rect class="wf-fill" x="1010" y="74" width="35" height="10" rx="3" />
+      <rect class="wf-fill" x="1055" y="74" width="60" height="10" rx="3" fill="rgba(168,128,14,0.12)" stroke="rgba(168,128,14,0.15)" />
+    </g>
+    <!-- Hero image block -->
+    <rect class="wf-fill wf-hero-block" x="240" y="120" width="920" height="220" rx="8" />
+    <!-- Gold accent on hero -->
+    <circle class="wf-gold wf-g1" cx="700" cy="230" r="4" />
+    <!-- Content cards row -->
+    <rect class="wf-fill wf-card-1" x="240" y="360" width="290" height="120" rx="8" />
+    <rect class="wf-fill wf-card-2" x="550" y="360" width="290" height="120" rx="8" />
+    <rect class="wf-fill wf-card-3" x="860" y="360" width="290" height="120" rx="8" />
+    <!-- Gold accent on cards -->
+    <circle class="wf-gold wf-g2" cx="385" cy="420" r="4" />
+    <!-- Separator line -->
+    <line class="wf wf-sep" x1="280" y1="500" x2="1120" y2="500" />
+    <!-- Text paragraph lines -->
+    <line class="wf wf-line wf-l1" x1="280" y1="525" x2="820" y2="525" />
+    <line class="wf wf-line wf-l2" x1="280" y1="545" x2="740" y2="545" />
+    <line class="wf wf-line wf-l3" x1="280" y1="565" x2="620" y2="565" />
+    <!-- CTA button -->
+    <rect class="wf-fill wf-cta" x="280" y="585" width="120" height="30" rx="6" fill="rgba(168,128,14,0.08)" stroke="rgba(168,128,14,0.15)" />
+    <!-- Gold accent on CTA -->
+    <circle class="wf-gold wf-g3" cx="340" cy="600" r="4" />
+    <!-- Second wireframe (partial, right edge - suggests more pages) -->
+    <rect class="wf wf-frame" x="1240" y="100" width="300" height="500" rx="10" style="animation-delay:1s;" />
+    <line class="wf wf-nav" x1="1240" y1="136" x2="1540" y2="136" style="animation-delay:1.4s;" />
+    <rect class="wf-fill wf-card-1" x="1260" y="156" width="260" height="100" rx="6" style="animation-delay:2.8s;" />
+    <rect class="wf-fill wf-card-2" x="1260" y="276" width="120" height="80" rx="6" style="animation-delay:3s;" />
+    <rect class="wf-fill wf-card-3" x="1400" y="276" width="120" height="80" rx="6" style="animation-delay:3.2s;" />
+    <!-- Partial wireframe left edge -->
+    <rect class="wf wf-frame" x="-140" y="120" width="300" height="460" rx="10" style="animation-delay:0.8s;" />
+    <line class="wf wf-nav" x1="-140" y1="156" x2="160" y2="156" style="animation-delay:1.2s;" />
+    <rect class="wf-fill wf-card-1" x="-120" y="176" width="260" height="90" rx="6" style="animation-delay:2.4s;" />
+  </svg>
+  <div class="hero-inner reveal" style="position:relative;z-index:1;">
     <div class="hero-badge"><span class="dot"></span> Web &amp; Design</div>
     <h1>Websites that <em>work</em> as hard as you do.</h1>
     <p>We build professional, conversion-focused websites that look great, load fast, and integrate seamlessly with your AI systems.</p>
