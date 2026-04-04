@@ -101,6 +101,64 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 
 @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.6;transform:scale(1.4);}}
 
+/* ── Hero Flow SVG ── */
+.hero-flow-svg{
+  position:absolute;inset:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;opacity:0.5;
+}
+.fl{
+  fill:none;stroke:rgba(14,28,47,0.08);stroke-width:1.2;
+  stroke-dasharray:800;stroke-dashoffset:800;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.fl-1{animation:fl-trace 3s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;}
+.fl-2{animation:fl-trace 2.5s cubic-bezier(0.22,1,0.36,1) 0.8s forwards;}
+.fl-3{animation:fl-trace 3s cubic-bezier(0.22,1,0.36,1) 1.2s forwards;}
+.fl-4{animation:fl-trace 2.8s cubic-bezier(0.22,1,0.36,1) 1.2s forwards;}
+.fl-5{animation:fl-trace 3.2s cubic-bezier(0.22,1,0.36,1) 1.8s forwards;}
+.fl-6{animation:fl-trace 2.5s cubic-bezier(0.22,1,0.36,1) 1.6s forwards;}
+.fl-7{animation:fl-trace 2.8s cubic-bezier(0.22,1,0.36,1) 2s forwards;}
+.fl-8{animation:fl-trace 2s cubic-bezier(0.22,1,0.36,1) 2.5s forwards;}
+.fl-9{animation:fl-trace 2.5s cubic-bezier(0.22,1,0.36,1) 0.4s forwards;}
+.fl-10{animation:fl-trace 3s cubic-bezier(0.22,1,0.36,1) 0.9s forwards;}
+.fl-11{animation:fl-trace 3s cubic-bezier(0.22,1,0.36,1) 1.5s forwards;}
+.fl-12{animation:fl-trace 2s cubic-bezier(0.22,1,0.36,1) 2.2s forwards;}
+@keyframes fl-trace{to{stroke-dashoffset:0;}}
+.fl-box{
+  fill:none;stroke:rgba(14,28,47,0.1);stroke-width:1.2;
+  opacity:0;
+}
+.fb-1{animation:fl-boxIn 0.4s ease 0.6s forwards;}
+.fb-2{animation:fl-boxIn 0.4s ease 1.1s forwards;}
+.fb-3{animation:fl-boxIn 0.4s ease 1.8s forwards;}
+.fb-4{animation:fl-boxIn 0.4s ease 1.7s forwards;}
+.fb-5{animation:fl-boxIn 0.4s ease 2.4s forwards;}
+.fb-6{animation:fl-boxIn 0.4s ease 2s forwards;}
+.fb-7{animation:fl-boxIn 0.4s ease 2.4s forwards;}
+.fb-8{animation:fl-boxIn 0.4s ease 0.7s forwards;}
+.fb-9{animation:fl-boxIn 0.4s ease 1.4s forwards;}
+.fb-10{animation:fl-boxIn 0.4s ease 2.1s forwards;}
+@keyframes fl-boxIn{to{opacity:1;}}
+.fl-diamond{
+  fill:none;stroke:rgba(14,28,47,0.12);stroke-width:1.2;
+  opacity:0;
+}
+.fd-1{animation:fl-boxIn 0.5s ease 1.1s forwards;}
+.fd-2{animation:fl-boxIn 0.5s ease 1.8s forwards;}
+.fl-gold{
+  fill:rgba(168,128,14,0.35);
+  opacity:0;
+}
+.fg-1{animation:fl-goldIn 0.5s ease 0.8s forwards;}
+.fg-2{animation:fl-goldIn 0.5s ease 2s forwards;}
+.fg-3{animation:fl-goldIn 0.5s ease 2.2s forwards;}
+.fg-4{animation:fl-goldIn 0.5s ease 2.4s forwards;}
+@keyframes fl-goldIn{
+  0%{opacity:0;r:0;}
+  60%{opacity:1;r:5;}
+  100%{opacity:1;r:4;}
+}
+
 /* ── HERO ── */
 #hero{
   min-height:100vh;
@@ -296,6 +354,41 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 
 <!-- ── HERO ── -->
 <section id="hero">
+  <svg class="hero-flow-svg" viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Flow lines -->
+    <path class="fl fl-1" d="M-20 200 H180" />
+    <path class="fl fl-2" d="M240 200 H420" />
+    <path class="fl fl-3" d="M480 200 L520 260 H700" />
+    <path class="fl fl-4" d="M480 200 L520 140 H680" />
+    <path class="fl fl-5" d="M760 260 H920 L960 320 H1140" />
+    <path class="fl fl-6" d="M740 140 H880" />
+    <path class="fl fl-7" d="M940 140 L980 200 H1160" />
+    <path class="fl fl-8" d="M1200 320 H1420" />
+    <!-- Flow line arrows -->
+    <path class="fl fl-9" d="M-20 480 H160" />
+    <path class="fl fl-10" d="M220 480 H400 L440 420 H600" />
+    <path class="fl fl-11" d="M660 420 H840 L880 480 H1060" />
+    <path class="fl fl-12" d="M1120 480 H1420" />
+    <!-- Process boxes -->
+    <rect class="fl-box fb-1" x="180" y="180" width="60" height="40" rx="6" />
+    <rect class="fl-box fb-2" x="420" y="180" width="60" height="40" rx="6" />
+    <rect class="fl-box fb-3" x="700" y="240" width="60" height="40" rx="6" />
+    <rect class="fl-box fb-4" x="680" y="120" width="60" height="40" rx="6" />
+    <rect class="fl-box fb-5" x="1140" y="300" width="60" height="40" rx="6" />
+    <rect class="fl-box fb-6" x="880" y="120" width="60" height="40" rx="6" />
+    <rect class="fl-box fb-7" x="1160" y="180" width="60" height="40" rx="6" />
+    <rect class="fl-box fb-8" x="160" y="460" width="60" height="40" rx="6" />
+    <rect class="fl-box fb-9" x="600" y="400" width="60" height="40" rx="6" />
+    <rect class="fl-box fb-10" x="1060" y="460" width="60" height="40" rx="6" />
+    <!-- Diamond decision nodes -->
+    <polygon class="fl-diamond fd-1" points="450,200 480,180 510,200 480,220" />
+    <polygon class="fl-diamond fd-2" points="860,480 890,460 920,480 890,500" />
+    <!-- Gold accent nodes -->
+    <circle class="fl-gold fg-1" cx="210" cy="200" r="4" />
+    <circle class="fl-gold fg-2" cx="730" cy="260" r="4" />
+    <circle class="fl-gold fg-3" cx="910" cy="140" r="4" />
+    <circle class="fl-gold fg-4" cx="1090" cy="480" r="4" />
+  </svg>
   <div class="container">
     <div class="hero-inner reveal">
       <div class="hero-badge">
