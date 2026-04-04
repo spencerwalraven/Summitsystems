@@ -122,6 +122,38 @@ nav{padding:20px 0;background:rgba(247,244,239,0.96);backdrop-filter:blur(24px);
 .value{text-align:center;padding:32px 24px;}
 .value h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);font-weight:600;margin-bottom:12px;}
 .value p{font-size:0.9rem;color:var(--muted);line-height:1.7;}
+/* Value icon draw */
+.value-icon{width:56px;height:56px;margin:0 auto 20px;position:relative;}
+.value-icon svg{width:56px;height:56px;}
+.value-icon .vi-line{
+  fill:none;stroke:var(--navy);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:200;stroke-dashoffset:200;
+  transition:stroke-dashoffset 1.2s cubic-bezier(0.22,1,0.36,1);
+}
+.value-icon .vi-fill{
+  fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:200;stroke-dashoffset:200;
+  transition:stroke-dashoffset 1.4s cubic-bezier(0.22,1,0.36,1) 0.3s;
+}
+.value-icon .vi-dot{
+  fill:var(--gold);opacity:0;r:0;
+  transition:all 0.5s cubic-bezier(0.22,1,0.36,1) 0.8s;
+}
+.value.drawn .vi-line{stroke-dashoffset:0;}
+.value.drawn .vi-fill{stroke-dashoffset:0;}
+.value.drawn .vi-dot{opacity:1;r:3;}
+/* Stagger the 3 values */
+.value:nth-child(2) .vi-line{transition-delay:0.2s;}
+.value:nth-child(2) .vi-fill{transition-delay:0.5s;}
+.value:nth-child(2) .vi-dot{transition-delay:1s;}
+.value:nth-child(3) .vi-line{transition-delay:0.4s;}
+.value:nth-child(3) .vi-fill{transition-delay:0.7s;}
+.value:nth-child(3) .vi-dot{transition-delay:1.2s;}
+/* Value card entrance */
+.value{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease, transform 0.6s ease;}
+.value.drawn{opacity:1;transform:translateY(0);}
+.value:nth-child(2){transition-delay:0.15s;}
+.value:nth-child(3){transition-delay:0.3s;}
 
 /* ── CTA SECTION ── */
 .cta-section{background:var(--navy);padding:80px 32px;text-align:center;margin-top:40px;}
@@ -364,14 +396,62 @@ footer a:hover{color:#fff;}
   </div>
   <div class="values">
     <div class="value">
+      <div class="value-icon">
+        <svg viewBox="0 0 56 56">
+          <!-- AI Chip icon -->
+          <rect class="vi-line" x="14" y="14" width="28" height="28" rx="4" />
+          <rect class="vi-fill" x="22" y="22" width="12" height="12" rx="2" />
+          <!-- Connection pins -->
+          <line class="vi-line" x1="20" y1="14" x2="20" y2="6" />
+          <line class="vi-line" x1="28" y1="14" x2="28" y2="6" />
+          <line class="vi-line" x1="36" y1="14" x2="36" y2="6" />
+          <line class="vi-line" x1="20" y1="42" x2="20" y2="50" />
+          <line class="vi-line" x1="28" y1="42" x2="28" y2="50" />
+          <line class="vi-line" x1="36" y1="42" x2="36" y2="50" />
+          <line class="vi-line" x1="14" y1="20" x2="6" y2="20" />
+          <line class="vi-line" x1="14" y1="28" x2="6" y2="28" />
+          <line class="vi-line" x1="14" y1="36" x2="6" y2="36" />
+          <line class="vi-line" x1="42" y1="20" x2="50" y2="20" />
+          <line class="vi-line" x1="42" y1="28" x2="50" y2="28" />
+          <line class="vi-line" x1="42" y1="36" x2="50" y2="36" />
+          <circle class="vi-dot" cx="28" cy="28" r="0" />
+        </svg>
+      </div>
       <h3>AI-ready from day one</h3>
       <p>Every site we build is designed to work with SPEC agents and automation.</p>
     </div>
     <div class="value">
+      <div class="value-icon">
+        <svg viewBox="0 0 56 56">
+          <!-- Phone icon -->
+          <rect class="vi-line" x="16" y="6" width="24" height="44" rx="4" />
+          <line class="vi-line" x1="16" y1="14" x2="40" y2="14" />
+          <line class="vi-line" x1="16" y1="42" x2="40" y2="42" />
+          <!-- Screen content lines -->
+          <line class="vi-fill" x1="22" y1="22" x2="34" y2="22" />
+          <line class="vi-fill" x1="22" y1="28" x2="30" y2="28" />
+          <rect class="vi-fill" x="22" y="33" width="12" height="4" rx="2" />
+          <circle class="vi-dot" cx="28" cy="46" r="0" />
+        </svg>
+      </div>
       <h3>Mobile-first always</h3>
       <p>70% of your traffic is on phones. We design for that.</p>
     </div>
     <div class="value">
+      <div class="value-icon">
+        <svg viewBox="0 0 56 56">
+          <!-- Target icon -->
+          <circle class="vi-line" cx="28" cy="28" r="20" />
+          <circle class="vi-line" cx="28" cy="28" r="13" />
+          <circle class="vi-line" cx="28" cy="28" r="6" />
+          <!-- Crosshair lines -->
+          <line class="vi-fill" x1="28" y1="4" x2="28" y2="12" />
+          <line class="vi-fill" x1="28" y1="44" x2="28" y2="52" />
+          <line class="vi-fill" x1="4" y1="28" x2="12" y2="28" />
+          <line class="vi-fill" x1="44" y1="28" x2="52" y2="28" />
+          <circle class="vi-dot" cx="28" cy="28" r="0" />
+        </svg>
+      </div>
       <h3>Built to convert</h3>
       <p>Not just pretty &mdash; designed to turn visitors into customers.</p>
     </div>
@@ -401,6 +481,17 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
 }, { threshold: 0.08, rootMargin: '-30px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Value icon draw on scroll
+const valueObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('drawn');
+      valueObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.value').forEach(el => valueObs.observe(el));
 </script>
 
 </body>
