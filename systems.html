@@ -725,27 +725,33 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   .stat-item:nth-child(2){border-right:none;}
   .stat-item:nth-child(3){border-top:1px solid var(--border-light);}
   .stat-item:nth-child(4){border-top:1px solid var(--border-light);}
-  .agents-scroll-wrap{height:500vh;}
-  .agents-split{gap:16px;padding:0 20px;}
+  .agents-scroll-wrap{height:auto !important;}
+  .agents-sticky{
+    position:relative !important;top:auto !important;height:auto !important;
+    padding:60px 0;
+  }
+  .agents-split{grid-template-columns:1fr;gap:24px;padding:0 20px;}
   .agents-left{min-height:auto;}
-  .agents-right{min-height:300px;}
-  .agents-split{grid-template-columns:1fr;}
-  .phase-name{font-size:1.1rem;}
-  .phase-desc{font-size:0.8rem;margin-bottom:10px;}
-  .phase-agent-row{font-size:0.72rem;}
-  .phase-num{font-size:0.6rem;}
-  .dp-card{padding:12px 14px;}
-  .dp-header{font-size:0.68rem;margin-bottom:6px;}
-  .dp-msg{font-size:0.75rem;padding:8px 10px;}
-  .dp-row{font-size:0.72rem;}
-  .dp-tier{font-size:0.72rem;padding:6px 10px;}
-  .dp-bar-row{font-size:0.68rem;}
-  .dp-doc-title{font-size:0.85rem;}
-  .dp-grid-2{gap:10px;}
-  .agents-steps{flex-wrap:wrap;gap:4px;}
-  .agents-step{padding:4px 8px;font-size:0.6rem;}
-  .agents-title{font-size:1.5rem;}
-  #agents .section-label{font-size:0.65rem;}
+  .agents-right{display:none;}
+  .phase-slide{
+    position:relative !important;opacity:1 !important;
+    transform:none !important;pointer-events:auto !important;
+    margin-bottom:32px;padding-bottom:32px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .phase-slide .phase-num,
+  .phase-slide .phase-name,
+  .phase-slide .phase-desc,
+  .phase-slide .phase-agent-row{
+    opacity:1 !important;transform:none !important;
+  }
+  .phase-name{font-size:1.2rem;}
+  .phase-desc{font-size:0.85rem;margin-bottom:12px;}
+  .phase-agent-row{font-size:0.78rem;}
+  .agents-steps{display:none;}
+  .agents-progress{display:none;}
+  .agents-title{font-size:1.6rem;margin-bottom:32px;}
+  #agents .section-label{font-size:0.7rem;}
   .hero-h1{font-size:2.4rem;}
   #hero{padding:100px 0 60px;}
   .footer-links-row{flex-direction:column;gap:12px;align-items:flex-start;}
