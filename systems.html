@@ -127,10 +127,10 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 /* ── Circuit Trace ── */
 .hero-circuit{
   position:absolute;inset:0;width:100%;height:100%;
-  z-index:0;pointer-events:none;opacity:0.35;
+  z-index:0;pointer-events:none;opacity:0.6;
 }
 .circuit-line{
-  fill:none;stroke:rgba(245,240,232,0.12);stroke-width:1;
+  fill:none;stroke:rgba(245,240,232,0.22);stroke-width:1.2;
   stroke-dasharray:1200;stroke-dashoffset:1200;
   stroke-linecap:round;stroke-linejoin:round;
 }
@@ -145,7 +145,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .cl-9{animation:trace 2.5s cubic-bezier(0.22,1,0.36,1) 2s forwards;}
 @keyframes trace{to{stroke-dashoffset:0;}}
 .circuit-node{
-  fill:rgba(245,240,232,0.15);
+  fill:rgba(245,240,232,0.3);
   opacity:0;
 }
 .cn-1{animation:nodeIn 0.4s ease 1.2s forwards;}
@@ -156,9 +156,9 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .cn-6{animation:nodeIn 0.4s ease 2.4s forwards;}
 .cn-7{animation:nodeIn 0.4s ease 2.6s forwards;}
 .cn-8{animation:nodeIn 0.4s ease 2.2s forwards;}
-.cn-gold-1{fill:rgba(168,128,14,0.4);opacity:0;animation:nodeGoldIn 0.6s ease 2s forwards;}
-.cn-gold-2{fill:rgba(168,128,14,0.4);opacity:0;animation:nodeGoldIn 0.6s ease 1.6s forwards;}
-.cn-gold-3{fill:rgba(168,128,14,0.4);opacity:0;animation:nodeGoldIn 0.6s ease 2.6s forwards;}
+.cn-gold-1{fill:rgba(198,158,44,0.7);opacity:0;animation:nodeGoldIn 0.6s ease 2s forwards;}
+.cn-gold-2{fill:rgba(198,158,44,0.7);opacity:0;animation:nodeGoldIn 0.6s ease 1.6s forwards;}
+.cn-gold-3{fill:rgba(198,158,44,0.7);opacity:0;animation:nodeGoldIn 0.6s ease 2.6s forwards;}
 @keyframes nodeIn{to{opacity:1;}}
 @keyframes nodeGoldIn{
   0%{opacity:0;r:0;}
