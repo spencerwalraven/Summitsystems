@@ -142,12 +142,15 @@ footer a:hover{color:#fff;}
   </div>
 </nav>
 
-<div style="text-align:center;padding:60px 32px 20px;max-width:800px;margin:0 auto;">
-  <div class="hero-badge" style="display:inline-flex;align-items:center;gap:8px;background:rgba(14,28,47,0.06);border:1px solid var(--border);border-radius:99px;padding:6px 16px;font-size:0.75rem;font-weight:600;color:var(--navy);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;"></span> AI-Powered Solutions</div>
-  <h1 style="font-family:'Playfair Display',serif;font-size:3.4rem;font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:var(--navy);margin-bottom:24px;">We build systems that <em style="font-style:italic;color:var(--gold);">run</em> your business.</h1>
-  <p style="font-size:1.15rem;color:var(--muted);line-height:1.7;max-width:600px;margin:0 auto 16px;">From AI-powered CRMs to custom agents to professional websites — SPEC handles the work so you can focus on what you do best.</p>
-  <p style="font-size:0.88rem;color:var(--muted);opacity:0.7;">Select a solution below to learn more.</p>
-</div>
+<section id="home-hero" style="position:relative;overflow:hidden;padding:80px 32px 40px;min-height:400px;">
+  <canvas id="heroGrid" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+  <div style="position:relative;z-index:1;text-align:center;max-width:800px;margin:0 auto;">
+    <div class="hero-badge" style="display:inline-flex;align-items:center;gap:8px;background:rgba(14,28,47,0.06);border:1px solid var(--border);border-radius:99px;padding:6px 16px;font-size:0.75rem;font-weight:600;color:var(--navy);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;"></span> AI-Powered Solutions</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:3.4rem;font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:var(--navy);margin-bottom:24px;">We build systems that <em style="font-style:italic;color:var(--gold);">run</em> your business.</h1>
+    <p style="font-size:1.15rem;color:var(--muted);line-height:1.7;max-width:600px;margin:0 auto 16px;">From AI-powered CRMs to custom agents to professional websites — SPEC handles the work so you can focus on what you do best.</p>
+    <p style="font-size:0.88rem;color:var(--muted);opacity:0.7;">Select a solution below to learn more.</p>
+  </div>
+</section>
 
 <div class="cards-section">
   <div class="cards">
@@ -249,6 +252,95 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
 }, { threshold: 0.08, rootMargin: '-30px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── Hero Dot Grid Animation ──
+(function(){
+  const canvas = document.getElementById('heroGrid');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, cols, rows;
+  const spacing = 40;
+  const dots = [];
+  const ripples = [];
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    w = canvas.width = rect.width * window.devicePixelRatio;
+    h = canvas.height = rect.height * window.devicePixelRatio;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    cols = Math.ceil(rect.width / spacing) + 1;
+    rows = Math.ceil(rect.height / spacing) + 1;
+    dots.length = 0;
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        dots.push({ x: c * spacing, y: r * spacing, baseAlpha: 0.08 + Math.random() * 0.04, alpha: 0.08 });
+      }
+    }
+  }
+
+  function addRipple() {
+    ripples.push({
+      x: Math.random() * (w / window.devicePixelRatio),
+      y: Math.random() * (h / window.devicePixelRatio),
+      radius: 0,
+      maxRadius: 200 + Math.random() * 150,
+      speed: 0.8 + Math.random() * 0.4,
+      life: 1
+    });
+  }
+
+  let lastRipple = 0;
+  function draw(t) {
+    ctx.clearRect(0, 0, w / window.devicePixelRatio, h / window.devicePixelRatio);
+
+    if (t - lastRipple > 2500 + Math.random() * 2000) {
+      addRipple();
+      lastRipple = t;
+    }
+
+    // Update ripples
+    for (let i = ripples.length - 1; i >= 0; i--) {
+      const r = ripples[i];
+      r.radius += r.speed;
+      r.life = 1 - (r.radius / r.maxRadius);
+      if (r.life <= 0) ripples.splice(i, 1);
+    }
+
+    // Draw dots
+    for (const dot of dots) {
+      let boost = 0;
+      for (const r of ripples) {
+        const dx = dot.x - r.x;
+        const dy = dot.y - r.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const ringDist = Math.abs(dist - r.radius);
+        if (ringDist < 30) {
+          boost = Math.max(boost, (1 - ringDist / 30) * r.life * 0.25);
+        }
+      }
+
+      dot.alpha = dot.baseAlpha + boost;
+      const isGold = boost > 0.1;
+
+      ctx.beginPath();
+      ctx.arc(dot.x, dot.y, isGold ? 2.2 : 1.5, 0, Math.PI * 2);
+      if (isGold) {
+        ctx.fillStyle = `rgba(168, 128, 14, ${dot.alpha * 2.5})`;
+      } else {
+        ctx.fillStyle = `rgba(14, 28, 47, ${dot.alpha})`;
+      }
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(draw);
+})();
 </script>
 
 </body>
