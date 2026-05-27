@@ -1,5 +1,5 @@
 /**
- * SPEC Sheets — Product Catalog
+ * SPEC Sheets, Product Catalog
  * All template packs, individual templates, and free lead magnets.
  * Replace #gumroad-XXXX URLs with real Gumroad product links.
  */
@@ -15,7 +15,7 @@ const SHEETS_PRODUCTS = {
       industry: 'landscaping',
       price: 49,
       gumroadUrl: '#gumroad-landscaping-pack',
-      description: 'Everything you need to run a professional landscaping business — from first client call to final invoice.',
+      description: 'Everything you need to run a professional landscaping business, from first client call to final invoice.',
       templates: [
         'Landscaping Proposal Template',
         'Service Contract Template',
@@ -34,7 +34,7 @@ const SHEETS_PRODUCTS = {
       subcategory: 'wedding',
       price: 29,
       gumroadUrl: '#gumroad-wedding-pack',
-      description: 'Plan your perfect day without the stress. Budget, guests, timeline, vendors, and seating — all in one place.',
+      description: 'Plan your perfect day without the stress. Budget, guests, timeline, vendors, and seating, all in one place.',
       templates: [
         'Wedding Budget Spreadsheet',
         'Guest List Tracker',
@@ -53,7 +53,7 @@ const SHEETS_PRODUCTS = {
       subcategory: 'budget',
       price: 19,
       gumroadUrl: '#gumroad-budget-pack',
-      description: 'Take control of your money. Track spending, set savings goals, and crush debt — all from one spreadsheet.',
+      description: 'Take control of your money. Track spending, set savings goals, and crush debt, all from one spreadsheet.',
       templates: [
         'Monthly Budget Spreadsheet',
         'Savings Goal Tracker',
@@ -74,7 +74,7 @@ const SHEETS_PRODUCTS = {
       name: 'Free Contractor Estimate Template',
       category: 'business',
       gumroadUrl: '#gumroad-free-estimate',
-      description: 'Professional estimate template — plug in your logo and start sending quotes today.',
+      description: 'Professional estimate template, plug in your logo and start sending quotes today.',
       formats: ['google-docs', 'word'],
       emoji: '📋'
     },
@@ -83,7 +83,7 @@ const SHEETS_PRODUCTS = {
       name: 'Free Monthly Budget Lite',
       category: 'life',
       gumroadUrl: '#gumroad-free-budget',
-      description: 'Simple monthly budget to track income and expenses. No formulas to figure out — just fill in the blanks.',
+      description: 'Simple monthly budget to track income and expenses. No formulas to figure out, just fill in the blanks.',
       formats: ['google-sheets', 'excel'],
       emoji: '📊'
     }

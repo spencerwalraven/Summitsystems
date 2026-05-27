@@ -1,8 +1,8 @@
 /**
- * SPEC Sheets — Stripe Checkout Scaffold
+ * SPEC Sheets, Stripe Checkout Scaffold
  * ────────────────────────────────────────
  * This file is scaffolded for future Stripe integration.
- * Currently inactive — all purchases go through Gumroad.
+ * Currently inactive, all purchases go through Gumroad.
  *
  * To activate:
  * 1. Create a Vercel serverless function at /api/sheets-checkout
@@ -71,7 +71,7 @@ const SHEETS_CHECKOUT = {
    */
   showComingSoon(button) {
     const tooltip = document.createElement('div');
-    tooltip.textContent = 'Card checkout coming soon — buy on Gumroad today!';
+    tooltip.textContent = 'Card checkout coming soon, buy on Gumroad today!';
     tooltip.style.cssText = `
       position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
       background:#0E1C2F;color:#fff;padding:8px 14px;border-radius:8px;

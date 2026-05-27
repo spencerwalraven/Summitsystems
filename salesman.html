@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Salesman Dashboard — SPEC Systems</title>
-<meta name="description" content="SPEC Systems Salesman Dashboard — manage leads, run site visits, and generate estimates on the go.">
+<title>Salesman Dashboard | SPEC Systems</title>
+<meta name="description" content="SPEC Systems Salesman Dashboard, manage leads, run site visits, and generate estimates on the go.">
 <link rel="icon" type="image/png" href="spec-seal-transparent.png">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -722,7 +722,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
         <div class="form-card">
 
           <div class="form-header">
-            <div class="form-header-title">📐 Job Site Form — Build an Estimate</div>
+            <div class="form-header-title">📐 Job Site Form, Build an Estimate</div>
             <div class="form-header-sub">Fill this out during your walkthrough. The Estimate Agent handles the rest.</div>
           </div>
 
@@ -770,7 +770,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
               <div class="form-section-label" style="margin-top:20px;">Additional Notes</div>
               <div class="form-group">
                 <textarea class="form-textarea" id="notes" rows="3"
-                  placeholder="Anything the agent should know — access issues, client preferences, special conditions, existing damage..."></textarea>
+                  placeholder="Anything the agent should know, access issues, client preferences, special conditions, existing damage..."></textarea>
               </div>
 
               <!-- Timeline -->
@@ -787,8 +787,8 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
                     <option value="">Select duration</option>
                     <option>1 week</option>
                     <option>2 weeks</option>
-                    <option>3–4 weeks</option>
-                    <option>6–8 weeks</option>
+                    <option>3, 4 weeks</option>
+                    <option>6, 8 weeks</option>
                     <option>3+ months</option>
                   </select>
                 </div>
@@ -938,7 +938,7 @@ function addRoom() {
   const card = div.firstElementChild;
   builder.appendChild(card);
   card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  // update first room remove button state — first room never removable
+  // update first room remove button state, first room never removable
   renumberRooms();
 }
 
@@ -1073,7 +1073,7 @@ document.getElementById('estimate-form').addEventListener('submit', async functi
     success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
   } catch (err) {
-    // Agent not yet wired — show success UI anyway (dev mode)
+    // Agent not yet wired, show success UI anyway (dev mode)
     console.warn('Agent endpoint not reachable yet:', err.message);
     console.log('=== SPEC JOB SITE PAYLOAD ===');
     console.log(JSON.stringify(payload, null, 2));
@@ -1081,7 +1081,7 @@ document.getElementById('estimate-form').addEventListener('submit', async functi
     btn.style.display = 'none';
     if (footerNote) footerNote.style.display = 'none';
     success.querySelector('.submit-success-title').textContent = 'Estimate Queued (Demo)';
-    success.querySelector('.submit-success-sub').textContent = 'Agent endpoint not live yet — data logged to console. Will connect when ready.';
+    success.querySelector('.submit-success-sub').textContent = 'Agent endpoint not live yet, data logged to console. Will connect when ready.';
     success.classList.add('visible');
     success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
